@@ -6,5 +6,6 @@ namespace Inventario2
 {
     public class ModelHistorial
     {
+        int a = 1;
     }
 }
