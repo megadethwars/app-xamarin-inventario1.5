@@ -6,5 +6,6 @@ namespace Inventario2
 {
     public class carrito1
     {
+        int a = 1;
     }
 }
