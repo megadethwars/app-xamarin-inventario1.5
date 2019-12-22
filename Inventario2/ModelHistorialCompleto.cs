@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Inventario2
 {
-    public class ModelHistorial
+    public class ModelHistorialCompleto
     {
         int a = 1;
         int b = 2;
