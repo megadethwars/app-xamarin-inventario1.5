@@ -9,6 +9,9 @@
     
     <StackLayout
 		Padding="50,10,50,10">
+        
+        
+        
         <StackLayout
 			Padding="0,0,0,10">
             <Label
@@ -17,6 +20,12 @@
 				FontAttributes="Bold"
 				StyleId="Titulo"/>
         </StackLayout>
+
+        <Button
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+			Text="Busqueda Avanzada"
+			Clicked="Avanzada_clicked" />
 
         <SearchBar
             x:Name="searchbar"
@@ -51,9 +60,11 @@
                 Format="dd/MM/yyyy"/>
         </StackLayout>
 
+
+        <!--
         <Switch x:Name="includeSwitch"
                     Toggled="IncludeSwitch_Toggled" />
-        
+        -->
         
         <Grid
 	        ColumnSpacing="10">

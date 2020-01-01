@@ -47,6 +47,7 @@ namespace Inventario2
 
         private async void IncludeSwitch_Toggled(object sender, ToggledEventArgs e)
         {
+            /*
             if (includeSwitch.IsToggled)
             {
                 TimeSpan span = hasta.Date - desde.Date;
@@ -64,6 +65,7 @@ namespace Inventario2
                     postListView.ItemsSource = fechas;
                 }
             }
+            */
         }
 
         private async void Search_SearchButtonPressed(object sender, EventArgs e)
@@ -110,6 +112,11 @@ namespace Inventario2
         private void Button_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Escanear5(this));
+        }
+
+        private void Avanzada_clicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("testing..");
         }
 
         private void PostListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
