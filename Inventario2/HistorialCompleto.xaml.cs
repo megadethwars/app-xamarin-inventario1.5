@@ -117,6 +117,7 @@ namespace Inventario2
         private void Avanzada_clicked(object sender, EventArgs e)
         {
             Console.WriteLine("testing..");
+            Navigation.PushAsync(new FormFieldsHistorial());
         }
 
         private void PostListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

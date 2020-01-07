@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Inventario2
 {
-    class carrito1
+    public class carrito1
     {
     }
 }

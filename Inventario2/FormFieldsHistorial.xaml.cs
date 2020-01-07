@@ -16,5 +16,17 @@ namespace Inventario2
         {
             InitializeComponent();
         }
+
+        private void OnAccept(object sender, EventArgs e)
+        {
+            Console.WriteLine("testing..");
+           
+        }
+
+        private void OnCancel(object sender, EventArgs e)
+        {
+            Console.WriteLine("testing..");
+
+        }
     }
 }

@@ -9,12 +9,52 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="HISTORIAL"
+            <Label Text="BUSQUEDA AVANZADA"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
+            <Label Text="usuario" />
+            <Entry Text="" x:Name="InUsuario"/>
+
+            <Label Text="ID Uduario" />
+            <Entry Text="" x:Name="InIDUser"/>
+
+            <Label Text="Movimiento" />
+            <Entry Text="" x:Name="InMove"/>
+
             <Label Text="Producto" />
-            <Entry Text="test 1"/>
+            <Entry Text="" x:Name="InProd"/>
+
+            <Label Text="Modelo" />
+            <Entry Text="" x:Name="InModel"/>
+
+            <DatePicker
+		        x:Name="datePickerStart"
+                Format="dd/MM/yyyy"/>
+
+            <DatePicker
+		        x:Name="datePickerd"
+                Format="dd/MM/yyyy"/>
+
+            <Grid
+                
+                HorizontalOptions="Start"
+                >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <Button Text="aceptar"  Grid.Column="1" Clicked="OnAccept"></Button>
+                <Button Text="Cancelar"  Grid.Column="2" Clicked="OnCancel"></Button>
+
+            </Grid>
 
         </StackLayout>
         

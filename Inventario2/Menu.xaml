@@ -10,7 +10,7 @@
     </ContentPage.Resources>
     
     <StackLayout
-        Padding="50,20,50,20">
+        Padding="20,20,50,20">
         <Label
 			    HorizontalOptions="Center"
 			    Text="MENU" 
