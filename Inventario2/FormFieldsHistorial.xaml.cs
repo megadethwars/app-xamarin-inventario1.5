@@ -12,6 +12,7 @@ namespace Inventario2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FormFieldsHistorial : ContentPage
     {
+        bool NoDate = true;
         public FormFieldsHistorial()
         {
             InitializeComponent();
@@ -20,33 +21,422 @@ namespace Inventario2
 
         private int validatefields() {
 
-            if (InUsuario==null || InUsuario.Equals("")) {
+
+
+
+            ////////first combination
+            ///
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //0 0 0 0 0 0
+                return 0;
+            }
+
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //0 0 0 0 0 1
                 return 1;
             }
 
-            if (InIDUser == null || InIDUser.Equals(""))
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && NoDate)
             {
+                //0 0 0 0 1 0
                 return 2;
             }
 
-
-            if (InMove == null || InMove.Equals(""))
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
             {
+                //0 0 0 0 1 1
                 return 3;
             }
 
-            if (InProd == null || InProd.Equals(""))
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
             {
+                //0 0 0 1 0 0
                 return 4;
             }
 
-            if (InModel == null || InModel.Equals(""))
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
             {
+                //0 0 0 1 0 1
                 return 5;
             }
 
 
+            ////////second combination
 
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //0 0 0 1 1 0
+                return 6;
+            }
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //0 0 0 1 1 1
+                return 7;
+            }
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //0 0 1 0 0 0
+                return 8;
+            }
+
+
+            //////second combination
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //0 0 1 0 0 1
+                return 9;
+            }
+
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //0 0 1 0 1 0
+                return 10;
+            }
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //0 0 1 0 1 1
+                return 11;
+            }
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //0 0 1 1 0 0
+                return 12;
+            }
+
+
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //0 0 1 1 0 1
+                return 13;
+            }
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //0 0 1 1 1 0
+                return 14;
+            }
+
+
+            if (InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //0 0 1 1 1 1
+                return 15;
+            }
+
+            ////////////////third combination
+            ///
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //0 1 0 0 0 0
+                return 16;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //0 1 0 0 0 1
+                return 17;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //0 1 0 0 1 0
+                return 18;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //0 1 0 0 1 1
+                return 19;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //0 1 0 1 0 0
+                return 20;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //0 1 0 1 0 1
+                return 21;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //0 1 0 1 1 0
+                return 22;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //0 1 0 1 1 1
+                return 23;
+            }
+
+
+            ////////////////fourth combination
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //0 1 1 0 0 0
+                return 24;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //0 1 1 0 0 1
+                return 25;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") &&!InModel.Equals("") && NoDate)
+            {
+                //0 1 1 0 1 0
+                return 26;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //0 1 1 0 1 1
+                return 27;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //0 1 1 1 0 0
+                return 28;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //0 1 1 1 0 1
+                return 29;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //0 1 1 1 1 0
+                return 30;
+            }
+
+            if (InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //0 1 1 1 1 1
+                return 31;
+            }
+
+
+            //////fifth combination
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 0 0 0 0 0
+                return 32;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 0 0 0 0 1
+                return 33;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 0 0 0 1 0
+                return 34;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 0 0 0 1 1
+                return 35;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 0 0 1 0 0
+                return 36;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 0 0 1 0 1
+                return 37;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 0 0 1 1 0
+                return 38;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 0 0 1 1 1
+                return 39;
+            }
+
+
+            //////sixth combination
+            ///
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 0 1 0 0 0
+                return 40;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 0 1 0 0 1
+                return 41;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 0 1 0 1 0
+                return 42;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 0 1 0 1 1
+                return 43;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 0 1 1 0 0
+                return 44;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 0 1 1 0 1
+                return 45;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 0 1 1 1 0
+                return 46;
+            }
+
+            if (!InUsuario.Equals("") && InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 0 1 1 1 1
+                return 47;
+            }
+
+            /////seventth combination
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 1 0 0 0 0
+                return 48;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 1 0 0 0 1
+                return 49;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 1 0 0 1 0
+                return 50;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 1 0 0 1 1
+                return 51;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 1 0 1 0 0
+                return 52;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 1 0 1 0 1
+                return 53;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 1 0 1 1 0
+                return 54;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 1 0 1 1 1
+                return 55;
+            }
+
+            //////eigth  combination
+            ///
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") &&!InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 1 1 0 0 0
+                return 56;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 1 1 0 0 0
+                return 57;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 1 1 0 0 0
+                return 58;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 1 1 0 0 0
+                return 59;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && NoDate)
+            {
+                //1 1 1 0 0 0
+                return 60;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && InModel.Equals("") && !NoDate)
+            {
+                //1 1 1 0 0 0
+                return 61;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && NoDate)
+            {
+                //1 1 1 0 0 0
+                return 62;
+            }
+
+            if (!InUsuario.Equals("") && !InIDUser.Equals("") && !InMove.Equals("") && !InProd.Equals("") && !InModel.Equals("") && !NoDate)
+            {
+                //1 1 1 0 0 0
+                return 63;
+            }
 
             return 0;
         }
