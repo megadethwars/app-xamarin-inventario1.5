@@ -13,6 +13,8 @@ namespace Inventario2
     public partial class HistorialCompleto : ContentPage
     {
         public string scantext;
+        FormFieldsHistorial formfieldhistorial;
+        
         public HistorialCompleto()
         {
             InitializeComponent();
@@ -25,6 +27,10 @@ namespace Inventario2
             hasta.MinimumDate = new DateTime(2000, 1, 1);
             hasta.MaximumDate = hasta.Date;
             hasta.DateSelected += hasta_DateSelected;
+
+            formfieldhistorial = new FormFieldsHistorial();
+            formfieldhistorial.OnEventSender += new FormFieldsHistorial.ONFieldEventHandler(OnFieldEvent);
+
             
             
         }
@@ -117,7 +123,9 @@ namespace Inventario2
         private void Avanzada_clicked(object sender, EventArgs e)
         {
             Console.WriteLine("testing..");
-            Navigation.PushAsync(new FormFieldsHistorial());
+            //Navigation.PushAsync(new FormFieldsHistorial());
+            Navigation.PushAsync(formfieldhistorial);
+            
         }
 
         private void PostListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -125,6 +133,23 @@ namespace Inventario2
             var selectedPost = postListView.SelectedItem as Movimientos;
             if (selectedPost != null)
                 Navigation.PushAsync(new DetallesHistorial(selectedPost));
+        }
+
+        private void OnFieldEvent(object sender)
+        {
+            try {
+                
+
+                ModelHistorialCompleto modelhistorial = (ModelHistorialCompleto)sender;
+
+                ControllerHistorialCompleto.Search(modelhistorial); 
+                    
+            }
+            catch
+            {
+
+            }
+            
         }
     }
 }

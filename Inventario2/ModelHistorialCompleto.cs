@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Inventario2
 {
-    public class ModelHistorialCompleto
+    public class ModelHistorialCompleto:IDisposable
     {
         [JsonProperty(PropertyName ="ID")]
         public string ID { get; set; }
@@ -31,8 +31,11 @@ namespace Inventario2
         [JsonProperty(PropertyName = "IdProducto")]
         public string IdProducto { get; set; }
 
-        [JsonProperty(PropertyName = "fecha")]
+        [JsonProperty(PropertyName = "fechaIn")]
         public DateTime fecha { get; set; }
+
+        [JsonProperty(PropertyName = "fechaOut")]
+        public DateTime fechaOut { get; set; }
 
         public string foto { get; set; }
 
@@ -40,5 +43,18 @@ namespace Inventario2
 
         public string marca { get; set; }
 
+        public int QueryStatus { get; set; }
+
+        public void Dispose()
+        {
+            try {
+                throw new NotImplementedException();
+            }
+            catch
+            {
+
+            }
+            
+        }
     }
 }
