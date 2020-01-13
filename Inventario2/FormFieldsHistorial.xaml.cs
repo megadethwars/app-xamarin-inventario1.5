@@ -408,43 +408,43 @@ namespace Inventario2
 
             if (!InUsuario.Text.Equals("") && !InIDUser.Text.Equals("") && !InMove.Text.Equals("") && InProd.Text.Equals("") && InModel.Text.Equals("") && !NoDate)
             {
-                //1 1 1 0 0 0
+                //1 1 1 0 0 1
                 return 57;
             }
 
             if (!InUsuario.Text.Equals("") && !InIDUser.Text.Equals("") && !InMove.Text.Equals("") && InProd.Text.Equals("") && !InModel.Text.Equals("") && NoDate)
             {
-                //1 1 1 0 0 0
+                //1 1 1 0 1 0
                 return 58;
             }
 
             if (!InUsuario.Text.Equals("") && !InIDUser.Text.Equals("") && !InMove.Text.Equals("") && InProd.Text.Equals("") && !InModel.Text.Equals("") && !NoDate)
             {
-                //1 1 1 0 0 0
+                //1 1 1 0 1 1
                 return 59;
             }
 
             if (!InUsuario.Text.Equals("") && !InIDUser.Text.Equals("") && !InMove.Text.Equals("") && !InProd.Text.Equals("") && InModel.Text.Equals("") && NoDate)
             {
-                //1 1 1 0 0 0
+                //1 1 1 1 0 0
                 return 60;
             }
 
             if (!InUsuario.Text.Equals("") && !InIDUser.Text.Equals("") && !InMove.Text.Equals("") && !InProd.Text.Equals("") && InModel.Text.Equals("") && !NoDate)
             {
-                //1 1 1 0 0 0
+                //1 1 1 1 0 1
                 return 61;
             }
 
             if (!InUsuario.Text.Equals("") && !InIDUser.Text.Equals("") && !InMove.Text.Equals("") && !InProd.Text.Equals("") && !InModel.Text.Equals("") && NoDate)
             {
-                //1 1 1 0 0 0
+                //1 1 1 1 1 0
                 return 62;
             }
 
             if (!InUsuario.Text.Equals("") && !InIDUser.Text.Equals("") && !InMove.Text.Equals("") && !InProd.Text.Equals("") && !InModel.Text.Equals("") && !NoDate)
             {
-                //1 1 1 0 0 0
+                //1 1 1 1 1 1
                 return 63;
             }
 
