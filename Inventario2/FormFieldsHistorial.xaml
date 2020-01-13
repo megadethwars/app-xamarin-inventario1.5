@@ -16,8 +16,8 @@
             <Label Text="usuario" />
             <Entry Text="" x:Name="InUsuario"/>
 
-            <Label Text="ID Uduario" />
-            <Entry Text="" x:Name="InIDUser"/>
+            <Label Text="ID Product" />
+            <Entry Text="" x:Name="InIDProduct"/>
 
             <Label Text="Movimiento" />
             <Entry Text="" x:Name="InMove"/>
