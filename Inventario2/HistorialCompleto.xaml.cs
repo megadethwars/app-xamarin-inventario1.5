@@ -14,7 +14,8 @@ namespace Inventario2
     {
         public string scantext;
         FormFieldsHistorial formfieldhistorial;
-        
+        ControllerHistorialCompleto controllerhistorial;
+
         public HistorialCompleto()
         {
             InitializeComponent();
@@ -29,10 +30,9 @@ namespace Inventario2
             hasta.DateSelected += hasta_DateSelected;
 
             formfieldhistorial = new FormFieldsHistorial();
-            formfieldhistorial.OnEventSender += new FormFieldsHistorial.ONFieldEventHandler(OnFieldEvent);
-
-            
-            
+            formfieldhistorial.OnEventSender += new FormFieldsHistorial.ONFieldEventHandler(OnFieldEventAsync);
+            controllerhistorial = new ControllerHistorialCompleto();
+                    
         }
 
         protected override void OnAppearing()
@@ -135,15 +135,13 @@ namespace Inventario2
                 Navigation.PushAsync(new DetallesHistorial(selectedPost));
         }
 
-        private void OnFieldEvent(object sender)
+        private void OnFieldEventAsync(object sender)
         {
             try {
                 
-
                 ModelHistorialCompleto modelhistorial = (ModelHistorialCompleto)sender;
-
-                ControllerHistorialCompleto.Search(modelhistorial); 
-                    
+                Task<List<Movimientos>> lista =  controllerhistorial.Search(modelhistorial);
+                Console.WriteLine("testing queries");
             }
             catch
             {

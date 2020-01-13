@@ -451,6 +451,7 @@ namespace Inventario2
             return 0;
         }
 
+       
 
         private void FillFieldsOnModel(int res) {
             modelhistorial.usuario = InUsuario.Text;
@@ -488,6 +489,11 @@ namespace Inventario2
         private void OnCancel(object sender, EventArgs e)
         {
             Console.WriteLine("testing..");
+
+        }
+
+        private void DateSwitch_Toggled(object sender, EventArgs e)
+        {
 
         }
     }
