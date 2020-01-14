@@ -460,7 +460,7 @@ namespace Inventario2
             modelhistorial.producto = InProd.Text;
             modelhistorial.modelo = InModel.Text;
             modelhistorial.fecha = datePickerStart.Date;
-            modelhistorial.fechaOut = datePickerEnd.Date;
+            
             modelhistorial.QueryStatus = res;
         }
 

@@ -18,10 +18,9 @@ namespace Inventario2
         public static async Task<List<Movimientos>> searching(ModelHistorialCompleto modelhistorial) {
 
             try {
-                var lista =  MovementCase2(modelhistorial);
+                var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
 
-
-                return await lista;
+                return table;
             
             }
             catch
@@ -329,7 +328,7 @@ namespace Inventario2
             return table;
         }
 
-        private static async Task<List<Movimientos>> MovementCase2(ModelHistorialCompleto modelhistorial)
+        private  async Task<List<Movimientos>> MovementCase2(ModelHistorialCompleto modelhistorial)
         {
 
             // searching only by model 

@@ -35,9 +35,7 @@
 		        x:Name="datePickerStart"
                 Format="dd/MM/yyyy"/>
 
-            <DatePicker
-		        x:Name="datePickerEnd"
-                Format="dd/MM/yyyy"/>
+            
 
             <Grid
                 

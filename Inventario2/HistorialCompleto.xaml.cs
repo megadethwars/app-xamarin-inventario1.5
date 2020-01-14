@@ -142,14 +142,14 @@ namespace Inventario2
                 
                 ModelHistorialCompleto modelhistorial = (ModelHistorialCompleto)sender;
 
-                var Lista =ControllerHistorialCompleto.searching(modelhistorial);
+                List<Movimientos> lista = await controllerhistorial.Search(modelhistorial);
 
-                List<Movimientos> lista = await MovementCase2(modelhistorial);
+                //List<Movimientos> lista = await MovementCase2(modelhistorial);  //finciono
 
-                //Task<List<Movimientos>> lista =  controllerhistorial.Search(modelhistorial);
+                //List<Movimientos> lista = await ControllerHistorialCompleto.searching(modelhistorial);  funciono
 
 
-                postListView.ItemsSource = Lista.Result;
+                postListView.ItemsSource = lista;
 
                 Console.WriteLine("testing queries");
             }
