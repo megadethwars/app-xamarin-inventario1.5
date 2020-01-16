@@ -150,6 +150,9 @@ namespace Inventario2
 
                 //List<Movimientos> lista = await ControllerHistorialCompleto.searching(modelhistorial);  funciono
 
+                if (lista.Count==0) {
+                    await DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
+                }
 
                 postListView.ItemsSource = lista;
 

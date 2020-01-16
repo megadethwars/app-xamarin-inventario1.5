@@ -628,7 +628,7 @@ namespace Inventario2
             // searching only by idproduct  and movement   product   and model  and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
             Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).
+            Where(u => u.modelo == modelhistorial.modelo).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;

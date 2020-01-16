@@ -27,13 +27,19 @@
 
             <Label Text="Modelo" />
             <Entry Text="" x:Name="InModel"/>
-            
-            
-            
-            <Switch x:Name="DateSwitch"
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Habilitar Fecha" />
+                <Switch x:Name="DateSwitch"
                     
                     Toggled="DateSwitch_Toggled" />
+                
+            </StackLayout>
 
+            
+
+            
+            
             <DatePicker
 		        x:Name="datePickerStart"
                 Format="dd/MM/yyyy"/>
