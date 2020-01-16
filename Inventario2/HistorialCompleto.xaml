@@ -38,9 +38,9 @@
             FontAttributes="Bold"
 			Text="Escanear"
 			Clicked="Button_Clicked" />
-
+        <!--
         <StackLayout
-            Orientation="Horizontal">
+            Orientation="Horizontal" HorizontalOptions="Center">
             <Label
                 Text="Desde:" 
 				FontAttributes="Bold"/>
@@ -59,7 +59,7 @@
 		        x:Name="hasta"
                 Format="dd/MM/yyyy"/>
         </StackLayout>
-
+        -->
 
         <!--
         <Switch x:Name="includeSwitch"

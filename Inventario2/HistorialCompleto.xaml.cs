@@ -19,6 +19,7 @@ namespace Inventario2
         public HistorialCompleto()
         {
             InitializeComponent();
+            /*
             desde.Date = DateTime.Now;
             desde.MinimumDate = new DateTime(2000, 1, 1);
             desde.MaximumDate = desde.Date;
@@ -28,6 +29,7 @@ namespace Inventario2
             hasta.MinimumDate = new DateTime(2000, 1, 1);
             hasta.MaximumDate = hasta.Date;
             hasta.DateSelected += hasta_DateSelected;
+            */
 
             formfieldhistorial = new FormFieldsHistorial();
             formfieldhistorial.OnEventSender += new FormFieldsHistorial.ONFieldEventHandler(OnFieldEventAsync);

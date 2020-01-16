@@ -31,9 +31,9 @@ namespace Inventario2
 
         private int validatefields() {
 
-
-
             
+            
+
             ////////first combination
             ///
             if (InUsuario.Text.Equals("") && InIDProduct.Text.Equals("") && InMove.Text.Equals("") && InProd.Text.Equals("") && InModel.Text.Equals("") && NoDate)
@@ -68,7 +68,7 @@ namespace Inventario2
                 return 4;
             }
 
-            if (InUsuario.Text.Equals("") && InIDProduct.Text.Equals("") && InMove.Text.Equals("") && !InProd.Text.Equals("") && InModel.Equals("") && !NoDate)
+            if (InUsuario.Text.Equals("") && InIDProduct.Text.Equals("") && InMove.Text.Equals("") && !InProd.Text.Equals("") && InModel.Text.Equals("") && !NoDate)
             {
                 //0 0 0 1 0 1
                 return 5;
@@ -454,12 +454,31 @@ namespace Inventario2
        
 
         private void FillFieldsOnModel(int res) {
+            int day = datePickerStart.Date.Day;
+            int month = datePickerStart.Date.Month;
+            string year = datePickerStart.Date.Year.ToString();
+
+            string zeroday = "";
+            string zeromonth = "";
+
+            if (day < 10)
+            {
+                zeroday = "0";
+            }
+
+            if (month < 10)
+            {
+                zeromonth = "0";
+            }
+
+            string AllDate = zeroday + day.ToString() + "/" + zeromonth + month.ToString() + "/" + year;
+
             modelhistorial.usuario = InUsuario.Text;
             modelhistorial.IdProducto = InIDProduct.Text;
             modelhistorial.movimiento = InMove.Text;
             modelhistorial.producto = InProd.Text;
             modelhistorial.modelo = InModel.Text;
-            modelhistorial.fecha = datePickerStart.Date;
+            modelhistorial.fecha = AllDate;
             
             modelhistorial.QueryStatus = res;
         }
@@ -494,7 +513,13 @@ namespace Inventario2
 
         private void DateSwitch_Toggled(object sender, EventArgs e)
         {
-
+            if (DateSwitch.IsToggled) {
+                NoDate = false;
+            }
+            else
+            {
+                NoDate = true;
+            }
         }
     }
 }

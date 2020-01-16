@@ -32,10 +32,10 @@ namespace Inventario2
         public string IdProducto { get; set; }
 
         [JsonProperty(PropertyName = "fechaIn")]
-        public DateTime fecha { get; set; }
+        public string fecha { get; set; }
 
         [JsonProperty(PropertyName = "fechaOut")]
-        public DateTime fechaOut { get; set; }
+        public string fechaOut { get; set; }
 
         public string foto { get; set; }
 

@@ -27,16 +27,27 @@
 
             <Label Text="Modelo" />
             <Entry Text="" x:Name="InModel"/>
-
+            
+            
+            
             <Switch x:Name="DateSwitch"
+                    
                     Toggled="DateSwitch_Toggled" />
 
             <DatePicker
 		        x:Name="datePickerStart"
                 Format="dd/MM/yyyy"/>
 
-            
 
+            <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
+                
+
+
+                <Button Text="aceptar"  Grid.Column="1" Clicked="OnAccept"></Button>
+                <Button Text="Cancelar"  Grid.Column="2" Clicked="OnCancel"></Button>
+            </StackLayout>
+
+            <!--
             <Grid
                 
                 HorizontalOptions="Start"
@@ -56,7 +67,8 @@
                 <Button Text="Cancelar"  Grid.Column="2" Clicked="OnCancel"></Button>
 
             </Grid>
-
+            -->
+            
         </StackLayout>
         
     </ContentPage.Content>
