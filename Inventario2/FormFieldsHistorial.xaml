@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Inventario2.FormFieldsHistorial">
+    
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="BUSQUEDA AVANZADA"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Label Text="usuario" />
+            <Entry Text="" x:Name="InUsuario"/>
+
+            <Label Text="ID Product" />
+            <Entry Text="" x:Name="InIDProduct"/>
+
+            <Label Text="Movimiento" />
+            <Entry Text="" x:Name="InMove"/>
+
+            <Label Text="Producto" />
+            <Entry Text="" x:Name="InProd"/>
+
+            <Label Text="Modelo" />
+            <Entry Text="" x:Name="InModel"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Habilitar Fecha" />
+                <Switch x:Name="DateSwitch"
+                    
+                    Toggled="DateSwitch_Toggled" />
+                
+            </StackLayout>
+
+            
+
+            
+            
+            <DatePicker
+		        x:Name="datePickerStart"
+                Format="dd/MM/yyyy"/>
+
+
+            <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
+                
+
+
+                <Button Text="aceptar"  Grid.Column="1" Clicked="OnAccept"></Button>
+                <Button Text="Cancelar"  Grid.Column="2" Clicked="OnCancel"></Button>
+            </StackLayout>
+
+            <!--
+            <Grid
+                
+                HorizontalOptions="Start"
+                >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+
+                <Button Text="aceptar"  Grid.Column="1" Clicked="OnAccept"></Button>
+                <Button Text="Cancelar"  Grid.Column="2" Clicked="OnCancel"></Button>
+
+            </Grid>
+            -->
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+    
+    
+</ContentPage>
