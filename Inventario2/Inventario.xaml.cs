@@ -50,7 +50,7 @@ namespace Inventario2
                 //conn.CreateTable<InventDB>();
                 //var users1 = conn.Query<InventDB>("select * from InventDB where Nombre= ?", search.Text);
                 //conn.Close();
-                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.Nombre == search.Text).ToListAsync();
+                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.nombre == search.Text).ToListAsync();
                 if (users1.Count != 0)
                 {
                     //DisplayAlert("Buscando", "encontrado", "OK");
@@ -65,7 +65,7 @@ namespace Inventario2
             else
             {
 
-                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.Codigo == search.Text).ToListAsync();
+                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == search.Text).ToListAsync();
                 if (users1.Count != 0)
                 {
                     //DisplayAlert("Buscando", "encontrado", "OK");

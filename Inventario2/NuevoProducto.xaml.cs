@@ -40,8 +40,8 @@ namespace Inventario2
             InventDB invent = new InventDB
             {
                 ID = PathFoto,
-                Codigo = codigoEntry.Text,
-                Nombre = nameEntry.Text,
+                codigo = codigoEntry.Text,
+                nombre = nameEntry.Text,
                 marca = marca.Text,
                 modelo = modelo.Text,
                 lugar = "Almacen",

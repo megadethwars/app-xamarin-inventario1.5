@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Inventario2.Confirmar">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Pagina de Confirmacion"
+                
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="CenterAndExpand" >
+                <Label Text="Usuario"
+                   FontAttributes="Bold"/>
+                <Entry x:Name="Usuario"
+                       Placeholder="Ingrese el usuario"/>
+                <Label Text="Contraseña"
+                   FontAttributes="Bold"/>
+                <Entry x:Name="Contra"
+                       Placeholder="Ingrese la Contraseña"/>
+                <Label Text="Lugar de Destino"
+                   FontAttributes="Bold"/>
+                <Entry x:Name="Destino"
+                       Placeholder="Ingrese el Destino"/>
+                <Button Clicked="Button_Clicked"
+                        Text="Aceptar"></Button>
+            </StackLayout>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

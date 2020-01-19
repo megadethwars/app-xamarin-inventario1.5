@@ -47,7 +47,19 @@
             <Label
 			x:Name="observtxt"
             />
-            
+            <Label Text="Cambiar cantidad (por default 1)"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="cantidad"
+                       Placeholder="Ingrese la cantidad"/>
+            <Label Text="Observaciones"
+                   FontAttributes="Bold"/>
+            <Editor x:Name="observ"
+                    Placeholder="Observaciones"
+                    HeightRequest="50"/>
+            <Button Text="Actualizar "
+                    Clicked="Button_Clicked"/>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage> 

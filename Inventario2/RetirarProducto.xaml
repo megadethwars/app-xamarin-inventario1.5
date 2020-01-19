@@ -10,7 +10,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Borrar Todo" Clicked="ToolbarItem_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    
+
     <StackLayout
 		Padding="50,20,50,20">
         <StackLayout
@@ -28,72 +28,51 @@
 			        Placeholder="Buscar por nombre o ID"
 			        CancelButtonColor="Red"
 			        SearchButtonPressed="SearchBar" />
-                
+
                 <Button
 			        HorizontalOptions="Center"
 			        Text="Escanear"
 			        FontAttributes="Bold"
 			        Clicked="Scan"/>
 
-                <Button
-			        Text="Agregar fotos de estado"
-			        x:Name="ScanFotosOut"
-			        HorizontalOptions="FillAndExpand"
-			        VerticalOptions="Center"
-			        FontAttributes="Bold"/>
-                <Image
-                    x:Name="imagen"
-                    WidthRequest="150"
-                    HeightRequest="150"/>
-                
                 <Label Text="Nombre del producto: "
                        FontAttributes="Bold"/>
 
                 <Label x:Name="nombreTxt"
                        FontAttributes="Italic"/>
-                
+
                 <Label Text="Marca del producto: "
                        FontAttributes="Bold"/>
 
                 <Label x:Name="modelotxt"
                        FontAttributes="Italic"/>
-                <Label Text="Cantidad disponible del producto: "
+
+                <Label Text="Serie: "
                        FontAttributes="Bold"/>
 
-                <Label x:Name="cantidadtxt"
+                <Label x:Name="serietxt"
                        FontAttributes="Italic"/>
 
-                <Label
-				        Text="Introduzca la cantidad deseada:"
-				        FontAttributes="Bold"/>
-                <Entry
-                        x:Name="cantEntry"
-				        HorizontalOptions="FillAndExpand" 
-				        Placeholder="Nombre del Producto" 
-                        Keyboard="Numeric"/>
+                <Label Text="Pertenece a: "
+                       FontAttributes="Bold"/>
 
-                <Label
-				        Text="Introduzca el lugar de destino:"
-				        FontAttributes="Bold"/>
-                <Entry
-                        x:Name="lugarEntry"
-				        HorizontalOptions="FillAndExpand" 
-				        Placeholder="Lugar de Destino" 
-                        />
+                <Label x:Name="pertenecetxt"
+                       FontAttributes="Italic"/>
 
-                <Label
-                    Text="Observaciones" 
-			        FontAttributes="Bold"/>
-                <Editor 
-		            HeightRequest ="100"
-                    x:Name="editorTxt"
-		            Placeholder="Indicar observaciones del producto" />
+                <Label Text="Origen: "
+                       FontAttributes="Bold"/>
+
+                <Label x:Name="origentxt"
+                       FontAttributes="Italic"/>
+
+
 
                 <StackLayout>
-               
-			
-                <Button
-			        Text="Agregar al carrito"
+
+
+                    <Button
+                    x:Name="BotonCarrito"
+			        Text="Carrito "
 			        Clicked="RetiraP"
 			        HorizontalOptions="End"
 			        FontAttributes="Bold"

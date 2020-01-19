@@ -17,52 +17,74 @@
 				FontAttributes="Bold"
 				StyleId="Titulo"/>
         </StackLayout>
-        <StackLayout>
-            <Entry
-                        x:Name="userEntry"
-				        HorizontalOptions="FillAndExpand" 
-				        Placeholder="Usuario" 
-                        />
-            <Entry
-                        x:Name="passEntry"
-				        HorizontalOptions="FillAndExpand" 
-				        Placeholder="Contraseña" 
-                        IsPassword="True"
-                        />
-        </StackLayout>
+
+        <Grid
+	         ColumnSpacing="10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Text="Producto:" 
+				FontAttributes="Bold"
+                Grid.Column="0"/>
+
+            <Label
+                Text="Marca:" 
+				FontAttributes="Bold"
+                Grid.Column="1"/>
+            <Label
+                Text="Modelo:" 
+				FontAttributes="Bold"
+                Grid.Column="2"/>
+            <Label
+                Text="Cantidad:" 
+				FontAttributes="Bold"
+                Grid.Column="3"/>
+        </Grid>
+
         <ScrollView>
-        <ListView x:Name="postListView" ItemSelected="PostListView_ItemSelected">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
+            <ListView x:Name="postListView" ItemSelected="PostListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
 
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="100"/>
-                                    <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="100"/>
 
-                                </Grid.ColumnDefinitions>
+                                    </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding producto}" Grid.Column="0"/>
-                                <Label Text="{Binding cantidad}" Grid.Column="1"/>
-                                <Button Text="Eliminar " Clicked="Button_Clicked" Grid.Column="2"/>
+                                    <Label Text="{Binding producto}" Grid.Column="0"/>
+                                    <Label Text="{Binding marca}" Grid.Column="1"/>
+                                    <Label Text="{Binding modelo}" Grid.Column="2"/>
+                                    <Label Text="{Binding cantidad}" Grid.Column="3"/>
+                                    <Button Text="Eliminar " Clicked="Button_Clicked" Grid.Column="4"/>
 
-                            </Grid>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollView>
-        
+
         <Button
             x:Name="acept"
             HorizontalOptions="End"
             VerticalOptions="End"
 			Text="Aceptar"
-			Clicked="Acept_Clicked"
+			Clicked="acept_Clicked"
 			/>
     </StackLayout>
 </ContentPage>

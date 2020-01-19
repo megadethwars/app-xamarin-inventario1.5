@@ -19,8 +19,8 @@ namespace Inventario2
         {
             InitializeComponent();
             this.n = db;
-            nameProd.Text = n.Nombre;
-            idCodigo.Text = n.Codigo;
+            nameProd.Text = n.nombre;
+            idCodigo.Text = n.codigo;
             idcantidad.Text = n.cantidad;
             idlugar.Text = n.lugar;
             idobserv.Text = n.observaciones;
