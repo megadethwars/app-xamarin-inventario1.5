@@ -11,6 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.1" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="Syncfusion.Xamarin.Pdf" Version="17.3.0.14" />
@@ -89,8 +97,20 @@
     <EmbeddedResource Update="NuevoProducto.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="PDFMovement.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="RetirarProducto.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ANDROID\" />
+    <Folder Include="UWP\" />
+    <Folder Include="WINDOWS\" />
+    <Folder Include="PORTABLE\" />
+    <Folder Include="OS\" />
+    <Folder Include="WINPHONE\" />
   </ItemGroup>
 </Project>

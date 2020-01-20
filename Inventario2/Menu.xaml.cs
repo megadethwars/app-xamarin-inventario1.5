@@ -62,5 +62,10 @@ namespace Inventario2
             Navigation.PushAsync(new Ajustes());
         }
 
+        //solo de prueba
+        private void testPDF(object sender,EventArgs e) {
+            Navigation.PushAsync(new PDFMovement());
+        }
+
     }
 }
