@@ -93,7 +93,7 @@ namespace Inventario2
             //Creates a text element to add the invoice number
             PdfTextElement subtitelement = new PdfTextElement("ORDEN DE SALIDA ", Subtitle);
             subtitelement.Brush = PdfBrushes.Red;
-            PdfLayoutResult Subresult = subtitelement.Draw(page, new PointF(graphics.ClientSize.Width - 350, graphics.ClientSize.Height - 710));
+            PdfLayoutResult Subresult = subtitelement.Draw(page, new PointF(graphics.ClientSize.Width - 300, graphics.ClientSize.Height - 710));
 
 
             PdfBrush solidBrush = new PdfSolidBrush(new PdfColor(222, 237, 242));
@@ -117,7 +117,7 @@ namespace Inventario2
 
 
             PdfBrush solidBrush2 = new PdfSolidBrush(new PdfColor(190, 220, 228));
-            bounds = new RectangleF(bounds.Right, Subresult.Bounds.Bottom, graphics.ClientSize.Width - 350, 50);
+            bounds = new RectangleF(bounds.Right, Subresult.Bounds.Bottom, graphics.ClientSize.Width - 300, 50);
             //Draws a rectangle to place the heading in that region.
             graphics.DrawRectangle(solidBrush2, bounds);
 
@@ -176,6 +176,28 @@ namespace Inventario2
             //Draws the grid to the PDF page.
             PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 150), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
+            PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 1.0f);
+            PointF startPoint = new PointF(0, gridResult.Bounds.Bottom + 60);
+            PointF endPoint = new PointF(150, gridResult.Bounds.Bottom + 60);
+            //Draws a line at the bottom of the address
+            graphics.DrawLine(linePen, startPoint, endPoint);
+
+            PdfFont entregafont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+            PdfTextElement lbentrega = new PdfTextElement("ENTREGA: ", entregafont);
+            lbentrega.Brush = PdfBrushes.Black;
+            PdfLayoutResult reslbentrega = lbentrega.Draw(page, new PointF(linePen.Width/2.0f,startPoint.Y+5 ));
+
+
+            PdfPen linePenfinal = new PdfPen(new PdfColor(126, 151, 173), 1.0f);
+            PointF startPointfinal = new PointF(350, gridResult.Bounds.Bottom + 60);
+            PointF endPointfinal = new PointF(graphics.ClientSize.Width, gridResult.Bounds.Bottom + 60);
+            //Draws a line at the bottom of the address
+            graphics.DrawLine(linePenfinal, startPointfinal, endPointfinal);
+
+            PdfFont recibefont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+            PdfTextElement lbrecibe = new PdfTextElement("RECIBE: ", recibefont);
+            lbrecibe.Brush = PdfBrushes.Black;
+            PdfLayoutResult reslbrecibe = lbrecibe.Draw(page, new PointF(350.0f + (linePenfinal.Width/2.0f), startPoint.Y + 5));
 
 
             MemoryStream stream = new MemoryStream();
