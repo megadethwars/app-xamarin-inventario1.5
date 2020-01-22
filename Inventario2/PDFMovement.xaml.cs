@@ -199,6 +199,13 @@ namespace Inventario2
             lbrecibe.Brush = PdfBrushes.Black;
             PdfLayoutResult reslbrecibe = lbrecibe.Draw(page, new PointF(350.0f + (linePenfinal.Width/2.0f), startPoint.Y + 5));
 
+            //texto de quien recibe
+            PdfFont usuariofont = new PdfStandardFont(PdfFontFamily.TimesRoman, 14);
+            PdfTextElement lbusuario = new PdfTextElement("RECIBE: ", usuariofont);
+            lbusuario.Brush = PdfBrushes.Black;
+            PdfLayoutResult reslbusuario = lbusuario.Draw(page, new PointF(350.0f + (linePenfinal.Width / 2.0f), startPoint.Y - 20));
+
+
 
             MemoryStream stream = new MemoryStream();
             //Save the document.
