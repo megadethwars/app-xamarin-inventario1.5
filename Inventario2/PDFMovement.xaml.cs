@@ -14,6 +14,7 @@ using Syncfusion.Drawing;
 using System.Reflection;
 using System.Data;
 
+
 namespace Inventario2
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -22,6 +23,7 @@ namespace Inventario2
         DataTable table;
         public PDFMovement()
         {
+            
             table = new DataTable();
             table.Columns.Add("CANT", typeof(int));
             table.Columns.Add("SERIE", typeof(string));
@@ -260,6 +262,10 @@ namespace Inventario2
                 Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
             }
 
+        }
+
+        private bool SendSTMPT(Model.User usuario) {
+            return false;
         }
     }
 }
