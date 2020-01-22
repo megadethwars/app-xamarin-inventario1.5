@@ -12,14 +12,37 @@ using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
 using Syncfusion.Drawing;
 using System.Reflection;
+using System.Data;
 
 namespace Inventario2
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PDFMovement : ContentPage
     {
+        DataTable table;
         public PDFMovement()
         {
+            table = new DataTable();
+            table.Columns.Add("CANT", typeof(int));
+            table.Columns.Add("SERIE", typeof(string));
+            table.Columns.Add("ID-PROD", typeof(string));
+            table.Columns.Add("DESCRP", typeof(string));
+            table.Columns.Add("MARCA", typeof(string));
+            table.Columns.Add("MODELO", typeof(string));
+
+
+            table.Rows.Add(10, "00199123", "01234567","esta bien chido","siemens","39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
+
+
             InitializeComponent();
         }
         protected override void OnAppearing()
@@ -45,7 +68,7 @@ namespace Inventario2
             //Adds a page to the document
             PdfPage page = document.Pages.Add();
             PdfGraphics graphics = page.Graphics;
-
+            
             //Loads the image from disk
             //PdfImage image = PdfImage.FromFile("Logo.png");
 
@@ -111,6 +134,49 @@ namespace Inventario2
             PdfTextElement folio = new PdfTextElement("F5463 ", campofont);
             folio.Brush = PdfBrushes.Black;
             PdfLayoutResult resfolio = folio.Draw(page, new PointF(bounds.Left + 40, bounds.Top + 32));
+
+            //create table
+
+            //Creates the datasource for the table
+            DataTable invoiceDetails = table;
+            //Creates a PDF grid
+            PdfGrid grid = new PdfGrid();
+            //Adds the data source
+            grid.DataSource = invoiceDetails;
+            //Creates the grid cell styles
+            PdfGridCellStyle cellStyle = new PdfGridCellStyle();
+            cellStyle.Borders.All = PdfPens.White;
+            PdfGridRow header = grid.Headers[0];
+            //Creates the header style
+            PdfGridCellStyle headerStyle = new PdfGridCellStyle();
+            headerStyle.Borders.All = new PdfPen(new PdfColor(126, 151, 173));
+            headerStyle.BackgroundBrush = new PdfSolidBrush(new PdfColor(126, 151, 173));
+            headerStyle.TextBrush = PdfBrushes.White;
+            headerStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman, 16f, PdfFontStyle.Regular);
+
+            //Adds cell customizations
+            for (int i = 0; i < header.Cells.Count; i++)
+            {
+                if (i == 0 || i == 1)
+                    header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Left, PdfVerticalAlignment.Middle);
+                else
+                    header.Cells[i].StringFormat = new PdfStringFormat(PdfTextAlignment.Right, PdfVerticalAlignment.Middle);
+            }
+
+            //Applies the header style
+            header.ApplyStyle(headerStyle);
+            cellStyle.Borders.Bottom = new PdfPen(new PdfColor(217, 217, 217), 0.70f);
+            cellStyle.Font = new PdfStandardFont(PdfFontFamily.TimesRoman,10f);
+            cellStyle.TextBrush = new PdfSolidBrush(new PdfColor(131, 130, 136));
+            //Creates the layout format for grid
+            PdfGridLayoutFormat layoutFormat = new PdfGridLayoutFormat();
+            // Creates layout format settings to allow the table pagination
+            layoutFormat.Layout = PdfLayoutType.Paginate;
+           
+            //Draws the grid to the PDF page.
+            PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 150), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
+
+
 
             MemoryStream stream = new MemoryStream();
             //Save the document.
