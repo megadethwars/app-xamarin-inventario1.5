@@ -377,13 +377,13 @@ namespace Inventario2
                 document.Close(true);
                 string save = "Output " + movimientos.ID;
                 //Save the stream as a file in the device and invoke it for viewing
-                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(save + ".pdf", "application/pdf", stream);
+               // Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(save + ".pdf", "application/pdf", stream);
                 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 
                 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
                 {
                       // Xamarin.Forms.DependencyService.Get<ISaveWindowsPhone>().Save("Output.pdf", "application/pdf", stream);
-                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(save + ".pdf", "application/pdf", stream);
                 }
                 else
                 {
@@ -425,7 +425,7 @@ namespace Inventario2
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                mail.From = new MailAddress("holacaradevola@gmail.com");
+                mail.From = new MailAddress("leonellopezvazquez2@gmail.com");
                 mail.To.Add("leonellopezvazquez2@gmail.com");
                 mail.Subject = "prueba";
                 mail.Body = "asda";
@@ -441,7 +441,7 @@ namespace Inventario2
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("holacaradevola@gmail.com", "pendejoidiota");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("leonellopezvazquez2@gmail.com", "peacesells2100");
                 SmtpServer.Send(mail);
 
                 
@@ -517,6 +517,10 @@ namespace Inventario2
                 {
                     List<Model.Usuario> listaUsuario = await getUser(lista[0].usuario);
                     //fill table
+                    if (listaUsuario.Count!=0) {
+                        correo = listaUsuario[0].correo;
+                    }
+
                     tablacarrito.Columns.Add("CANT", typeof(int));
                     tablacarrito.Columns.Add("ID-PROD", typeof(string));
                     tablacarrito.Columns.Add("DESCRP", typeof(string));
