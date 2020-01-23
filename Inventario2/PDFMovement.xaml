@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              x:Class="Inventario2.PDFMovement">
     <ContentPage.Content>
+
+        
+
+
         <StackLayout>
             <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
 

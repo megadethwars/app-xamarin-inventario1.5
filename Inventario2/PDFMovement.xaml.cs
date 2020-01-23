@@ -14,7 +14,7 @@ using Syncfusion.Drawing;
 using System.Reflection;
 using System.Data;
 using System.Net.Mail;
-
+using System.Net.Mime;
 
 namespace Inventario2
 {
@@ -23,32 +23,16 @@ namespace Inventario2
     {
         DataTable table;
         string IdSalida;
+        string correo;
+        MemoryStream streamPDF;
         public PDFMovement(string idSalida)
         {
+            streamPDF = new MemoryStream();
             IdSalida = idSalida;
 
             table = new DataTable();
-            /*
-            table.Columns.Add("CANT", typeof(int));
-            table.Columns.Add("SERIE", typeof(string));
-            table.Columns.Add("ID-PROD", typeof(string));
-            table.Columns.Add("DESCRP", typeof(string));
-            table.Columns.Add("MARCA", typeof(string));
-            table.Columns.Add("MODELO", typeof(string));
-
-
-            table.Rows.Add(10, "00199123", "01234567","esta bien chido","siemens","39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            table.Rows.Add(10, "00199123", "01234567", "esta bien chido", "siemens", "39234");
-            */
-
+            
+            MainTask();
             InitializeComponent();
         }
         protected override void OnAppearing()
@@ -56,7 +40,7 @@ namespace Inventario2
             base.OnAppearing();
             //CreatePDF();
             //TestPDF();
-            MainTask();
+            
         }
 
         protected override void OnDisappearing()
@@ -357,6 +341,7 @@ namespace Inventario2
                 PointF endPoint = new PointF(150, gridResult.Bounds.Bottom + 60);
                 //Draws a line at the bottom of the address
                 graphics.DrawLine(linePen, startPoint, endPoint);
+                
 
                 PdfFont entregafont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
                 PdfTextElement lbentrega = new PdfTextElement("ENTREGA: ", entregafont);
@@ -387,11 +372,12 @@ namespace Inventario2
 
                 //Save the document.
                 document.Save(stream);
+                streamPDF = stream;
                 //Close the document.
                 document.Close(true);
-
+                string save = "Output " + movimientos.ID;
                 //Save the stream as a file in the device and invoke it for viewing
-                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+                Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(save + ".pdf", "application/pdf", stream);
                 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
 
                 if (Device.OS == TargetPlatform.WinPhone || Device.OS == TargetPlatform.Windows)
@@ -432,7 +418,7 @@ namespace Inventario2
         }
 
 
-        private async Task<bool> SendSTMPT(Model.User usuario,Stream stream) {
+        private  bool SendSTMPT() {
 
             try
             {
@@ -440,22 +426,28 @@ namespace Inventario2
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
                 mail.From = new MailAddress("holacaradevola@gmail.com");
-                mail.To.Add("ocampos97@outlook.com");
+                mail.To.Add("leonellopezvazquez2@gmail.com");
                 mail.Subject = "prueba";
                 mail.Body = "asda";
                 System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment("/storage/emulated/0/Syncfusion/Output.pdf");
+                
+                System.Net.Mime.ContentType ct = new System.Net.Mime.ContentType();
+                ct.MediaType = MediaTypeNames.Application.Pdf;
+                ct.Name = "output " + DateTime.Now.ToString() + ".pdf";
+               
+                attachment = new System.Net.Mail.Attachment(streamPDF,ct);
                 mail.Attachments.Add(attachment);
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("holacaradevola@gmail.com", "pendejoidiota");
-                await Task.Run(() => SmtpServer.Send(mail));
+                SmtpServer.Send(mail);
+
                 
                 return   true;
             }
-            catch
+            catch(Exception ex)
             {
                 return  false;
             }
@@ -479,13 +471,15 @@ namespace Inventario2
             }
         }
 
-        private async void OnAccept(object sender, EventArgs e)
+        private  void OnAccept(object sender, EventArgs e)
         {
+            bool res =  SendSTMPT();
+            /*
             DataTable tablacarrito;
             tablacarrito = new DataTable();
             List<Movimientos> lista = await queryData("5cc94695-a17c-4d5b-a59e-fffa26010b56");
 
-           
+            
             if (lista.Count != 0)
             {
                 List<Model.Usuario> listaUsuario = await getUser(lista[0].usuario);
@@ -506,7 +500,7 @@ namespace Inventario2
                 tablacarrito.Dispose();
             }
             
-            
+            */
         }
 
         private async void OnCancel(object sender, EventArgs e) {
@@ -516,31 +510,39 @@ namespace Inventario2
         {
             DataTable tablacarrito;
             tablacarrito = new DataTable();
-            List<Movimientos> lista = await queryData(IdSalida);
-
-
-            if (lista.Count != 0)
+            try
             {
-                List<Model.Usuario> listaUsuario = await getUser(lista[0].usuario);
-                //fill table
-                tablacarrito.Columns.Add("CANT", typeof(int));
-                tablacarrito.Columns.Add("ID-PROD", typeof(string));
-                tablacarrito.Columns.Add("DESCRP", typeof(string));
-                tablacarrito.Columns.Add("MARCA", typeof(string));
-                tablacarrito.Columns.Add("MODELO", typeof(string));
-
-                foreach (Movimientos mov in lista)
+                List<Movimientos> lista = await queryData(IdSalida);
+                if (lista.Count != 0)
                 {
-                    tablacarrito.Rows.Add(mov.cantidad, mov.IdProducto, mov.observ, mov.marca, mov.modelo);
+                    List<Model.Usuario> listaUsuario = await getUser(lista[0].usuario);
+                    //fill table
+                    tablacarrito.Columns.Add("CANT", typeof(int));
+                    tablacarrito.Columns.Add("ID-PROD", typeof(string));
+                    tablacarrito.Columns.Add("DESCRP", typeof(string));
+                    tablacarrito.Columns.Add("MARCA", typeof(string));
+                    tablacarrito.Columns.Add("MODELO", typeof(string));
+
+                    foreach (Movimientos mov in lista)
+                    {
+                        tablacarrito.Rows.Add(mov.cantidad, mov.IdProducto, mov.observ, mov.marca, mov.modelo);
+                    }
+
+
+                    CreatePDF(lista[0], tablacarrito, listaUsuario[0]);
+                    tablacarrito.Dispose();
                 }
+                else
+                {
 
+                }
+            }
+            catch
+            {
+                DisplayAlert("Error", "Error de consulta", "Aceptar");
+            }
 
-                CreatePDF(lista[0], tablacarrito, listaUsuario[0]);
-                tablacarrito.Dispose();
-            }
-            else { 
-                
-            }
+            
         }
     }
 }
