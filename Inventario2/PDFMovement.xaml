@@ -10,6 +10,9 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <Button Text="aceptar"  Grid.Column="1" Clicked="OnAccept"></Button>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
