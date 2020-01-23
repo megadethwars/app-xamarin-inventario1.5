@@ -13,9 +13,11 @@ namespace Inventario2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Menu : ContentPage
     {
+        public PDFMovement pdfmovement;
         public Usuario user;
         public Menu(Usuario u)
         {
+            pdfmovement = new PDFMovement("");
             InitializeComponent();
             user = u;
             
@@ -64,7 +66,7 @@ namespace Inventario2
 
         //solo de prueba
         private void testPDF(object sender,EventArgs e) {
-            Navigation.PushAsync(new PDFMovement());
+            Navigation.PushAsync(pdfmovement);
         }
 
     }

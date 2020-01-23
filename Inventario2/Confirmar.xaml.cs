@@ -66,10 +66,12 @@ namespace Inventario2
                             }
                             if (v)
                             {
+                                //agregar el pdf
                                 rp.re.mv.Clear();
                                 rp.re.f1.Clear();
                                 await DisplayAlert("Agregado", "Carrito Agregado correctamente", "Aceptar");
-                                await Navigation.PopAsync();
+                                await Navigation.PushAsync(new PDFMovement(p));
+                                //await Navigation.PopAsync();
                             }
                         }
                     }
