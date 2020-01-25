@@ -232,7 +232,7 @@ namespace Inventario2
                 //Loads the image from disk
                 //PdfImage image = PdfImage.FromFile("Logo.png");
 
-                Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Inventario2.Assets.Logo.png");
+                Stream imageStream = typeof(App).GetTypeInfo().Assembly.GetManifestResourceStream("Inventario2.Assets.NewLogo.jpeg");
                 //Load the image from the disk.
                 PdfBitmap image = new PdfBitmap(imageStream);
                 //Draw the image
@@ -485,7 +485,7 @@ namespace Inventario2
 
         private async void OnAccept(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new Inventario());
         }
 
         private async void OnCancel(object sender, EventArgs e) {

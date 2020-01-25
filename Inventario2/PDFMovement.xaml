@@ -7,16 +7,12 @@
              x:Class="Inventario2.PDFMovement">
     <ContentPage.Content>
 
-        
 
 
-        <StackLayout>
-            <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
 
-                <Button Text="Enviar por correo"  Grid.Column="1" Clicked="OnAccept"></Button>
-                <Button Text="Cancelar"  Grid.Column="2" Clicked="OnCancel"></Button>
-            </StackLayout>
-
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+            
+            <Button Text="Aceptar"  Grid.Column="1" Clicked="OnAccept"></Button>
             
 
         </StackLayout>

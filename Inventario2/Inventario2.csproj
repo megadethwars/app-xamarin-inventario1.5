@@ -12,10 +12,12 @@
 
   <ItemGroup>
     <None Remove="Assets\Logo.png" />
+    <None Remove="Assets\NewLogo.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\Logo.png" />
+    <EmbeddedResource Include="Assets\NewLogo.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
