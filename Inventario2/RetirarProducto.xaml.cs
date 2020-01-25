@@ -150,7 +150,9 @@ namespace Inventario2
                 foto = "",
                 movimiento = "Retirar",
                 lugar = " ",
-                fecha = DateTime.Now.ToString("dd/MM/yyyy")
+                fecha = DateTime.Now.ToString("dd/MM/yyyy"),
+                codigo = users1[0].codigo,
+                serie = users1[0].serie
             };
             mv.Add(mv1);
             f1.Add(f);

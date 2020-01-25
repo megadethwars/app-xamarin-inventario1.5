@@ -48,7 +48,6 @@ namespace Inventario2
             base.OnDisappearing();
         }
 
-
         public void TestPDF() {
 
 
@@ -227,6 +226,7 @@ namespace Inventario2
                 document.PageSettings.Margins.All = 50;
                 //Adds a page to the document
                 PdfPage page = document.Pages.Add();
+                
                 PdfGraphics graphics = page.Graphics;
 
                 //Loads the image from disk
@@ -336,36 +336,43 @@ namespace Inventario2
                 //Draws the grid to the PDF page.
                 PdfGridLayoutResult gridResult = grid.Draw(page, new RectangleF(new PointF(0, result.Bounds.Bottom + 150), new SizeF(graphics.ClientSize.Width, graphics.ClientSize.Height - 100)), layoutFormat);
 
+                PdfGraphics graphicsSecond = gridResult.Page.Graphics;
+
                 PdfPen linePen = new PdfPen(new PdfColor(126, 151, 173), 1.0f);
                 PointF startPoint = new PointF(0, gridResult.Bounds.Bottom + 60);
                 PointF endPoint = new PointF(150, gridResult.Bounds.Bottom + 60);
                 //Draws a line at the bottom of the address
-                graphics.DrawLine(linePen, startPoint, endPoint);
+                graphicsSecond.DrawLine(linePen, startPoint, endPoint);
                 
 
                 PdfFont entregafont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
                 PdfTextElement lbentrega = new PdfTextElement("ENTREGA: ", entregafont);
                 lbentrega.Brush = PdfBrushes.Black;
-                PdfLayoutResult reslbentrega = lbentrega.Draw(page, new PointF(linePen.Width / 2.0f, startPoint.Y + 5));
+                PdfLayoutResult reslbentrega = lbentrega.Draw(gridResult.Page, new PointF(linePen.Width / 2.0f, startPoint.Y + 5));
+
+                //texto de quien entrega
+                PdfFont usuarioentregafont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
+                PdfTextElement lbusuarioentrega = new PdfTextElement(Model.User.nombre + " " + Model.User.apellido_paterno, usuarioentregafont);
+                lbusuarioentrega.Brush = PdfBrushes.Black;
+                PdfLayoutResult reslbusuarioentrega = lbusuarioentrega.Draw(gridResult.Page, new PointF(linePen.Width / 2.0f, startPoint.Y - 20));
 
 
                 PdfPen linePenfinal = new PdfPen(new PdfColor(126, 151, 173), 1.0f);
                 PointF startPointfinal = new PointF(350, gridResult.Bounds.Bottom + 60);
                 PointF endPointfinal = new PointF(graphics.ClientSize.Width, gridResult.Bounds.Bottom + 60);
                 //Draws a line at the bottom of the address
-                graphics.DrawLine(linePenfinal, startPointfinal, endPointfinal);
+                graphicsSecond.DrawLine(linePenfinal, startPointfinal, endPointfinal);
 
                 PdfFont recibefont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
                 PdfTextElement lbrecibe = new PdfTextElement("RECIBE: ", recibefont);
                 lbrecibe.Brush = PdfBrushes.Black;
-                PdfLayoutResult reslbrecibe = lbrecibe.Draw(page, new PointF(350.0f + (linePenfinal.Width / 2.0f), startPoint.Y + 5));
+                PdfLayoutResult reslbrecibe = lbrecibe.Draw(gridResult.Page, new PointF(350.0f + (linePenfinal.Width / 2.0f), startPoint.Y + 5));
 
                 //texto de quien recibe
                 PdfFont usuariofont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
                 PdfTextElement lbusuario = new PdfTextElement(User.nombre + " " + User.apellido_paterno, usuariofont);
                 lbusuario.Brush = PdfBrushes.Black;
-                PdfLayoutResult reslbusuario = lbusuario.Draw(page, new PointF(350.0f + (linePenfinal.Width / 2.0f), startPoint.Y - 20));
-
+                PdfLayoutResult reslbusuario = lbusuario.Draw(gridResult.Page, new PointF(350.0f + (linePenfinal.Width / 2.0f), startPoint.Y - 20));
 
 
                 MemoryStream stream = new MemoryStream();
@@ -379,8 +386,8 @@ namespace Inventario2
                 byte[] bytes = stream.ToArray();
               
 
-                bool res = SendSTMPT(bytes);
-                string save = "Output " + movimientos.ID;
+                bool res = SendSTMPT(bytes,correo);
+                string save = "OrdenDeSalida-" + movimientos.ID;
                 //Save the stream as a file in the device and invoke it for viewing
                // Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(save + ".pdf", "application/pdf", stream);
                 //The operation in Save under Xamarin varies between Windows Phone, Android and iOS platforms. Please refer PDF/Xamarin section for respective code samples.
@@ -392,7 +399,7 @@ namespace Inventario2
                 }
                 else
                 {
-                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+                    Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(save + ".pdf", "application/pdf", stream);
                 }
 
                 
@@ -423,7 +430,7 @@ namespace Inventario2
         }
 
 
-        private  bool SendSTMPT(byte[] bytes) {
+        private  bool SendSTMPT(byte[] bytes,string correo) {
 
             try
             {
@@ -431,9 +438,9 @@ namespace Inventario2
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
                 mail.From = new MailAddress("leonellopezvazquez2@gmail.com");
-                mail.To.Add("leonellopezvazquez2@gmail.com");
-                mail.Subject = "prueba";
-                mail.Body = "asda";
+                mail.To.Add(correo);
+                mail.Subject = "Orden de salida";
+                mail.Body = "AVS Orden de salida, no responder";
                 System.Net.Mail.Attachment attachment;
                 
                 System.Net.Mime.ContentType ct = new System.Net.Mime.ContentType();
@@ -476,41 +483,16 @@ namespace Inventario2
             }
         }
 
-        private  void OnAccept(object sender, EventArgs e)
+        private async void OnAccept(object sender, EventArgs e)
         {
-           // bool res =  SendSTMPT();
-            /*
-            DataTable tablacarrito;
-            tablacarrito = new DataTable();
-            List<Movimientos> lista = await queryData("5cc94695-a17c-4d5b-a59e-fffa26010b56");
-
-            
-            if (lista.Count != 0)
-            {
-                List<Model.Usuario> listaUsuario = await getUser(lista[0].usuario);
-                //fill table
-                tablacarrito.Columns.Add("CANT", typeof(int));               
-                tablacarrito.Columns.Add("ID-PROD", typeof(string));
-                tablacarrito.Columns.Add("DESCRP", typeof(string));
-                tablacarrito.Columns.Add("MARCA", typeof(string));
-                tablacarrito.Columns.Add("MODELO", typeof(string));
-
-                foreach (Movimientos mov in lista)
-                {
-                    tablacarrito.Rows.Add(mov.cantidad,mov.IdProducto,mov.observ,mov.marca,mov.modelo);
-                }
-
-
-                CreatePDF(lista[0],tablacarrito,listaUsuario[0]);
-                tablacarrito.Dispose();
-            }
-            
-            */
+            await Navigation.PopAsync();
         }
 
         private async void OnCancel(object sender, EventArgs e) {
             await Navigation.PushAsync(new Inventario());
+            
         }
+        
         private async void MainTask()
         {
             DataTable tablacarrito;
@@ -523,18 +505,21 @@ namespace Inventario2
                     List<Model.Usuario> listaUsuario = await getUser(lista[0].usuario);
                     //fill table
                     if (listaUsuario.Count!=0) {
-                        correo = listaUsuario[0].correo;
+                        correo = Model.User.correo;
                     }
-
+                           
                     tablacarrito.Columns.Add("CANT", typeof(int));
-                    tablacarrito.Columns.Add("ID-PROD", typeof(string));
+                    tablacarrito.Columns.Add("CODIGO", typeof(string));
                     tablacarrito.Columns.Add("DESCRP", typeof(string));
                     tablacarrito.Columns.Add("MARCA", typeof(string));
                     tablacarrito.Columns.Add("MODELO", typeof(string));
+                    tablacarrito.Columns.Add("SERIE", typeof(string));
+
+
 
                     foreach (Movimientos mov in lista)
                     {
-                        tablacarrito.Rows.Add(mov.cantidad, mov.IdProducto, mov.observ, mov.marca, mov.modelo);
+                        tablacarrito.Rows.Add(mov.cantidad, mov.codigo, mov.producto, mov.marca, mov.modelo,mov.serie);
                     }
 
 

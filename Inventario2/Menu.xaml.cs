@@ -20,7 +20,9 @@ namespace Inventario2
             pdfmovement = new PDFMovement("");
             InitializeComponent();
             user = u;
-            
+            User.nombre = user.nombre;
+            User.apellido_paterno = user.apellido_paterno;
+            User.ID = user.ID;
         }
 
         private void Ir_Perfil(object sender, EventArgs e)
