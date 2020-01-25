@@ -375,6 +375,11 @@ namespace Inventario2
                 streamPDF = stream;
                 //Close the document.
                 document.Close(true);
+
+                byte[] bytes = stream.ToArray();
+              
+
+                bool res = SendSTMPT(bytes);
                 string save = "Output " + movimientos.ID;
                 //Save the stream as a file in the device and invoke it for viewing
                // Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView(save + ".pdf", "application/pdf", stream);
@@ -390,7 +395,7 @@ namespace Inventario2
                     Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
                 }
 
-
+                
                 return true;
             }
             catch
@@ -418,7 +423,7 @@ namespace Inventario2
         }
 
 
-        private  bool SendSTMPT() {
+        private  bool SendSTMPT(byte[] bytes) {
 
             try
             {
@@ -435,7 +440,7 @@ namespace Inventario2
                 ct.MediaType = MediaTypeNames.Application.Pdf;
                 ct.Name = "output " + DateTime.Now.ToString() + ".pdf";
                
-                attachment = new System.Net.Mail.Attachment(streamPDF,ct);
+                attachment = new System.Net.Mail.Attachment(new MemoryStream(bytes), ct);
                 mail.Attachments.Add(attachment);
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";
@@ -473,7 +478,7 @@ namespace Inventario2
 
         private  void OnAccept(object sender, EventArgs e)
         {
-            bool res =  SendSTMPT();
+           // bool res =  SendSTMPT();
             /*
             DataTable tablacarrito;
             tablacarrito = new DataTable();
