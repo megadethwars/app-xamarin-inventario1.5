@@ -437,7 +437,7 @@ namespace Inventario2
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                mail.From = new MailAddress("leonellopezvazquez2@gmail.com");
+                mail.From = new MailAddress("avsinventario@gmail.com");
                 mail.To.Add(correo);
                 mail.Subject = "Orden de salida";
                 mail.Body = "AVS Orden de salida, no responder";
@@ -453,7 +453,7 @@ namespace Inventario2
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("leonellopezvazquez2@gmail.com", "peacesells2100");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("avsinventario@gmail.com", "avs123456");
                 SmtpServer.Send(mail);
 
                 
