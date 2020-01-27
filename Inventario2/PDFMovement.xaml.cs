@@ -16,6 +16,7 @@ using System.Data;
 using System.Net.Mail;
 using System.Net.Mime;
 
+
 namespace Inventario2
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -349,7 +350,7 @@ namespace Inventario2
                 PdfTextElement lbentrega = new PdfTextElement("ENTREGA: ", entregafont);
                 lbentrega.Brush = PdfBrushes.Black;
                 PdfLayoutResult reslbentrega = lbentrega.Draw(gridResult.Page, new PointF(linePen.Width / 2.0f, startPoint.Y + 5));
-
+                
                 //texto de quien entrega
                 PdfFont usuarioentregafont = new PdfStandardFont(PdfFontFamily.TimesRoman, 12);
                 PdfTextElement lbusuarioentrega = new PdfTextElement(Model.User.nombre + " " + Model.User.apellido_paterno, usuarioentregafont);
@@ -382,9 +383,9 @@ namespace Inventario2
                 streamPDF = stream;
                 //Close the document.
                 document.Close(true);
-
+                
                 byte[] bytes = stream.ToArray();
-              
+                
 
                 bool res = SendSTMPT(bytes,correo);
                 string save = "OrdenDeSalida-" + movimientos.ID;
@@ -465,7 +466,7 @@ namespace Inventario2
             }
 
 
-            
+           
         }
 
         private async Task<List<Model.Usuario>> getUser(string usuario)
@@ -485,7 +486,9 @@ namespace Inventario2
 
         private async void OnAccept(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Inventario());
+            Navegacion.Navegacion.isSMTPdone = true;
+            await Navigation.PopAsync();
+            
         }
 
         private async void OnCancel(object sender, EventArgs e) {

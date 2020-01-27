@@ -39,7 +39,10 @@ namespace Inventario2
                 busqueda();
             else
                 cont++;
-
+            if (Navegacion.Navegacion.isSMTPdone)
+            {
+                Navigation.PopAsync();
+            }
         }
 
         async void Button_Clicked(object sender, System.EventArgs e)

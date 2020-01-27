@@ -38,7 +38,10 @@ namespace Inventario2
             //re.mv.Clear();
             postListView.ItemsSource = null;
             postListView.ItemsSource = re.mv;
-
+            if (Navegacion.Navegacion.isSMTPdone)
+            {
+                Navigation.PopAsync();
+            }
 
         }
 

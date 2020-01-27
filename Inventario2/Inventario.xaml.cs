@@ -29,6 +29,7 @@ namespace Inventario2
             var usuarios = await App.MobileService.GetTable<InventDB>().ToListAsync();
             
             postListView.ItemsSource = usuarios;
+            Navegacion.Navegacion.isSMTPdone = false;
         }
 
         

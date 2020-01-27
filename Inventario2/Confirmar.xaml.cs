@@ -25,6 +25,19 @@ namespace Inventario2
             p = Guid.NewGuid().ToString("D");
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (Navegacion.Navegacion.isSMTPdone)
+            {
+                Navigation.PopAsync();
+            }
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+        }
         private async void Button_Clicked(object sender, EventArgs e)
         {
             Boolean v = true;
