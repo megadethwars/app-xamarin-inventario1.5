@@ -533,7 +533,7 @@ namespace Inventario2
             }
             catch
             {
-                DisplayAlert("Error", "Error de consulta", "Aceptar");
+               await DisplayAlert("Error", "Error de consulta", "Aceptar");
             }
 
             

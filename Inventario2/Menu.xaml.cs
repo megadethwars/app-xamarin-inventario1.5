@@ -23,6 +23,7 @@ namespace Inventario2
             User.nombre = user.nombre;
             User.apellido_paterno = user.apellido_paterno;
             User.ID = user.ID;
+            User.correo = user.correo;
         }
 
         private void Ir_Perfil(object sender, EventArgs e)
