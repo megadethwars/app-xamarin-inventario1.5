@@ -60,7 +60,7 @@ namespace Inventario2
                 }
             }
             else
-                DisplayAlert("Error","Contraseña no coincide","Aceptar");
+                await DisplayAlert("Error","Contraseña no coincide","Aceptar");
         }
 
         private void PickerUser_SelectedIndexChanged(object sender, EventArgs e)

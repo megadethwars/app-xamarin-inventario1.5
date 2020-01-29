@@ -43,6 +43,8 @@ namespace Inventario2
 
         public string marca { get; set; }
 
+        public string serie { get; set; }
+
         public int QueryStatus { get; set; }
 
         public void Dispose()

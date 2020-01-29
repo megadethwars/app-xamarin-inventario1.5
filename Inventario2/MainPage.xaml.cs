@@ -39,13 +39,13 @@ namespace Inventario2
                             if (usuarios[x].contrasena == passEntry.Text)
                             {
                                 password = true;
-                                Navigation.PushAsync(new Menu(usuarios[x]));
+                                await Navigation.PushAsync(new Menu(usuarios[x]));
                                 break;
                             }
 
                         }
                         if (password == false)
-                            DisplayAlert("Error", "Usuario o contraseña incorrecto(s)", "Aceptar");
+                            await DisplayAlert("Error", "Usuario o contraseña incorrecto(s)", "Aceptar");
 
                     }
                     else

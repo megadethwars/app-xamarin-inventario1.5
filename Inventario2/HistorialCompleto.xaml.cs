@@ -97,7 +97,7 @@ namespace Inventario2
                 }
                 else
                 {
-                    DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
+                    await DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
                     postListView.ItemsSource = users1;
                 }
             }
@@ -112,7 +112,7 @@ namespace Inventario2
                 }
                 else
                 {
-                    DisplayAlert("Buscando", " no encontrado", "OK");
+                    await DisplayAlert("Buscando", " no encontrado", "OK");
                     postListView.ItemsSource = users1;
                 }
             }
