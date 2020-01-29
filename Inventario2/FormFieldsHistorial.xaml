@@ -16,11 +16,11 @@
             <Label Text="usuario" />
             <Entry Text="" x:Name="InUsuario"/>
 
-            <Label Text="ID Product" />
+            <Label Text="Marca" />
             <Entry Text="" x:Name="InIDProduct"/>
 
-            <Label Text="Movimiento" />
-            <Entry Text="" x:Name="InMove"/>
+            <Label Text="Ubicacion" />
+            <Entry Text="" x:Name="InUbicacion"/>
 
             <Label Text="Producto" />
             <Entry Text="" x:Name="InProd"/>
@@ -28,7 +28,11 @@
             <Label Text="Modelo" />
             <Entry Text="" x:Name="InModel"/>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="No. Serie" />
+            <Entry Text="" x:Name="InSerie"/>
+
+            
+            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                 <Label Text="Habilitar Fecha" />
                 <Switch x:Name="DateSwitch"
                     
@@ -36,13 +40,11 @@
                 
             </StackLayout>
 
-            
-
-            
+                   
             
             <DatePicker
 		        x:Name="datePickerStart"
-                Format="dd/MM/yyyy"/>
+                Format="dd/MM/yyyy"/>-->
 
 
             <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
