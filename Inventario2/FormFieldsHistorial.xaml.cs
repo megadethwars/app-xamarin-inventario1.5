@@ -481,6 +481,7 @@ namespace Inventario2
             modelhistorial.fecha = AllDate;
             modelhistorial.serie = InSerie.Text;
             modelhistorial.QueryStatus = res;
+            modelhistorial.lugar = InUbicacion.Text;
         }
 
 
