@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ZXing;
+using ZXing.Net.Mobile.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Inventario2
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ScannerReporte : ContentPage
+    public partial class ScannerReporte : ZXingScannerPage
     {
-        HistorialCompleto h;
-        public ScannerReporte(HistorialCompleto t)
+        LevantarReporte reporte;
+        bool IsScanning = false;
+        public ScannerReporte(LevantarReporte reporte)
         {
             InitializeComponent();
-            h = t;
+            this.reporte = reporte;
         }
 
         public void ScanPage(ZXing.Result result)
@@ -25,7 +27,8 @@ namespace Inventario2
             Device.BeginInvokeOnMainThread(async () =>
             {
                 //await DisplayAlert("Scanned result", result.Text, "OK");
-                h.scantext = result.Text;
+                reporte.scanText = result.Text;
+                reporte.isScanning = true;
                 await Navigation.PopAsync();
                 //await DisplayAlert("","","oooo");
             });
@@ -36,14 +39,14 @@ namespace Inventario2
 
             base.OnAppearing();
 
-            //IsScanning = true;
+            IsScanning = true;
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
 
-           // IsScanning = false;
+            IsScanning = false;
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Inventario2
     public partial class LevantarReporte : ContentPage
     {
         Plugin.Media.Abstractions.MediaFile f;
+        public bool isScanning = false;
+        public string scanText;
         public LevantarReporte(string c)
         {
             
@@ -21,7 +23,26 @@ namespace Inventario2
             
             
         }
-       
+
+        protected override void OnAppearing()
+        {
+
+            base.OnAppearing();
+            if (isScanning)
+            {
+
+                isScanning = false;
+            }
+           
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            
+        }
+
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
             await CrossMedia.Current.Initialize();
@@ -51,7 +72,7 @@ namespace Inventario2
 
         private void Scan(object sender, EventArgs e)
         { //Declarada en inventario principal
-            //Navigation.PushAsync(new Escanear(""));
+            Navigation.PushAsync(new ScannerReporte(this));
         }
 
         private void Enviar_Reporte(object sender, EventArgs e)
