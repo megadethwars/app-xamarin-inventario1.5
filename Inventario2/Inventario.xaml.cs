@@ -15,20 +15,20 @@ namespace Inventario2
         //string codigo;
         public List<InventDB> users;
         public string stringcode;
+        public int cont = 0;
+        public string tipoBusqueda;
         public Inventario()
         {
             InitializeComponent();
-
+            
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             search.Text = stringcode;
-          
-           
-            var usuarios = await App.MobileService.GetTable<InventDB>().ToListAsync();
+            var usuario = await App.MobileService.GetTable<InventDB>().ToListAsync();
+            postListView.ItemsSource = usuario;
             
-            postListView.ItemsSource = usuarios;
         }
 
         
@@ -38,19 +38,22 @@ namespace Inventario2
             if (selectedPost != null)
                 Navigation.PushAsync(new DetallesProducto(selectedPost));
         }
-        private async void SearchBar(object sender, EventArgs e)
+
+        public async void buscar()
         {
-            var isNumeric = long.TryParse(search.Text, out long n);
-            
+            string cadena = "";
+            if (search.Text.Length > 3)
+                cadena = search.Text.Substring(search.Text.Length - 3);
+            var isNumeric = long.TryParse(cadena, out long n);
 
 
-            if (!isNumeric)
+            if (tipoBusqueda=="Nombre")
             {
                 //SQLiteConnection conn = new SQLiteConnection(App.DtabaseLocation);
                 //conn.CreateTable<InventDB>();
                 //var users1 = conn.Query<InventDB>("select * from InventDB where Nombre= ?", search.Text);
                 //conn.Close();
-                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.Nombre == search.Text).ToListAsync();
+                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.nombre == search.Text).ToListAsync();
                 if (users1.Count != 0)
                 {
                     //DisplayAlert("Buscando", "encontrado", "OK");
@@ -59,13 +62,15 @@ namespace Inventario2
                 else
                 {
                     DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
-                    postListView.ItemsSource = users1;
+                    var usuarios = await App.MobileService.GetTable<InventDB>().ToListAsync();
+
+                    postListView.ItemsSource = usuarios;
                 }
             }
-            else
+            if(tipoBusqueda=="QR")
             {
 
-                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.Codigo == search.Text).ToListAsync();
+                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == search.Text).ToListAsync();
                 if (users1.Count != 0)
                 {
                     //DisplayAlert("Buscando", "encontrado", "OK");
@@ -73,10 +78,68 @@ namespace Inventario2
                 }
                 else
                 {
-                    DisplayAlert("Buscando", " no encontrado", "OK");
-                    postListView.ItemsSource = users1;
+                    DisplayAlert("Buscando", " no encontrado" + search.Text, "OK");
+                    var usuarios = await App.MobileService.GetTable<InventDB>().ToListAsync();
+
+                    postListView.ItemsSource = usuarios;
                 }
             }
+            if (tipoBusqueda == "Marca")
+            {
+
+                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.marca == search.Text).ToListAsync();
+                if (users1.Count != 0)
+                {
+                    //DisplayAlert("Buscando", "encontrado", "OK");
+                    postListView.ItemsSource = users1;
+                }
+                else
+                {
+                    DisplayAlert("Buscando", " no encontrado" + search.Text, "OK");
+                    var usuarios = await App.MobileService.GetTable<InventDB>().ToListAsync();
+
+                    postListView.ItemsSource = usuarios;
+                }
+            }
+            if (tipoBusqueda == "Modelo")
+            {
+
+                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.modelo == search.Text).ToListAsync();
+                if (users1.Count != 0)
+                {
+                    //DisplayAlert("Buscando", "encontrado", "OK");
+                    postListView.ItemsSource = users1;
+                }
+                else
+                {
+                    DisplayAlert("Buscando", " no encontrado" + search.Text, "OK");
+                    var usuarios = await App.MobileService.GetTable<InventDB>().ToListAsync();
+
+                    postListView.ItemsSource = usuarios;
+                }
+            }
+            if (tipoBusqueda == "Proveedor")
+            {
+
+                var users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.proveedor == search.Text).ToListAsync();
+                if (users1.Count != 0)
+                {
+                    //DisplayAlert("Buscando", "encontrado", "OK");
+                    postListView.ItemsSource = users1;
+                }
+                else
+                {
+                    DisplayAlert("Buscando", " no encontrado" + search.Text, "OK");
+                    var usuarios = await App.MobileService.GetTable<InventDB>().ToListAsync();
+
+                    postListView.ItemsSource = usuarios;
+                }
+            }
+
+        }
+        private  void SearchBar(object sender, EventArgs e)
+        {
+            buscar();
         }
 
         private void Scan(object sender, EventArgs e)
@@ -104,6 +167,11 @@ namespace Inventario2
 
                 
             }
+        }
+
+        private void pickerBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tipoBusqueda = pickerBuscar.SelectedItem as string;
         }
     }
 }

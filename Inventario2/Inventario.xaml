@@ -1,89 +1,158 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<!--<?xml version="1.0" encoding="utf-8" ?>-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-            
+           
              mc:Ignorable="d"
              x:Class="Inventario2.Inventario">
-    <ContentPage.Resources>
-        <StyleSheet Source="Estilo.css"/>
-    </ContentPage.Resources>
-    
-    <StackLayout
-		Padding="50,10,50,10">
-        <Label
-    		HorizontalOptions="Center"
-			Text="INVENTARIO" 
-			FontAttributes="Bold"
-			StyleId="Titulo"/>
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
+        <StackLayout
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout
+		Padding="70,10,70,10">
+                <StackLayout
+            Padding="190,20,190,20">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Label
+                            VerticalOptions="Center"
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                            FontSize="30"
+			    HorizontalOptions="Center"
+			    Text="INVENTARIO" 
+			    FontAttributes="Bold"
+			    StyleId="Titulo"/>
 
-        <SearchBar
+                    </Grid>
+
+
+                </StackLayout>
+
+                <SearchBar
             x:Name="search"
-			Placeholder="Buscar por nombre o ID"
+			Placeholder="Buscar"
 			CancelButtonColor="Red"
+            BackgroundColor="Gray"
+            PlaceholderColor="White"
+            
+            TextColor="White"
 			SearchButtonPressed="SearchBar" />
+                <Grid ColumnSpacing="50"
+              HorizontalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="180"/>
+                    </Grid.ColumnDefinitions>
 
-        <Button
-			HorizontalOptions="Center"
-            FontAttributes="Bold"
-			Text="Escanear"
-			Clicked="Scan" />
-        
-        <Grid
+                    <Button
+			
+                FontAttributes="Bold"
+			    Text="Escanear"
+                TextColor="Red"
+                        WidthRequest="150"
+                HeightRequest="87"
+                ImageSource="bscanner.png"
+			    Clicked="Scan"               
+                Grid.Column="0"/>
+                    <Picker x:Name="pickerBuscar"
+                    
+                    TextColor="Red"
+            Title="Tipo de Busqueda"
+                    TitleColor="Red"
+                    BackgroundColor="Black"
+                    
+                    
+            SelectedIndexChanged="pickerBuscar_SelectedIndexChanged"
+                    Grid.Column="1">
+                        <Picker.Items>
+                            <x:String>QR</x:String>
+                            <x:String>Nombre</x:String>
+                            <x:String>Marca</x:String>
+                            <x:String>Modelo</x:String>
+                            <x:String>Proveedor</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                </Grid>
+
+                <Grid
 	         ColumnSpacing="10">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-            </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
 
-            <Label
+                    <Label
                 Text="Producto:" 
 				FontAttributes="Bold"
+                TextColor="White"
                 Grid.Column="0"/>
 
-            <Label
+                    <Label
                 Text="Marca:" 
+                TextColor="White"
 				FontAttributes="Bold"
                 Grid.Column="1"/>
-        </Grid>
+                
+                
+                <Label
+                Text="Marca:" 
+                TextColor="White"
+				FontAttributes="Bold"
+                Grid.Column="1"/>
+                </Grid>
 
-        <ScrollView
+                <ScrollView
 			HorizontalOptions="FillAndExpand"
             HeightRequest="350">
-            <StackLayout>
-                <ListView x:Name="postListView" ItemSelected="PostListView_ItemSelected" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
+                    <StackLayout>
+                        <ListView x:Name="postListView" ItemSelected="PostListView_ItemSelected" BackgroundColor="Gray">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
 
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="120"/>
+                                                    <ColumnDefinition Width="120"/>
+                                                    <ColumnDefinition Width="120"/>
 
-                                        </Grid.ColumnDefinitions>
+                                                </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding Nombre}" Grid.Column="0"/>
-                                        <Label Text="{Binding marca}" Grid.Column="1"/>
+                                                <Label Text="{Binding nombre}" TextColor="White" Grid.Column="0"/>
+                                                <Label Text="{Binding marca}" TextColor="White"
+                                               Grid.Column="1"/>
+                                                <Label Text="{Binding codigo}" TextColor="White" Grid.Column="2"/>
 
-                                    </Grid>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </ScrollView>
+                                            </Grid>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
 
-        <Button
-			Text="Opciones"
+                <Button
+			WidthRequest="150"
+                HeightRequest="87"
 			Clicked="MenuOp"
 			HorizontalOptions="Start"
+            TextColor="Red"
+            ImageSource="bopciones.png"
 			FontAttributes="Bold"
 			StyleId="Ok"/>
-    </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

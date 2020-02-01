@@ -25,7 +25,7 @@ namespace Inventario2
             Device.BeginInvokeOnMainThread(async () =>
             {
                 //await DisplayAlert("Scanned result", result.Text, "OK");
-                t.barcodetext = result.Text;
+                //t.barcodetext = result.Text;
                 await Navigation.PopAsync();
                               //await DisplayAlert("","","oooo");
             });

@@ -78,42 +78,46 @@ namespace Inventario2
 
         private async void Search_SearchButtonPressed(object sender, EventArgs e)
         {
-            var isNumeric = long.TryParse(searchbar.Text, out long n);
-
-
-
-            if (!isNumeric)
+            if (searchbar.Text.Length > 2)
             {
-                //SQLiteConnection conn = new SQLiteConnection(App.DtabaseLocation);
-                //conn.CreateTable<InventDB>();
-                //var users1 = conn.Query<InventDB>("select * from InventDB where Nombre= ?", search.Text);
-                //conn.Close();
-                var users1 = await App.MobileService.GetTable<Movimientos>().Where(u => u.producto == searchbar.Text).ToListAsync();
-               // var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.modelo == "hsjs").ToListAsync();
-                if (users1.Count != 0)
+                string cadena = searchbar.Text.Substring(searchbar.Text.Length - 2);
+                var isNumeric = long.TryParse(cadena, out long n);
+
+
+
+                if (!isNumeric)
                 {
-                    //DisplayAlert("Buscando", "encontrado", "OK");
-                    postListView.ItemsSource = users1;
+                    //SQLiteConnection conn = new SQLiteConnection(App.DtabaseLocation);
+                    //conn.CreateTable<InventDB>();
+                    //var users1 = conn.Query<InventDB>("select * from InventDB where Nombre= ?", search.Text);
+                    //conn.Close();
+                    var users1 = await App.MobileService.GetTable<Movimientos>().Where(u => u.producto == searchbar.Text).ToListAsync();
+                    // var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.modelo == "hsjs").ToListAsync();
+                    if (users1.Count != 0)
+                    {
+                        //DisplayAlert("Buscando", "encontrado", "OK");
+                        postListView.ItemsSource = users1;
+                    }
+                    else
+                    {
+                        DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
+                        postListView.ItemsSource = users1;
+                    }
                 }
                 else
                 {
-                    DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
-                    postListView.ItemsSource = users1;
-                }
-            }
-            else
-            {
 
-                var users1 = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == searchbar.Text).ToListAsync();
-                if (users1.Count != 0)
-                {
-                    //DisplayAlert("Buscando", "encontrado", "OK");
-                    postListView.ItemsSource = users1;
-                }
-                else
-                {
-                    DisplayAlert("Buscando", " no encontrado", "OK");
-                    postListView.ItemsSource = users1;
+                    var users1 = await App.MobileService.GetTable<Movimientos>().Where(u => u.codigo == searchbar.Text).ToListAsync();
+                    if (users1.Count != 0)
+                    {
+                        //DisplayAlert("Buscando", "encontrado", "OK");
+                        postListView.ItemsSource = users1;
+                    }
+                    else
+                    {
+                        DisplayAlert("Buscando", " no encontrado", "OK");
+                        postListView.ItemsSource = users1;
+                    }
                 }
             }
         }

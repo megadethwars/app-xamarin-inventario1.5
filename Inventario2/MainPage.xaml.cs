@@ -18,7 +18,8 @@ namespace Inventario2
         public MainPage()
         {
             InitializeComponent();
-            this.BackgroundImageSource = "image1.jpeg";
+           //this.BackgroundImageSource = "image1.jpeg";
+            
         }
 
 

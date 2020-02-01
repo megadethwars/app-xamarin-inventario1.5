@@ -40,13 +40,20 @@ namespace Inventario2
             InventDB invent = new InventDB
             {
                 ID = PathFoto,
-                Codigo = codigoEntry.Text,
-                Nombre = nameEntry.Text,
+                codigo = codigoEntry.Text,
+                nombre = nameEntry.Text,
                 marca = marca.Text,
                 modelo = modelo.Text,
+                costo = costo.Text,
+                compra = compra.Text,
+                serie = serie.Text,
+                origen = origen.Text,
+                descompostura = dec.Text,
+                pertenece = pert.Text,
                 lugar = "Almacen",
                 cantidad = cant.Text,
                 observaciones = observ.Text,
+                proveedor = proveedor.Text,
                 foto = PathFoto+".jpg",
                 Fecha = DateTime.Now.ToString("dd/MM/yyyy")
             };
@@ -54,7 +61,8 @@ namespace Inventario2
             try
             {
                 await App.MobileService.GetTable<InventDB>().InsertAsync(invent);
-                UploadFile(f.GetStream());
+                if(!(f == null))
+                    UploadFile(f.GetStream());
                 await DisplayAlert("Agregado","Producto agregado correctamente","Aceptar");
                 await Navigation.PopAsync();
                

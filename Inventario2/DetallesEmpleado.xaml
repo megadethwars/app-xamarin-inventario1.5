@@ -4,63 +4,193 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Inventario2.DetallesEmpleado">
-    <ContentPage.Resources>
-        <StyleSheet Source="Estilo.css"/>
-    </ContentPage.Resources>
-    
-    <StackLayout
-		Padding="50,20,50,20">
-        <StackLayout
-            Padding="0,0,0,20">
-            <Label
-				HorizontalOptions="Center"
-				Text="DETALLES DE EMPLEADO" 
-				FontAttributes="Bold"
-				StyleId="Titulo"/>
-        </StackLayout>
+             x:Class="Inventario2.DetallesEmpleado"
+             >
 
-                <Label
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
+        <StackLayout
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout
+		Padding="70,20,70,20">
+                <StackLayout
+            Padding="85,20,85,30">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Label
+                            VerticalOptions="Center"
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                            FontSize="30"
+			    HorizontalOptions="Center"
+			    Text="DETALLES DEL EMPLEADO" 
+			    FontAttributes="Bold"
+			    StyleId="Titulo"/>
+
+                    </Grid>
+
+
+                </StackLayout>
+                <StackLayout>
+                    <Label
+                    TextColor="White"
 			        Text="Nombre del Empleado:"
+                        FontFamily="Montserrat-Bold"
+                FontSize="Large"
+                CharacterSpacing="4"
 			        FontAttributes="Bold"/>
-                 <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,0">
+                    <Label
+                        FontFamily="Montserrat-Light"
+                        FontSize="Large"
+                     TextColor="White"
 			        x:Name="nameEmp"
                      StyleClass="informacion"/>
-                 <Label
+                </StackLayout>
+                <StackLayout>
+                    <Label
+                     TextColor="White"
+                         FontFamily="Montserrat-Bold"
+                FontSize="Large"
+                CharacterSpacing="4"
 			        Text="ID del Empleado:"
 			        FontAttributes="Bold"/>
-                <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,0">
+                    <Label
+                    TextColor="White"
 			        x:Name="idEmpAsig"
+                        FontFamily="Montserrat-Light"
+                        FontSize="Large"
                     StyleClass="informacion"/>
-                <Label
+                </StackLayout>
+                <StackLayout>
+                    <Label
+                         FontFamily="Montserrat-Bold"
+                FontSize="Large"
+                CharacterSpacing="4"
+                    TextColor="White"
 			        Text="Fecha de contratacion:"
 			        FontAttributes="Bold"/>
-                <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,0">
+                    <Label
+                    TextColor="White"
 			        x:Name="fechaCont"
+                        FontFamily="Montserrat-Light"
+                        FontSize="Large"
                     StyleId="informacion"/>
-                <Label
+                </StackLayout>
+                <StackLayout>
+                    <Label
+                    TextColor="White"
+                         FontFamily="Montserrat-Bold"
+                FontSize="Large"
+                CharacterSpacing="4"
 			        Text="Tipo de usuario:"
 			        FontAttributes="Bold"/>
-                <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,0">
+                    <Label
+                    TextColor="White"
 		            x:Name="tipoUs"
+                        FontFamily="Montserrat-Light"
+                        FontSize="Large"
                     StyleId="informacion"/>
-        <Label
+                </StackLayout>
+                <StackLayout>
+                    <Label
+            TextColor="White"
 			        Text="Correo:"
+                         FontFamily="Montserrat-Bold"
+                FontSize="Large"
+                CharacterSpacing="4"
 			        FontAttributes="Bold"/>
-        <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,0">
+                    <Label
+            TextColor="White"
+                        FontFamily="Montserrat-Light"
+                        FontSize="Large"
 		            x:Name="correotext"
                     StyleId="informacion"/>
-        <Label
+                </StackLayout>
+                <StackLayout>
+                    <Label
+            TextColor="White"
 			        Text="Telefono:"
+                         FontFamily="Montserrat-Bold"
+                FontSize="Large"
+                CharacterSpacing="4"
 			        FontAttributes="Bold"/>
-        <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,0">
+                    <Label
+            TextColor="White"
+                        FontFamily="Montserrat-Light"
+                        FontSize="Large"
 		            x:Name="telText"
                     StyleId="informacion"/>
-        <Button
+                </StackLayout>
+                <StackLayout>
+
+                    <Label Text="CAMBIAR CORREO:"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="correoChange"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Correo"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout>
+
+                    <Label Text="CAMBIAR TELEFONO:"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="changetel"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Telefono"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout>
+                <Button
+            TextColor="Red"
+                    Grid.Column="0"
                     HorizontalOptions="End"
                     VerticalOptions="End"
-			        Text="Eliminar Empleado"
+                    WidthRequest="150"
+                HeightRequest="87"
+			        ImageSource="beliminar.png"
 			        Clicked="EliminaEmp"
 			        StyleId="Ok"/>
+                <Button
+            TextColor="Red"
+                    Grid.Column="1"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"
+                    WidthRequest="150"
+                HeightRequest="87"
+			        ImageSource="bactualizar.png"
+			        Clicked="Button_Clicked"
+			        StyleId="Ok"/>
+                </StackLayout>
             </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

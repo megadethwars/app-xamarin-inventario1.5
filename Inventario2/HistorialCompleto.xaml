@@ -4,41 +4,68 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Inventario2.HistorialCompleto">
-    
-    
-    <StackLayout
-		Padding="50,10,50,10">
-        
-        
-        
+             x:Class="Inventario2.HistorialCompleto"
+             >
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-			Padding="0,0,0,10">
-            <Label
-				HorizontalOptions="Center"
-				Text="HISTORIAL" 
-				FontAttributes="Bold"
-				StyleId="Titulo"/>
-        </StackLayout>
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
 
-        <Button
+            <StackLayout
+		Padding="70,10,70,10">
+
+
+
+                <StackLayout
+            Padding="210,20,195,30">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Label
+                            VerticalOptions="Center"
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                            FontSize="30"
+			    HorizontalOptions="Center"
+			    Text="HISTORIAL" 
+			    FontAttributes="Bold"
+			    StyleId="Titulo"/>
+
+                    </Grid>
+
+
+                </StackLayout>
+
+                <Button
+                    WidthRequest="200"
+                HeightRequest="87"
+            TextColor="Red"
             HorizontalOptions="Center"
             FontAttributes="Bold"
-			Text="Busqueda Avanzada"
+            ImageSource="bavanzada.png"
+			
 			Clicked="Avanzada_clicked" />
 
-        <SearchBar
+                <SearchBar
             x:Name="searchbar"
+            BackgroundColor="Gray"
+            TextColor="White"
+            PlaceholderColor="White"
 			Placeholder="Buscar por nombre o ID"
 			CancelButtonColor="Red"
 			SearchButtonPressed="Search_SearchButtonPressed" />
 
-        <Button
+                <Button
 			HorizontalOptions="Center"
             FontAttributes="Bold"
-			Text="Escanear"
+            TextColor="Red"
+            ImageSource="bscanner.png"
+			WidthRequest="150"
+                HeightRequest="87"
 			Clicked="Button_Clicked" />
-        <!--
+                <!--
         <StackLayout
             Orientation="Horizontal" HorizontalOptions="Center">
             <Label
@@ -61,78 +88,84 @@
         </StackLayout>
         -->
 
-        <!--
+                <!--
         <Switch x:Name="includeSwitch"
                     Toggled="IncludeSwitch_Toggled" />
         -->
-        
-        <Grid
+
+                <Grid
 	        ColumnSpacing="10">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="90"/>
-                <ColumnDefinition Width="110"/>
-            </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="110"/>
+                    </Grid.ColumnDefinitions>
 
-            <Label
+                    <Label
                 Text="Usuario:" 
 				FontAttributes="Bold"
                 Grid.Column="0"
+                TextColor="White"
 				/>
 
-            <Label
+                    <Label
                 Text="Producto" 
 				FontAttributes="Bold"
                 Grid.Column="1"
+                TextColor="White"
 				/>
 
-            <Label
+                    <Label
                 Text="Movimiento" 
 				FontAttributes="Bold"
+                TextColor="White"
                 Grid.Column="2"
 				/>
-            <Label
+                    <Label
                 Text="Modelo" 
 				FontAttributes="Bold"
+                TextColor="White"
                 Grid.Column="3"
 				/>
-            
-        </Grid>
+
+                </Grid>
 
 
-        <ScrollView
+                <ScrollView
 			VerticalOptions="FillAndExpand"
 			HeightRequest="350">
-            <StackLayout>
-                <ListView x:Name="postListView"  ItemSelected="PostListView_ItemSelected">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="100"/>
-                                        </Grid.ColumnDefinitions>
+                    <StackLayout>
+                        <ListView x:Name="postListView"  ItemSelected="PostListView_ItemSelected" BackgroundColor="Gray">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell >
+                                        <StackLayout Orientation="Horizontal" BackgroundColor="Gray">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100" />
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding usuario}" Grid.Column="0"/>
-                                        <Label Text="{Binding producto}" Grid.Column="1"/>
-                                        <Label Text="{Binding movimiento}" Grid.Column="2"/>
-                                        <Label Text="{Binding modelo}" Grid.Column="3"/>
+                                                <Label Text="{Binding usuario}" BackgroundColor="Gray" TextColor="White" Grid.Column="0"/>
+                                                <Label Text="{Binding producto}" BackgroundColor="Gray" TextColor="White" Grid.Column="1"/>
+                                                <Label Text="{Binding movimiento}" BackgroundColor="Gray" TextColor="White" Grid.Column="2"/>
+                                                <Label Text="{Binding modelo}" TextColor="White" Grid.Column="3"/>
 
-                                    </Grid>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                
-                
+                                            </Grid>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+                    </StackLayout>
+                </ScrollView>
             </StackLayout>
-        </ScrollView>
-    </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

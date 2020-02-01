@@ -5,49 +5,184 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Inventario2.DetallesCarrito">
-    <ContentPage.Content>
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-		Padding="50,0,50,0">
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <StackLayout
-            Padding="0,0,0,0">
-                <Label
+		Padding="70,10,70,10">
+                <StackLayout
+            Padding="80,20,80,20">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Label
+                            VerticalOptions="Center"
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                            FontSize="30"
 			    HorizontalOptions="Center"
 			    Text="DETALLES DEL PRODUCTO" 
 			    FontAttributes="Bold"
-			    />
-            </StackLayout>
+			    StyleId="Titulo"/>
 
-            <Label
-		    Text="Nombre del Producto:"
-			FontAttributes="Bold"/>
-            <Label
-			x:Name="nameProd"
-            />
-            <Label
-			Text="Marca"
-			FontAttributes="Bold"/>
-            <Label
-			x:Name="marcatxt"
-            />
-            <Label
-			Text="Modelo:"
-			FontAttributes="Bold"/>
-            <Label
-			x:Name="modeltxt"
-            StyleId="informacion"/>
-            <Label
-			Text="Cantidad:"
-			FontAttributes="Bold"/>
-            <Label
-			x:Name="cantidadtxt"
-            />
-            <Label
-			Text="Observaciones:"
-			FontAttributes="Bold" />
-            <Label
-			x:Name="observtxt"
-            />
+                    </Grid>
+
+
+                </StackLayout>
+
+                <StackLayout 
             
+			Orientation="Horizontal">
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="NOMBRE DEL PRODUCTO:"
+				FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="nameProd"
+                StyleId="informacion"/>
+                </StackLayout>
+
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="MARCA:"
+				FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="marcatxt"
+                StyleId="informacion"/>
+                </StackLayout>
+
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="MODELO:"
+				FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="modeltxt"
+                StyleId="informacion"/>
+                </StackLayout>
+
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="CANTIDAD:"
+				FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="cantidadtxt"
+                StyleId="informacion"/>
+                </StackLayout>
+
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="OBSERVACION:"
+				FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="observtxt"
+                StyleId="informacion"/>
+                </StackLayout>
+
+                <StackLayout>
+
+                    <Label Text="CANTIDAD (por default es 1):"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="cantidad"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca cantidad"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout>
+
+                    <Label Text="OBSERVACIONES:"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="observ"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Usuario"
+                   TextColor="White"/>
+                </StackLayout>
+                <Button ImageSource="bactualizar.png"
+                        HeightRequest="87"
+                        
+                        WidthRequest="120"
+                    Clicked="Button_Clicked"/>
+
+
+            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+    </AbsoluteLayout>
 </ContentPage> 

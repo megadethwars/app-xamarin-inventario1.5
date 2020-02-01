@@ -4,56 +4,143 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Inventario2.FormFieldsHistorial">
-    
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="BUSQUEDA AVANZADA"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+             x:Class="Inventario2.FormFieldsHistorial"
+             
+             >
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
+        <StackLayout
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout Padding="70,40,70,10">
+                <StackLayout
+            Padding="105,20,105,30">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Label
+                            VerticalOptions="Center"
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                            FontSize="30"
+			    HorizontalOptions="Center"
+			    Text="BUSQUEDA AVANZADA" 
+			    FontAttributes="Bold"
+			    StyleId="Titulo"/>
 
-            <Label Text="usuario" />
-            <Entry Text="" x:Name="InUsuario"/>
+                    </Grid>
 
-            <Label Text="ID Product" />
-            <Entry Text="" x:Name="InIDProduct"/>
 
-            <Label Text="Movimiento" />
-            <Entry Text="" x:Name="InMove"/>
+                </StackLayout>
+                <StackLayout>
 
-            <Label Text="Producto" />
-            <Entry Text="" x:Name="InProd"/>
+                    <Label Text="USUARIO:"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="InUsuario"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Usuario"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="ID Product:"
+                CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="InIDProduct"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca ID"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="MOVIMIENTO:"
+                   TextColor="White"
+                    CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   />
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="InMove"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Movimiento"
+                   TextColor="White"/>
+                </StackLayout>
 
-            <Label Text="Modelo" />
-            <Entry Text="" x:Name="InModel"/>
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Habilitar Fecha" />
-                <Switch x:Name="DateSwitch"
+                <StackLayout>
+                    <Label Text="PRODUCTO:"
+                   TextColor="White"
+                    CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="InProd"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="INTRODUZCA NOMBRE DEL PRODUCTO"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="MODELO:" 
+                   TextColor="White"
+                   CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="InModel"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="INTRODUZCA MODELO DEL PRODUCTO"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="HABILITAR FECHA:" 
+                   CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+                   FontSize="Large"
+                       TextColor="White"/>
+                    <Switch x:Name="DateSwitch"
+                    OnColor="White"
+                    ThumbColor="Red"
+                    
                     
                     Toggled="DateSwitch_Toggled" />
-                
-            </StackLayout>
 
-            
-
-            
-            
-            <DatePicker
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <DatePicker 
 		        x:Name="datePickerStart"
                 Format="dd/MM/yyyy"/>
+                </StackLayout >
+
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
 
 
-            <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
-                
 
+                    <Button TextColor="Red" ImageSource="baceptar.png" Grid.Column="1" WidthRequest="150" Clicked="OnAccept"></Button>
+                    <Button ImageSource="bcancelar.png" TextColor="Red" Grid.Column="2" WidthRequest="150" Clicked="OnCancel"></Button>
+                </StackLayout>
 
-                <Button Text="aceptar"  Grid.Column="1" Clicked="OnAccept"></Button>
-                <Button Text="Cancelar"  Grid.Column="2" Clicked="OnCancel"></Button>
-            </StackLayout>
-
-            <!--
+                <!--
             <Grid
                 
                 HorizontalOptions="Start"
@@ -74,11 +161,8 @@
 
             </Grid>
             -->
-            
+
+            </StackLayout>
         </StackLayout>
-        
-    </ContentPage.Content>
-    
-    
-    
+    </AbsoluteLayout>
 </ContentPage>

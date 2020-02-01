@@ -17,7 +17,7 @@ namespace Inventario2
     public partial class Carrito : ContentPage
     {
         
-        RetirarProducto re;
+        public RetirarProducto re;
         public Carrito(RetirarProducto r)
         {
             InitializeComponent();
@@ -26,12 +26,18 @@ namespace Inventario2
             
 
         }
+        protected override void OnDisappearing()
+        {
+            re.cont = 0;
+            base.OnDisappearing();
+        }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             //re.mv.Clear();
-            //postListView.ItemsSource = re.mv;
+            postListView.ItemsSource = null;
+            postListView.ItemsSource = re.mv;
             
                 
         }
@@ -70,7 +76,7 @@ namespace Inventario2
             postListView.ItemsSource = re.mv;
         }
 
-        private async void Acept_Clicked(object sender, EventArgs e)
+       /* private async void Acept_Clicked(object sender, EventArgs e)
         {
             Boolean v = true;
             Boolean password = false;
@@ -132,7 +138,7 @@ namespace Inventario2
             
             
         }
-
+        */
         
         private async void UploadFile(Stream stream,string PathFoto)
         {
@@ -145,6 +151,11 @@ namespace Inventario2
             await block.UploadFromStreamAsync(stream);
             string url = block.Uri.OriginalString;
             re.f1.Clear();
+        }
+
+        private void acept_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Confirmar(this));
         }
     }
 }

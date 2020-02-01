@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
-
+using Microsoft.WindowsAzure.Storage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,14 +19,21 @@ namespace Inventario2
         {
             InitializeComponent();
             this.n = db;
-            nameProd.Text = n.Nombre;
-            idCodigo.Text = n.Codigo;
+            nameProd.Text = n.nombre;
+            idCodigo.Text = n.codigo;
             idcantidad.Text = n.cantidad;
             idlugar.Text = n.lugar;
             idobserv.Text = n.observaciones;
-            idProd.Text = n.ID.ToString();
+            //idProd.Text = n.ID.ToString();
             idmarca.Text = n.marca;
+            idcompra.Text = n.compra;
+            idcosto.Text = n.costo;
+            idorigen.Text = n.origen;
+            idserie.Text = n.serie;
+            iddesc.Text = n.descompostura;
+            idpert.Text = n.pertenece;
             idFecha.Text = n.Fecha;
+
             idmodelo.Text = n.modelo;
             imagen.Source = "https://fotosavs.blob.core.windows.net/fotosinventario/"+n.foto;
         }
@@ -41,8 +48,12 @@ namespace Inventario2
                     try
                     {
                         await App.MobileService.GetTable<InventDB>().DeleteAsync(n);
-
-
+                        var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fotosavs;AccountKey=NLazg0RjiUxSF9UvkeSWvNYicNDSUPn4IoXp4KSKXx0qe+W2bt40BrGFK6M+semkKHHOV5T4Ya2eNKDDQNY57A==;EndpointSuffix=core.windows.net");
+                        var client = account.CreateCloudBlobClient();
+                        var container = client.GetContainerReference("fotosinventario");
+                        await container.CreateIfNotExistsAsync();
+                        var block = container.GetBlockBlobReference($"{n.foto}");
+                        await block.DeleteIfExistsAsync();
                         await DisplayAlert("Hecho", "Producto borrado exitosamente", "Aceptar");
                         await Navigation.PopAsync();
                     }

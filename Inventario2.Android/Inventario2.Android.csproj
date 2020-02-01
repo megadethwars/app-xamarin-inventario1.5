@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -53,13 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Mobile.Client">
-      <Version>4.1.1</Version>
+      <Version>4.1.2</Version>
     </PackageReference>
     <PackageReference Include="Plugin.Permissions">
       <Version>3.0.0.12</Version>
-    </PackageReference>
-    <PackageReference Include="sqlite-net-pcl">
-      <Version>1.6.292</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Pdf">
       <Version>17.3.0.14</Version>
@@ -140,7 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inventario2\Inventario2.csproj">
-      <Project>{71D24A1D-282F-465B-B720-49DF103DEF45}</Project>
+      <Project>{156F16F4-3BF9-49B7-9362-79889137DEF0}</Project>
       <Name>Inventario2</Name>
     </ProjectReference>
   </ItemGroup>

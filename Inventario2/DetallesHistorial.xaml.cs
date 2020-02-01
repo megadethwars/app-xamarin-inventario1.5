@@ -17,7 +17,7 @@ namespace Inventario2
             InitializeComponent();
             nameUser.Text = mv.usuario;
             nameProd.Text = mv.producto;
-            idProd.Text = mv.IdProducto;
+            idCodigo.Text = mv.codigo;
             idmarca.Text = mv.marca;
             idmodelo.Text = mv.modelo;
             idcantidad.Text = mv.cantidad;

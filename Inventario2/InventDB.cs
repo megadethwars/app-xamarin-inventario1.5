@@ -12,9 +12,9 @@ namespace Inventario2
         
         public string ID { get; set; }
 
-        public string Codigo { get; set; }
+        public string codigo { get; set; }
         
-        public string Nombre { get; set; }      
+        public string nombre { get; set; }      
 
         public string marca { get; set; }
 
@@ -26,8 +26,24 @@ namespace Inventario2
 
         public string cantidad { get; set; }
 
+        public string origen { get; set; }
+
         public string observaciones { get; set; }
 
         public string lugar { get; set; }
+
+        public string pertenece { get; set; }
+
+        public string descompostura { get; set; }
+
+        public string costo { get; set; }
+
+        public string compra { get; set; }
+
+        public string serie { get; set; }
+
+        public string proveedor { get; set; }
+
+
     }
 }

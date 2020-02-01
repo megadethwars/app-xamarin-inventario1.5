@@ -13,22 +13,27 @@ namespace Inventario2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Menu : ContentPage
     {
+        public PDFMovement pdfmovement;
         public Usuario user;
         public Menu(Usuario u)
         {
+            pdfmovement = new PDFMovement("");
             InitializeComponent();
             user = u;
-            
+            User.nombre = user.nombre;
+            User.apellido_paterno = user.apellido_paterno;
+            User.ID = user.ID;
+            User.correo = user.correo;
         }
 
         private void Ir_Perfil(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new MiPerfil());
+            Navigation.PushAsync(new MiPerfil(user));
         }
 
         private void Ir_Inventario(object sender, EventArgs e)
         {
-            if(user.tipoUsuario=="Administrador" || user.tipoUsuario=="Almacen")
+            if (user.tipoUsuario == "Administrador" || user.tipoUsuario == "Almacen")
                 Navigation.PushAsync(new Inventario());
         }
 
@@ -36,7 +41,7 @@ namespace Inventario2
         { //Hacer validacion y si es administrador o de bodega accede al historial completo, si es usuario accede a su historial propio
           //tipo=
           //if (tipo==usuario)
-            //Navigation.PushAsync(new HistorialUsuario());
+          //Navigation.PushAsync(new HistorialUsuario());
             Navigation.PushAsync(new HistorialCompleto());
         }
 
@@ -62,5 +67,12 @@ namespace Inventario2
             Navigation.PushAsync(new Ajustes());
         }
 
+        //solo de prueba
+        private void testPDF(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(pdfmovement);
+        }
+
     }
 }
+    

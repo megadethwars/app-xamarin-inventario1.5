@@ -4,51 +4,127 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Inventario2.MiPerfil">
-    <ContentPage.Resources>
-        <StyleSheet Source="Estilo.css"/>
-    </ContentPage.Resources>
-    
-    <StackLayout
-		Padding="50,20,50,20">
+             x:Class="Inventario2.MiPerfil"
+             
+             >
+
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-			Padding="0,0,0,70">
-            <Label
-				HorizontalOptions="Center"
-				Text="MI PERFIL" 
-				FontAttributes="Bold"
-				StyleId="Titulo"/>
-        </StackLayout>
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout
+		Padding="70,20,70,20">
+                <StackLayout
+            Padding="210,20,210,20">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Label
+                            VerticalOptions="Center"
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                            FontSize="30"
+			    HorizontalOptions="Center"
+			    Text="MI PERFIL" 
+			    FontAttributes="Bold"
+			    StyleId="Titulo"/>
 
-        <StackLayout>
-            <Button
-                StyleId="foto"
-				HorizontalOptions="Center"
-                FontAttributes="Bold"
-				WidthRequest="200"
-			    HeightRequest="200"
-                BorderRadius="100"/>
-        </StackLayout>
+                    </Grid>
 
-        <StackLayout 
+
+                </StackLayout>
+
+                <StackLayout>
+                    <Image HeightRequest="150"
+                   WidthRequest="150"
+                   Source="iconoperfil.png"></Image>
+                </StackLayout>
+
+                <StackLayout 
 			Orientation="Horizontal">
-            <Label
-				Text="Nombre:"
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="NOMBRE:"
+                
 				FontAttributes="Bold"/>
-            <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                        FontSize="Large"
+                
+                TextColor="White"
 				x:Name="name"
                 StyleId="informacion"/>
-        </StackLayout>
+                </StackLayout>
 
-        <StackLayout 
+                <StackLayout 
+            
 			Orientation="Horizontal">
-            <Label
-				Text="ID del Empleado:"
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="TIPO DE EMPLEADO:"
 				FontAttributes="Bold"/>
-            <Label
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
 				x:Name="idPersonal"
                 StyleId="informacion"/>
-        </StackLayout>
+                </StackLayout>
 
-    </StackLayout>
+                <StackLayout 
+			Orientation="Horizontal">
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="TELEFONO:"
+				FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                 FontFamily="Montserrat-Light"
+                FontSize="Large"
+                
+                TextColor="White"
+				x:Name="idtel"
+                StyleId="informacion"/>
+                </StackLayout>
+                <StackLayout 
+			Orientation="Horizontal">
+                    <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="CORREO:"
+				FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,20">
+                    <Label
+                FontSize="Large"
+                
+                FontFamily="Montserrat-Light"
+                TextColor="White"
+				x:Name="idCorreo"
+                StyleId="informacion"/>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

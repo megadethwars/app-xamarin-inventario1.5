@@ -54,5 +54,32 @@ namespace Inventario2
             }
         }
 
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                if (correoChange.Text != null)
+                    usuario.correo = correoChange.Text;
+                if (changetel.Text != null)
+                    usuario.telefono = changetel.Text;
+                if (correoChange.Text != null || changetel.Text != null)
+                {
+                    await App.MobileService.GetTable<Usuario>().UpdateAsync(usuario);
+                    await DisplayAlert("ACTUALIZAR", "DATOS ACTUALIZADOS CORRECTAMENTE", "ACEPTAR");
+                    telText.Text = usuario.telefono;
+                    correotext.Text = usuario.correo;
+                }
+                else
+                    await DisplayAlert("ERROR", "NO HAY DATOS PARA ACTUALIZAR", "ACEPTAR");
+            }
+            catch (MobileServiceInvalidOperationException ms)
+            {
+
+
+                await DisplayAlert("Error", "Error al actualizar el producto", "Aceptar");
+
+            }
+            
+        }
     }
 }

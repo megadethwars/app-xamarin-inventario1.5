@@ -7,18 +7,26 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Inventario2.Model;
 using Microsoft.WindowsAzure.MobileServices;
+using Plugin.Media;
+using System.IO;
+using Microsoft.WindowsAzure.Storage;
 
 namespace Inventario2
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AgregarEmpleado : ContentPage
     {
-        public string identi = Guid.NewGuid().ToString();
+        Plugin.Media.Abstractions.MediaFile f;
+        public static MobileServiceClient client = new MobileServiceClient("https://inventarioavs.azurewebsites.net");
+        public string identi;
+        public string PathFoto;
         public string tipousuario;
         public AgregarEmpleado()
         {
             InitializeComponent();
-            
+            identi = Guid.NewGuid().ToString();
+
+
         }
         private void GenerateID(object sender, EventArgs e)
         {//Generar ID usando Data Binding y asignarlo a la variable idEmp
@@ -47,7 +55,8 @@ namespace Inventario2
                 try
                 {
                     await App.MobileService.GetTable<Usuario>().InsertAsync(user);
-                    //UploadFile(f.GetStream());
+                    if (!(f == null))
+                        UploadFile(f.GetStream());
                     await DisplayAlert("Agregado", "Usuario agregado correctamente", "Aceptar");
                     await Navigation.PopAsync();
 
@@ -66,6 +75,43 @@ namespace Inventario2
         private void PickerUser_SelectedIndexChanged(object sender, EventArgs e)
         {
             tipousuario = pickerUser.SelectedItem as string;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+            if (!CrossMedia.Current.IsCameraAvailable ||
+                !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No Camera", ": No camera available", "OK");
+                return;
+            }
+
+            f = await CrossMedia.Current.TakePhotoAsync(
+              new Plugin.Media.Abstractions.StoreCameraMediaOptions
+              {
+                  Directory = "Sample",
+
+                  Name = nombrEntry.Text + ".jpg"
+              });
+            if (f == null)
+                return;
+            await DisplayAlert("File Location", f.Path, "OK");
+            imagen.Source = f.Path;
+            f.GetStream();
+        }
+        private async void UploadFile(Stream stream)
+        {
+            var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fotosavs;AccountKey=NLazg0RjiUxSF9UvkeSWvNYicNDSUPn4IoXp4KSKXx0qe+W2bt40BrGFK6M+semkKHHOV5T4Ya2eNKDDQNY57A==;EndpointSuffix=core.windows.net");
+            var client = account.CreateCloudBlobClient();
+            var container = client.GetContainerReference("fotosempleados");
+            await container.CreateIfNotExistsAsync();
+
+
+
+            var block = container.GetBlockBlobReference($"{identi}.jpg");
+            await block.UploadFromStreamAsync(stream);
+            string url = block.Uri.OriginalString;
         }
     }
 }

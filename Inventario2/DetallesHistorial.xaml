@@ -4,83 +4,227 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Inventario2.DetallesHistorial">
-    <StackLayout
-		Padding="50,0,50,0">
+             x:Class="Inventario2.DetallesHistorial"
+             >
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-            Padding="0,0,0,0">
-            <Label
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+            <ScrollView>
+                <StackLayout
+		Padding="70,0,70,0">
+                    <StackLayout
+            Padding="0,0,0,30">
+                        <Label
+                FontFamily="Montserrat-Bold"
 			    HorizontalOptions="Center"
+                TextColor="White"
+                FontSize="Large"
 			    Text="DETALLES DEL PRODUCTO" 
 			    FontAttributes="Bold"
 			    />
-        </StackLayout>
-        <Label
-		    Text="Usuario:"
+                    </StackLayout>
+                    <StackLayout>
+                        <Label
+            FontFamily="Montserrat-Bold"
+		    Text="USUARIO:"
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            FontFamily="Montserrat-Light"
+                            FontSize="Large"
 			x:Name="nameUser"
+            TextColor="White"
+                
             StyleId="informacion"/>
-        <Label
-		    Text="Nombre del Producto:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+		    Text="NOMBRE DEL PRODUCTO:"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+            FontFamily="Montserrat-Light"
+                            FontSize="Large"
 			x:Name="nameProd"
             StyleId="informacion"/>
-        <Label
-			Text="ID del Producto:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="CODIGO QR:"
 			FontAttributes="Bold"/>
-        <Label
-			x:Name="idProd"
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontFamily="Montserrat-Light"
+                            FontSize="Large"
+			x:Name="idCodigo"
             StyleId="informacion"/>
-        <Label
-			Text="Marca:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="MARCA:"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                FontFamily="Montserrat-Light"
 			x:Name="idmarca"
             StyleId="informacion"/>
-        <Label
-			Text="Modelo:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="MODELO:"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                FontFamily="Montserrat-Light"
 			x:Name="idmodelo"
             StyleId="informacion"/>
-        <Label
-			Text="Cantidad:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="CANTIDAD:"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+               FontFamily="Montserrat-Light"
 			x:Name="idcantidad"
             StyleId="informacion"/>
-        <Label
-			Text="Observaciones:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="OBSERVACIONES:"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                FontFamily="Montserrat-Light"
 			x:Name="idobserv"
             StyleId="informacion"/>
-        <Label
-			Text="Lugar:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="LUGAR:"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                FontFamily="Montserrat-Light"
 			x:Name="idlugar"
             StyleId="informacion"/>
-        <Label
-			Text="Tipo de Movimiento:"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="TIPO DE MOVIMIENTO:"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                FontFamily="Montserrat-Light"
 			x:Name="idMove"
             StyleId="informacion"/>
-        <Label
-			Text="Fecha de Movimiento :"
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
+			Text="FECHA DE MOVIMIENTO :"
 			FontAttributes="Bold"/>
-        <Label
+                    </StackLayout>
+                    <StackLayout Padding="40,0,20,20">
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                FontFamily="Montserrat-Light"
 			x:Name="idFecha"
             StyleId="informacion"/>
-        <Label
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label
+            TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+            FontFamily="Montserrat-Bold"
 			Text="Foto :"
 			FontAttributes="Bold"/>
-        <Image
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="Center">
+                        <Image
             x:Name="imagen"
             WidthRequest="150"
             HeightRequest="100"/>
-    </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>
