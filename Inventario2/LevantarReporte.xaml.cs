@@ -231,7 +231,8 @@ namespace Inventario2
             
         }
 
-        private void Consultar_Reporte(object sender, EventArgs e) { 
+        private void Consultar_Reporte(object sender, EventArgs e) {
+            Navigation.PushAsync(new ConsultarReporte());
         }
 
     }

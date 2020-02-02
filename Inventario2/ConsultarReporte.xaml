@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Inventario2.ConsultarReporte">
+    
+    <StackLayout>
+        
+        <StackLayout
+			Padding="0,0,0,50">
+            <Label
+				HorizontalOptions="Center"
+				Text="CONSULTA DE REPORTE" 
+				FontAttributes="Bold"
+				StyleId="Titulo"/>
+        </StackLayout>
+
+        <ScrollView
+            >
+            <StackLayout>
+                <StackLayout 
+			        Orientation="Horizontal">
+
+                    <Label
+				        Text="Producto:"
+				        FontAttributes="Bold"/>
+
+                    <Entry x:Name="nombreID"
+				        HorizontalOptions="FillAndExpand"
+				        Placeholder="Nombre o ID del Producto"
+                        Completed="OnEnterPressed"   />
+
+                </StackLayout>
+
+                <Button
+			        HorizontalOptions="Center"
+			        Text="Escanear"
+			        FontAttributes="Bold"			       
+			        Clicked="Scan"/>
+
+                
+                    <Grid
+	                    ColumnSpacing="10">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                                                      
+                        </Grid.ColumnDefinitions>
+
+                                <Label
+                        Text="Codigo" 
+				        FontAttributes="Bold"
+                        Grid.Column="0"
+				        />
+
+                                <Label
+                        Text="Producto" 
+				        FontAttributes="Bold"
+                        Grid.Column="1"
+				        />
+
+                                <Label
+                        Text="Serie" 
+				        FontAttributes="Bold"
+                        Grid.Column="2"
+				        />
+                                <Label
+                        Text="Marca" 
+				        FontAttributes="Bold"
+                        Grid.Column="3"
+				        />
+
+                                <Label
+                        Text="Modelo" 
+				        FontAttributes="Bold"
+                        Grid.Column="4"
+				        />
+
+                       
+                    </Grid>
+
+
+                <ScrollView
+			VerticalOptions="FillAndExpand"
+			HeightRequest="350">
+                    <StackLayout>
+                        <ListView x:Name="postListView"  ItemSelected="PostListView_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Text="{Binding codigo}" Grid.Column="0"/>
+                                                <Label Text="{Binding producto}" Grid.Column="1"/>
+                                                <Label Text="{Binding serie}" Grid.Column="2"/>
+                                                <Label Text="{Binding marca}" Grid.Column="3"/>
+                                                <Label Text="{Binding modelo}" Grid.Column="4"/>
+
+                                            </Grid>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+                    </StackLayout>
+                </ScrollView>
+
+
+            </StackLayout>
+        </ScrollView>
+        
+        
+    </StackLayout>
+        
+            
+    
+</ContentPage>
