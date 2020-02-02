@@ -112,7 +112,17 @@
                 </ScrollView>
 
                 <StackLayout
-			        HorizontalOptions="End">
+                    Orientation="Horizontal"
+			        HorizontalOptions="Center">
+                    
+                    <Button
+				        Text="Consultar Reporte"
+				        Clicked="Consultar_Reporte"
+				        HorizontalOptions="Start"
+				        FontAttributes="Bold"
+				        StyleId="Ok"/>
+                    
+                    
                     <Button
 				        Text="Enviar"
 				        Clicked="Enviar_Reporte"

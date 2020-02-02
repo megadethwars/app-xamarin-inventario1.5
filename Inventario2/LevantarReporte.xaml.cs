@@ -22,7 +22,7 @@ namespace Inventario2
         private Model.Reportes reporte;
         private string ID = Guid.NewGuid().ToString();
 
-       
+        private bool isFull = false;
         public string PathFoto;
         public string stringphoto;
         public LevantarReporte(string c)
@@ -63,14 +63,18 @@ namespace Inventario2
                 lbSerie.Text = device.serie;
                 lbModelo.Text = device.modelo;
                 lbAccDe.Text = device.pertenece;
+                isFull = true;
             }
             catch
             {
                 await DisplayAlert("No Product", "producto no encontrado", "OK");
+                isFull = false;
             }
             
             
         }
+
+
 
         protected override void OnDisappearing()
         {
@@ -125,35 +129,47 @@ namespace Inventario2
         {
             if (nombreID!=null)
             {
-                List<InventDB> tabladevice = await QueryDevice(scanText);
+                List<InventDB> tabladevice = await QueryDevice(nombreID.Text);
+                fillDevice(tabladevice);
             }
         }
         private async void Enviar_Reporte(object sender, EventArgs e)
         {
-            reporte.foto = Guid.NewGuid().ToString();
-            string id = reporte.foto;
-            reporte.codigo = device.codigo;
-            reporte.marca = device.marca;
-            reporte.serie = device.serie;
-            reporte.modelo = device.modelo;
-            reporte.producto = device.nombre;
-            reporte.comentario = editor.Text;
-            reporte.ID = id;
-            PathFoto = id;
-            bool res =await PostReport(reporte);
 
-            //enviar foto
-            if (camara != null)
+            if (isFull)
             {
-                UploadFile(camara.GetStream());
+                reporte.foto = Guid.NewGuid().ToString();
+                string id = reporte.foto;
+                reporte.codigo = device.codigo;
+                reporte.marca = device.marca;
+                reporte.serie = device.serie;
+                reporte.modelo = device.modelo;
+                reporte.producto = device.nombre;
+                reporte.comentario = editor.Text;
+                reporte.ID = id;
+                PathFoto = id;
+                bool res = await PostReport(reporte);
+
+                //enviar foto
+                if (camara != null)
+                {
+                    UploadFile(camara.GetStream());
+
+                }
+
+                editor.Text = "";
+                if (res)
+                {
+                    await DisplayAlert("Mensaje", "Reporte subido correctamente", "OK");
+                    await Navigation.PopAsync();
+                }
+            }
+            else
+            {
+                await DisplayAlert("Mensaje", "No se encontro producto para enviar", "OK");
             }
 
-            editor.Text = "";
-            if (res)
-            {
-                await DisplayAlert("Mensaje", "Reporte subido correctamente", "OK");
-                await Navigation.PopAsync();
-            }
+            
         }
 
         private async Task<List<InventDB>> QueryDevice(string codigo)
@@ -180,7 +196,8 @@ namespace Inventario2
             try
             {
                 await App.MobileService.GetTable<Model.Reportes>().InsertAsync(reporte);
-
+                device.observaciones = reporte.comentario;
+                await App.MobileService.GetTable<InventDB>().UpdateAsync(device);
                 return true;
             }
             catch (Exception ex)
@@ -212,6 +229,9 @@ namespace Inventario2
                 await DisplayAlert("Error al subir imagen","error de post", "OK");
             }
             
+        }
+
+        private void Consultar_Reporte(object sender, EventArgs e) { 
         }
 
     }
