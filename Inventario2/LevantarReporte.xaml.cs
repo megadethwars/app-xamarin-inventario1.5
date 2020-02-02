@@ -22,7 +22,7 @@ namespace Inventario2
         private Model.Reportes reporte;
         private string ID = Guid.NewGuid().ToString();
 
-        Plugin.Media.Abstractions.MediaFile f;
+       
         public string PathFoto;
         public string stringphoto;
         public LevantarReporte(string c)
