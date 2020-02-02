@@ -53,30 +53,14 @@
 			        x:Name="nameEmp"
                      StyleClass="informacion"/>
                 </StackLayout>
-                <StackLayout>
-                    <Label
-                     TextColor="White"
-                         FontFamily="Montserrat-Bold"
-                FontSize="Large"
-                CharacterSpacing="4"
-			        Text="ID del Empleado:"
-			        FontAttributes="Bold"/>
-                </StackLayout>
-                <StackLayout Padding="40,0,20,0">
-                    <Label
-                    TextColor="White"
-			        x:Name="idEmpAsig"
-                        FontFamily="Montserrat-Light"
-                        FontSize="Large"
-                    StyleClass="informacion"/>
-                </StackLayout>
+                
                 <StackLayout>
                     <Label
                          FontFamily="Montserrat-Bold"
                 FontSize="Large"
                 CharacterSpacing="4"
                     TextColor="White"
-			        Text="Fecha de contratacion:"
+			        Text="Fecha de ingreso:"
 			        FontAttributes="Bold"/>
                 </StackLayout>
                 <StackLayout Padding="40,0,20,0">
@@ -140,6 +124,22 @@
                 </StackLayout>
                 <StackLayout>
 
+                    <Label Text="CAMBIAR NOMBRE:"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry x:Name="changename"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Nombre"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout>
+
                     <Label Text="CAMBIAR CORREO:"
                CharacterSpacing="2"
                FontFamily="Montserrat-Bold"
@@ -148,7 +148,7 @@
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout Padding="40,0,20,10">
-                    <Entry Text="" x:Name="correoChange"
+                    <Entry x:Name="correoChange"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
                    Placeholder="Introduzca Correo"
@@ -164,19 +164,53 @@
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout Padding="40,0,20,10">
-                    <Entry Text="" x:Name="changetel"
+                    <Entry x:Name="changetel"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="Introduzca Telefono"
+                   Placeholder="Introduzca Contraseña"
                    TextColor="White"/>
                 </StackLayout>
+                
+                <StackLayout>
+
+                    <Label Text="CAMBIAR CONTRASEÑA:"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry x:Name="changecontra"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Contraseña"
+                   TextColor="White"/>
+                </StackLayout>
+
+                <StackLayout>
+
+                    <Label Text="CONFIRMAR CONTRASEÑA:"
+               CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"
+                   TextColor="White"/>
+                </StackLayout>
+                <StackLayout Padding="40,0,20,10">
+                    <Entry x:Name="changecontra2"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Contraseña"
+                   TextColor="White"/>
+                </StackLayout>
+
+                
                 <StackLayout 
                     Orientation="Horizontal"
-                    HorizontalOptions="FillAndExpand">
+                    HorizontalOptions="Center">
                     <Button
-                        BorderColor="Blue"
-                        BorderWidth="15"
-                        TextColor="Red"
+                        
                         HorizontalOptions="Start"
                         WidthRequest="150"
                         HeightRequest="87"
@@ -184,9 +218,7 @@
 			            Clicked="Button_Clicked"
 			            StyleId="Ok"/>
                     <Button
-                        BorderColor="Red"
-                        BorderWidth="15"
-                        TextColor="Red"
+                        
                         HorizontalOptions="End"
                         VerticalOptions="End"
                         WidthRequest="150"

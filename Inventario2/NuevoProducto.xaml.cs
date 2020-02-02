@@ -63,6 +63,7 @@ namespace Inventario2
                 await App.MobileService.GetTable<InventDB>().InsertAsync(invent);
                 if(!(f == null))
                     UploadFile(f.GetStream());
+                
                 await DisplayAlert("Agregado","Producto agregado correctamente","Aceptar");
                 await Navigation.PopAsync();
                

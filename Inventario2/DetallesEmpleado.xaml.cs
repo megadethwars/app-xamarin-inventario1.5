@@ -20,7 +20,7 @@ namespace Inventario2
             InitializeComponent();
             this.usuario = user;
             nameEmp.Text = usuario.nombre + " " + usuario.apellido_paterno+" "+usuario.apellido_materno;
-            idEmpAsig.Text = usuario.ID.ToString();
+            
             fechaCont.Text = usuario.fechaContratacion;
             tipoUs.Text = usuario.tipoUsuario;
             telText.Text = usuario.telefono;
@@ -62,12 +62,34 @@ namespace Inventario2
                     usuario.correo = correoChange.Text;
                 if (changetel.Text != null)
                     usuario.telefono = changetel.Text;
-                if (correoChange.Text != null || changetel.Text != null)
+                if (changename.Text != null)
+                    usuario.nombre = changename.Text;
+                if (correoChange.Text != null || changetel.Text != null || changename.Text != null || changecontra.Text != null)
                 {
-                    await App.MobileService.GetTable<Usuario>().UpdateAsync(usuario);
-                    await DisplayAlert("ACTUALIZAR", "DATOS ACTUALIZADOS CORRECTAMENTE", "ACEPTAR");
-                    telText.Text = usuario.telefono;
-                    correotext.Text = usuario.correo;
+                    if (changecontra.Text != null && changecontra2.Text !=null)
+                    {
+                        if (changecontra.Text == changecontra2.Text)
+                        {
+                            usuario.contrasena = changecontra.Text;
+                            await App.MobileService.GetTable<Usuario>().UpdateAsync(usuario);
+                            await DisplayAlert("ACTUALIZAR", "DATOS Y CONTRASEÑA ACTUALIZADOS CORRECTAMENTE", "ACEPTAR");
+                            nameEmp.Text = usuario.nombre + " " + usuario.apellido_paterno + " " + usuario.apellido_materno;
+                            telText.Text = usuario.telefono;
+                            correotext.Text = usuario.correo;
+
+                        }
+                        else
+                            await DisplayAlert("ERROR", "Contraseñas no coinciden", "ACEPTAR");
+
+                    }
+                    else
+                    {
+                        await App.MobileService.GetTable<Usuario>().UpdateAsync(usuario);
+                        await DisplayAlert("ACTUALIZAR", "DATOS SADA ACTUALIZADOS CORRECTAMENTE", "ACEPTAR");
+                        telText.Text = usuario.telefono;
+                        correotext.Text = usuario.correo;
+                        nameEmp.Text = usuario.nombre + " " + usuario.apellido_paterno + " " + usuario.apellido_materno;
+                    }
                 }
                 else
                     await DisplayAlert("ERROR", "NO HAY DATOS PARA ACTUALIZAR", "ACEPTAR");

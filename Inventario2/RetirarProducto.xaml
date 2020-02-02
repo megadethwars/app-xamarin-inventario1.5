@@ -21,7 +21,7 @@
             <StackLayout
 		Padding="70,20,70,20">
                 <StackLayout
-            Padding="215,20,215,30">
+            Padding="190,20,190,30">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
                         <Image Source="tache.png" HorizontalOptions="End"/>
@@ -161,11 +161,9 @@
                         </StackLayout>
                         <StackLayout Padding="40,0,20,20">
                             <Label
-                 FontFamily="Montserrat-Light"
-                       
+                 FontFamily="Montserrat-Light"               
                 TextColor="White"
                 FontSize="Large"
-                
 				x:Name="pertenece"
                 StyleId="informacion"/>
                         </StackLayout>
