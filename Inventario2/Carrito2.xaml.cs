@@ -157,5 +157,18 @@ namespace Inventario2
         {
             Navigation.PushAsync(new Confirmar2(this));
         }
+
+        void ToolbarItem_Clicked_1(System.Object sender, System.EventArgs e)
+        {
+            var lista = Navigation.NavigationStack;
+            for (int x = 0; x < lista.Count; x++)
+            {
+                if (x > 1 && x < lista.Count)
+                {
+                    Navigation.RemovePage(lista[x]);
+                }
+            }
+            Navigation.PopAsync();
+        }
     }
 }

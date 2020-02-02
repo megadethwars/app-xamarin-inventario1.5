@@ -6,6 +6,12 @@
              mc:Ignorable="d"
              x:Class="Inventario2.IngresarProducto">
     <ContentPage.ToolbarItems>
+        
+        <ToolbarItem Text="HOME"  Clicked="ToolbarItem_Clicked_1" />
+        <ToolbarItem Text="           " />
+        <ToolbarItem Text="           " />
+        <ToolbarItem Text="           " />
+        <ToolbarItem Text="          " />
         <ToolbarItem Text="Borrar Todo" Clicked="ToolbarItem_Clicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
 

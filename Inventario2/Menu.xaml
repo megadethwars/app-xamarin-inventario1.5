@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="Inventario2.Menu"
            >
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">

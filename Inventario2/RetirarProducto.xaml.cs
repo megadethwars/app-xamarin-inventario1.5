@@ -15,20 +15,21 @@ namespace Inventario2
     public partial class RetirarProducto : ContentPage
     {
         public List<Plugin.Media.Abstractions.MediaFile> f1 = new List<Plugin.Media.Abstractions.MediaFile>();
-        Plugin.Media.Abstractions.MediaFile f = null ;
+        Plugin.Media.Abstractions.MediaFile f = null;
         string p;
         public int cont;
         List<InventDB> users1;
         public List<Movimientos> mv = new List<Movimientos>();
-        
+        public Inventario inv;
         public string text;
-        public RetirarProducto()
+        public RetirarProducto(Inventario i)
         {
             InitializeComponent();
-            
-            
+            inv = i;
+
+
         }
-        
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -39,7 +40,7 @@ namespace Inventario2
                 busqueda();
             else
                 cont++;
-            
+
         }
 
         async void Button_Clicked(object sender, System.EventArgs e)
@@ -52,18 +53,18 @@ namespace Inventario2
                 return;
             }
 
-             f = await CrossMedia.Current.TakePhotoAsync(
-               new Plugin.Media.Abstractions.StoreCameraMediaOptions
-               {
-                   Directory = "Sample",
+            f = await CrossMedia.Current.TakePhotoAsync(
+              new Plugin.Media.Abstractions.StoreCameraMediaOptions
+              {
+                  Directory = "Sample",
 
-                   Name = "prueba.jpg"
-               });
+                  Name = "prueba.jpg"
+              });
             if (f == null)
                 return;
             await DisplayAlert("", "Foto Exitosa", "OK");
-            
-            
+
+
         }
 
         public async void busqueda()
@@ -91,7 +92,7 @@ namespace Inventario2
                         pertenece.Text = users1[0].pertenece;
                         origentxt.Text = users1[0].origen;
                         Llenar();
-                        BotonCarrito.Text = "Carrito "+"("+mv.Count.ToString()+")";
+                        BotonCarrito.Text = "Carrito " + "(" + mv.Count.ToString() + ")";
 
                     }
                     else
@@ -114,7 +115,7 @@ namespace Inventario2
                         origentxt.Text = users1[0].origen;
                         marcaTxt.Text = users1[0].modelo;
                         obserb.Text = users1[0].observaciones;
-                        if(!(users1[0].foto==""))
+                        if (!(users1[0].foto == ""))
                             foto.Source = users1[0].foto;
                         Llenar();
                         BotonCarrito.Text = "Carrito " + "(" + mv.Count.ToString() + ")";
@@ -129,7 +130,7 @@ namespace Inventario2
             else
                 await DisplayAlert("Buscando", " no encontrado", "OK");
         }
-        private  void SearchBar(object sender, EventArgs e)
+        private void SearchBar(object sender, EventArgs e)
         {
             busqueda();
         }
@@ -168,17 +169,32 @@ namespace Inventario2
 
         private void RetiraP(object sender, EventArgs e)
         {
-          
-                
-                Navigation.PushAsync(new Carrito(this));
-            
+
+
+            Navigation.PushAsync(new Carrito(this));
+
 
         }
 
-     
+
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Carrito(this));
+        }
+
+        void ToolbarItem_Clicked_1(System.Object sender, System.EventArgs e)
+        {
+            
+            var lista = Navigation.NavigationStack;
+            for(int x =0;x<lista.Count;x++)
+            {
+                if(x>1 && x<lista.Count)
+                {
+                    Navigation.RemovePage(lista[x]);
+                }
+            }
+            Navigation.PopAsync();
+
         }
     }
 }

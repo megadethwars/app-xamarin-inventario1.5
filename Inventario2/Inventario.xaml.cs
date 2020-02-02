@@ -179,7 +179,7 @@ namespace Inventario2
                     break;
                 case "Salida":
                     //Abrir vista/pagina Retirar Producto
-                    Navigation.PushAsync(new RetirarProducto());
+                    Navigation.PushAsync(new RetirarProducto(this));
                     break;
 
                 
@@ -189,6 +189,11 @@ namespace Inventario2
         private void pickerBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             tipoBusqueda = pickerBuscar.SelectedItem as string;
+        }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }

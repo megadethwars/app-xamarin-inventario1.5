@@ -73,6 +73,7 @@ namespace Inventario2
             Navigation.PushAsync(pdfmovement);
         }
 
+        
     }
 }
     

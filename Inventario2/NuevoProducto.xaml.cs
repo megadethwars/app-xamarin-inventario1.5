@@ -33,7 +33,7 @@ namespace Inventario2
         {
             base.OnAppearing();
             codigoEntry.Text = stringphoto;
-           
+
         }
         private async void AgregarP(object sender, EventArgs e)
         {
@@ -54,28 +54,28 @@ namespace Inventario2
                 cantidad = cant.Text,
                 observaciones = observ.Text,
                 proveedor = proveedor.Text,
-                foto = PathFoto+".jpg",
+                foto = PathFoto + ".jpg",
                 Fecha = DateTime.Now.ToString("dd/MM/yyyy")
             };
 
             try
             {
                 await App.MobileService.GetTable<InventDB>().InsertAsync(invent);
-                if(!(f == null))
+                if (!(f == null))
                     UploadFile(f.GetStream());
-                
-                await DisplayAlert("Agregado","Producto agregado correctamente","Aceptar");
+
+                await DisplayAlert("Agregado", "Producto agregado correctamente", "Aceptar");
                 await Navigation.PopAsync();
-               
+
 
             }
-            catch(MobileServiceInvalidOperationException ms)
+            catch (MobileServiceInvalidOperationException ms)
             {
                 var response = await ms.Response.Content.ReadAsStringAsync();
                 await DisplayAlert("error", response, "Aceptar");
             }
-            
-            
+
+
         }
         private void Scan(object sender, EventArgs e)
         {
@@ -105,8 +105,8 @@ namespace Inventario2
             await DisplayAlert("File Location", f.Path, "OK");
             imagen.Source = f.Path;
             f.GetStream();
-            
-            
+
+
 
         }
 
@@ -117,11 +117,24 @@ namespace Inventario2
             var container = client.GetContainerReference("fotosinventario");
             await container.CreateIfNotExistsAsync();
 
-            
-            
+
+
             var block = container.GetBlockBlobReference($"{PathFoto}.jpg");
-           await  block.UploadFromStreamAsync(stream);
+            await block.UploadFromStreamAsync(stream);
             string url = block.Uri.OriginalString;
+        }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+            var lista = Navigation.NavigationStack;
+            for (int x = 0; x < lista.Count; x++)
+            {
+                if (x > 1 && x < lista.Count)
+                {
+                    Navigation.RemovePage(lista[x]);
+                }
+            }
+            Navigation.PopAsync();
         }
     }
 }

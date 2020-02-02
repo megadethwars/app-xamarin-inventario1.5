@@ -103,5 +103,18 @@ namespace Inventario2
             string url = block.Uri.OriginalString;
 
         }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+            var lista = Navigation.NavigationStack;
+            for (int x = 0; x < lista.Count; x++)
+            {
+                if (x > 1 && x < lista.Count)
+                {
+                    Navigation.RemovePage(lista[x]);
+                }
+            }
+            Navigation.PopAsync();
+        }
     }
 }
