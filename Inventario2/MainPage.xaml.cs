@@ -57,7 +57,7 @@ namespace Inventario2
 
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
                 await DisplayAlert("Error", "Error de conexion", "Aceptar");
             }
            

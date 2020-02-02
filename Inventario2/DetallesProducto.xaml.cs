@@ -49,8 +49,8 @@ namespace Inventario2
                     catch (MobileServiceInvalidOperationException ms)
                     {
 
-
-                       await  DisplayAlert("Error", "Error al borrar el producto", "Aceptar");
+                        Console.WriteLine(ms.Message);
+                        await  DisplayAlert("Error", "Error al borrar el producto", "Aceptar");
 
                     }
                         break;

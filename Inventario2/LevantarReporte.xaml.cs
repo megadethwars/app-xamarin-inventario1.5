@@ -53,15 +53,22 @@ namespace Inventario2
            
         }
 
-        private void fillDevice(List<InventDB> tabla)
+        private async void fillDevice(List<InventDB> tabla)
         {
-
-            device = tabla[0];
-            lbNombre.Text = device.nombre;
-            lbMarca.Text = device.marca;
-            lbSerie.Text = device.serie;
-            lbModelo.Text = device.modelo;
-            lbAccDe.Text = device.pertenece;
+            try
+            {
+                device = tabla[0];
+                lbNombre.Text = device.nombre;
+                lbMarca.Text = device.marca;
+                lbSerie.Text = device.serie;
+                lbModelo.Text = device.modelo;
+                lbAccDe.Text = device.pertenece;
+            }
+            catch
+            {
+                await DisplayAlert("No Product", "producto no encontrado", "OK");
+            }
+            
             
         }
 
@@ -142,6 +149,11 @@ namespace Inventario2
             }
 
             editor.Text = "";
+            if (res)
+            {
+                await DisplayAlert("Mensaje", "Reporte subido correctamente", "OK");
+                await Navigation.PopAsync();
+            }
         }
 
         private async Task<List<InventDB>> QueryDevice(string codigo)
@@ -155,7 +167,7 @@ namespace Inventario2
             }
             catch(Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
                 return null;
             }
             
@@ -173,31 +185,33 @@ namespace Inventario2
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
+                await DisplayAlert("Error al subir comentarios", "error de post", "OK");
                 return false;
             }
 
         }
 
-
-        public  bool PostImage()
-        {           
-            return   false;
-        }
-
-
         private async void UploadFile(Stream stream)
         {
-            var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fotosavs;AccountKey=NLazg0RjiUxSF9UvkeSWvNYicNDSUPn4IoXp4KSKXx0qe+W2bt40BrGFK6M+semkKHHOV5T4Ya2eNKDDQNY57A==;EndpointSuffix=core.windows.net");
-            var client = account.CreateCloudBlobClient();
-            var container = client.GetContainerReference("fotosreporte");
-            await container.CreateIfNotExistsAsync();
+            try
+            {
+                var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fotosavs;AccountKey=NLazg0RjiUxSF9UvkeSWvNYicNDSUPn4IoXp4KSKXx0qe+W2bt40BrGFK6M+semkKHHOV5T4Ya2eNKDDQNY57A==;EndpointSuffix=core.windows.net");
+                var client = account.CreateCloudBlobClient();
+                var container = client.GetContainerReference("fotosreporte");
+                await container.CreateIfNotExistsAsync();
 
 
 
-            var block = container.GetBlockBlobReference($"{PathFoto}.jpg");
-            await block.UploadFromStreamAsync(stream);
-            string url = block.Uri.OriginalString;
+                var block = container.GetBlockBlobReference($"{PathFoto}.jpg");
+                await block.UploadFromStreamAsync(stream);
+                string url = block.Uri.OriginalString;
+            }
+            catch
+            {
+                await DisplayAlert("Error al subir imagen","error de post", "OK");
+            }
+            
         }
 
     }

@@ -53,7 +53,7 @@ namespace Inventario2
 
         }
 
-        private async void IncludeSwitch_Toggled(object sender, ToggledEventArgs e)
+        private  void IncludeSwitch_Toggled(object sender, ToggledEventArgs e)
         {
             /*
             if (includeSwitch.IsToggled)
