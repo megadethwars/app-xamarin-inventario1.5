@@ -11,12 +11,20 @@
             <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
                 <On Platform="iOS" Value="Montserrat-Bold"></On>
             </OnPlatform>
+<<<<<<< Updated upstream
+=======
+            
+>>>>>>> Stashed changes
         </ResourceDictionary>
     </ContentPage.Resources>
     <AbsoluteLayout VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand">
         <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+<<<<<<< Updated upstream
                Source="nuevofondo.png" Aspect="AspectFill"/>
+=======
+               Source="nuevofondo" Aspect="AspectFill"/>
+>>>>>>> Stashed changes
         <StackLayout
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
 

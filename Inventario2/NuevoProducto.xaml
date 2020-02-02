@@ -203,7 +203,11 @@
 
                     <StackLayout>
 
+<<<<<<< Updated upstream
                         <Label Text="PERTENECE:"
+=======
+                        <Label Text="ACCESORIO DE:"
+>>>>>>> Stashed changes
                CharacterSpacing="2"
                FontFamily="Montserrat-Bold"
                FontAttributes="Bold"

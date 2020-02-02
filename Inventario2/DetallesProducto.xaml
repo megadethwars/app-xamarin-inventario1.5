@@ -212,7 +212,11 @@
                 CharacterSpacing="2"
                 FontFamily="Montserrat-Bold"
                 TextColor="White"
+<<<<<<< Updated upstream
 			    Text="PERTENECE:"
+=======
+			    Text="ACCESORIO DE:"
+>>>>>>> Stashed changes
 			    FontAttributes="Bold"/>
                     </StackLayout>
                     <StackLayout Padding="40,0,20,0">

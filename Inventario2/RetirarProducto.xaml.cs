@@ -112,6 +112,11 @@ namespace Inventario2
                         serietxt.Text = users1[0].serie;
                         pertenece.Text = users1[0].pertenece;
                         origentxt.Text = users1[0].origen;
+<<<<<<< Updated upstream
+=======
+                        marcaTxt.Text = users1[0].modelo;
+                        obserb.Text = users1[0].observaciones;
+>>>>>>> Stashed changes
                         if(!(users1[0].foto==""))
                             foto.Source = users1[0].foto;
                         Llenar();

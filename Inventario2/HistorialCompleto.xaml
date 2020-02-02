@@ -15,9 +15,15 @@
 
             <StackLayout
 		Padding="70,10,70,10">
+<<<<<<< Updated upstream
 
 
 
+=======
+
+
+
+>>>>>>> Stashed changes
                 <StackLayout
             Padding="210,20,195,30">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
@@ -101,6 +107,11 @@
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="90"/>
                         <ColumnDefinition Width="110"/>
+<<<<<<< Updated upstream
+=======
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="110"/>
+>>>>>>> Stashed changes
                     </Grid.ColumnDefinitions>
 
                     <Label
@@ -130,6 +141,22 @@
                 Grid.Column="3"
 				/>
 
+<<<<<<< Updated upstream
+=======
+                    <Label
+                Text="Serie" 
+				FontAttributes="Bold"
+                TextColor="White"
+                Grid.Column="4"
+				/>
+                    <Label
+                Text="Ubicacion" 
+				FontAttributes="Bold"
+                TextColor="White"
+                Grid.Column="5"
+				/>
+
+>>>>>>> Stashed changes
                 </Grid>
 
 
@@ -148,12 +175,22 @@
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="100"/>
+<<<<<<< Updated upstream
+=======
+                                                    <ColumnDefinition Width="100"/>
+                                                    <ColumnDefinition Width="100"/>
+>>>>>>> Stashed changes
                                                 </Grid.ColumnDefinitions>
 
                                                 <Label Text="{Binding usuario}" BackgroundColor="Gray" TextColor="White" Grid.Column="0"/>
                                                 <Label Text="{Binding producto}" BackgroundColor="Gray" TextColor="White" Grid.Column="1"/>
                                                 <Label Text="{Binding movimiento}" BackgroundColor="Gray" TextColor="White" Grid.Column="2"/>
                                                 <Label Text="{Binding modelo}" TextColor="White" Grid.Column="3"/>
+<<<<<<< Updated upstream
+=======
+                                                <Label Text="{Binding modelo}" TextColor="White" Grid.Column="4"/>
+                                                <Label Text="{Binding modelo}" TextColor="White" Grid.Column="5"/>
+>>>>>>> Stashed changes
 
                                             </Grid>
                                         </StackLayout>

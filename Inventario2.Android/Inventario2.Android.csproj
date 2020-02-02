@@ -15,6 +15,10 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+<<<<<<< Updated upstream
+=======
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+>>>>>>> Stashed changes
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -109,6 +113,14 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+<<<<<<< Updated upstream
+=======
+    <InterfaceDefinition Include="Resources\drawable\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\drawable\Montserrat-Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\drawable\Montserrat-Light.otf" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
@@ -136,7 +148,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Inventario2\Inventario2.csproj">
+<<<<<<< Updated upstream
       <Project>{156F16F4-3BF9-49B7-9362-79889137DEF0}</Project>
+=======
+      <Project>{71D24A1D-282F-465B-B720-49DF103DEF45}</Project>
+>>>>>>> Stashed changes
       <Name>Inventario2</Name>
     </ProjectReference>
   </ItemGroup>
@@ -146,5 +162,78 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\image1.jpeg" />
   </ItemGroup>
+<<<<<<< Updated upstream
+=======
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\drawable\baceptar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\bactualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\bavanzada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\bcancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\beliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\bfoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\bingresar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\bopciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\bscanner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\fondo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\fondo2.jfif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\fondochido.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\iconoajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\iconoempleados.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\iconohistorial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\iconoinventario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\iconoperfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\iconoreporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\marco de foto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\nuevofondo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\tache.png" />
+  </ItemGroup>
+>>>>>>> Stashed changes
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
