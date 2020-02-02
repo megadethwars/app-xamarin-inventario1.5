@@ -16,9 +16,11 @@ namespace Inventario2
         Model.Reportes reporte;
         public bool isScanning = false;
         public string scanText;
+        private bool isInt;
         public ConsultarReporte()
         {
             reporte = new Model.Reportes();
+            isInt = false;
             InitializeComponent();
         }
 
@@ -51,11 +53,59 @@ namespace Inventario2
         }
 
 
-        private void OnEnterPressed(object sender,EventArgs e)
+        private async void OnEnterPressed(object sender,EventArgs e)
         {
             if (nombreID != null)
             {
                 //consulta de reportes y llenado en tabla
+                int length = nombreID.Text.Length - 2;
+                string buscador = nombreID.Text.Substring(2,length);
+
+                //tryparse
+                try
+                {
+                    int testInt = Int32.Parse(buscador);
+                    isInt = true;
+                    
+                }
+                catch
+                {
+                    isInt = false;
+                }
+
+                try
+                {
+                    if (isInt)
+                    {
+                        List<Model.Reportes> listareportes = await QueryReport(nombreID.Text);
+
+                        if (listareportes.Count != 0)
+                        {
+                            postListView.ItemsSource = listareportes;
+                        }
+                        else
+                        {
+                            await DisplayAlert("Buscando", "Reportes de codigo encontrados", "Aceptar");
+                        }
+                    }
+                    else
+                    {
+                        List<Model.Reportes> listareportes = await QueryReportByName(nombreID.Text);
+
+                        if (listareportes.Count != 0)
+                        {
+                            postListView.ItemsSource = listareportes;
+                        }
+                        else
+                        {
+                            await DisplayAlert("Buscando", "Reportes de codigo encontrados", "Aceptar");
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
             }
         }
 
@@ -86,6 +136,24 @@ namespace Inventario2
 
         }
 
-        
+
+        private async Task<List<Model.Reportes>> QueryReportByName(string nombre)
+        {
+
+            try
+            {
+                var table = await App.MobileService.GetTable<Model.Reportes>().Where(u => u.producto == nombre).ToListAsync();
+
+                return table;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+
+        }
+
+
     }
 }
