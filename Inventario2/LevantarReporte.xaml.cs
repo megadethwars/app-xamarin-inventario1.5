@@ -15,7 +15,7 @@ namespace Inventario2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LevantarReporte : ContentPage
     {
-        Plugin.Media.Abstractions.MediaFile f;
+        Plugin.Media.Abstractions.MediaFile camara;
         public bool isScanning = false;
         public string scanText;
         private InventDB device;
@@ -74,29 +74,39 @@ namespace Inventario2
 
         public async void Button_Clicked(object sender, System.EventArgs e)
         {
+            
+
+        }
+
+        private async Task<bool> TakeFoto(string ID)
+        {
             await CrossMedia.Current.Initialize();
             if (!CrossMedia.Current.IsCameraAvailable ||
                 !CrossMedia.Current.IsTakePhotoSupported)
             {
                 await DisplayAlert("No Camera", ": No camera available", "OK");
-                return;
+                return false;
             }
-            
-             f = await CrossMedia.Current.TakePhotoAsync(
-               new Plugin.Media.Abstractions.StoreCameraMediaOptions
-               {
-                   Directory = "Sample",
 
-                   Name = "test.jpg"
-               });
-            if (f == null)
-                return;
-            await DisplayAlert("File Location", f.Path, "OK");
-            
+            camara = await CrossMedia.Current.TakePhotoAsync(
+              new Plugin.Media.Abstractions.StoreCameraMediaOptions
+              {
+                  Directory = "Sample",
+
+                  Name = ID + ".jpg"
+              });
+            if (camara == null)
+                return true;
+            await DisplayAlert("File Location", camara.Path, "OK");
+            imagen.Source = camara.Path;
+            camara.GetStream();
+
+            return false;
         }
-        private void ScanFotos(object sender, EventArgs e)
-        {
 
+        private async void ScanFotos(object sender, EventArgs e)
+        {
+            await TakeFoto(Guid.NewGuid().ToString());
         }
 
         private void Scan(object sender, EventArgs e)
@@ -113,16 +123,24 @@ namespace Inventario2
         }
         private async void Enviar_Reporte(object sender, EventArgs e)
         {
-            reporte.foto = "url to post";
+            reporte.foto = Guid.NewGuid().ToString();
+            string id = reporte.foto;
             reporte.codigo = device.codigo;
             reporte.marca = device.marca;
             reporte.serie = device.serie;
             reporte.modelo = device.modelo;
             reporte.producto = device.nombre;
             reporte.comentario = editor.Text;
-            reporte.ID = Guid.NewGuid().ToString();
-
+            reporte.ID = id;
+            PathFoto = id;
             bool res =await PostReport(reporte);
+
+            //enviar foto
+            if (camara != null)
+            {
+                UploadFile(camara.GetStream());
+            }
+
             editor.Text = "";
         }
 
@@ -142,7 +160,6 @@ namespace Inventario2
             }
             
         }
-
 
         private async Task<bool> PostReport(Model.Reportes reporte)
         {
@@ -173,7 +190,7 @@ namespace Inventario2
         {
             var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fotosavs;AccountKey=NLazg0RjiUxSF9UvkeSWvNYicNDSUPn4IoXp4KSKXx0qe+W2bt40BrGFK6M+semkKHHOV5T4Ya2eNKDDQNY57A==;EndpointSuffix=core.windows.net");
             var client = account.CreateCloudBlobClient();
-            var container = client.GetContainerReference("fotosinventario");
+            var container = client.GetContainerReference("fotosreporte");
             await container.CreateIfNotExistsAsync();
 
 

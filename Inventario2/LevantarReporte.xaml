@@ -100,8 +100,16 @@
 			        Text="Agregar fotos de estado"
 			        x:Name="fotos1"
 			        HorizontalOptions="FillAndExpand"
-                    Clicked="Button_Clicked"
+                    Clicked="ScanFotos"
 			        VerticalOptions="Center"/>
+
+                <ScrollView>
+                    <Image x:Name="imagen"
+                     Aspect="AspectFill"
+                     HeightRequest="100"
+                     WidthRequest="100"
+                        />
+                </ScrollView>
 
                 <StackLayout
 			        HorizontalOptions="End">
