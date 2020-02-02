@@ -81,5 +81,9 @@ namespace Inventario2
             Navigation.PushAsync(new AgregarEmpleado());
 
         }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
     }
 }

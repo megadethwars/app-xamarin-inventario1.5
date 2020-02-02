@@ -19,8 +19,8 @@ namespace Inventario2
         {
             InitializeComponent();
             this.usuario = user;
-            nameEmp.Text = usuario.nombre + " " + usuario.apellido_paterno+" "+usuario.apellido_materno;
-            
+            nameEmp.Text = usuario.nombre + " " + usuario.apellido_paterno + " " + usuario.apellido_materno;
+
             fechaCont.Text = usuario.fechaContratacion;
             tipoUs.Text = usuario.tipoUsuario;
             telText.Text = usuario.telefono;
@@ -66,7 +66,7 @@ namespace Inventario2
                     usuario.nombre = changename.Text;
                 if (correoChange.Text != null || changetel.Text != null || changename.Text != null || changecontra.Text != null)
                 {
-                    if (changecontra.Text != null && changecontra2.Text !=null)
+                    if (changecontra.Text != null && changecontra2.Text != null)
                     {
                         if (changecontra.Text == changecontra2.Text)
                         {
@@ -101,7 +101,11 @@ namespace Inventario2
                 await DisplayAlert("Error", "Error al actualizar el producto", "Aceptar");
 
             }
-            
+
+        }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
         }
     }
 }

@@ -35,14 +35,14 @@ namespace Inventario2
             formfieldhistorial = new FormFieldsHistorial();
             formfieldhistorial.OnEventSender += new FormFieldsHistorial.ONFieldEventHandler(OnFieldEventAsync);
             controllerhistorial = new ControllerHistorialCompleto();
-                    
+
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             searchbar.Text = scantext;
-            if(contador == 1)
+            if (contador == 1)
             {
                 buscar();
                 contador = 0;
@@ -125,14 +125,14 @@ namespace Inventario2
                     }
                 }
             }
-        
-    }
+
+        }
 
         private async void Search_SearchButtonPressed(object sender, EventArgs e)
         {
             buscar();
         }
-            
+
 
         private void Button_Clicked(object sender, EventArgs e)
         {
@@ -144,7 +144,7 @@ namespace Inventario2
             Console.WriteLine("testing..");
             //Navigation.PushAsync(new FormFieldsHistorial());
             Navigation.PushAsync(formfieldhistorial);
-            
+
         }
 
         private void PostListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -156,8 +156,9 @@ namespace Inventario2
 
         private async void OnFieldEventAsync(object sender)
         {
-            try {
-                
+            try
+            {
+
                 ModelHistorialCompleto modelhistorial = (ModelHistorialCompleto)sender;
 
                 List<Movimientos> lista = await controllerhistorial.Search(modelhistorial);
@@ -166,7 +167,8 @@ namespace Inventario2
 
                 //List<Movimientos> lista = await ControllerHistorialCompleto.searching(modelhistorial);  funciono
 
-                if (lista.Count==0) {
+                if (lista.Count == 0)
+                {
                     await DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
                 }
 
@@ -178,7 +180,7 @@ namespace Inventario2
             {
 
             }
-            
+
         }
 
 
@@ -851,6 +853,9 @@ namespace Inventario2
             return table;
         }
 
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
 
     }
 }
