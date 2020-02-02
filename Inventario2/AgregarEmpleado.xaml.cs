@@ -91,6 +91,7 @@ namespace Inventario2
               new Plugin.Media.Abstractions.StoreCameraMediaOptions
               {
                   Directory = "Sample",
+                  RotateImage = false,
 
                   Name = nombrEntry.Text + ".jpg"
               });

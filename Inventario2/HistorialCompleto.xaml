@@ -99,10 +99,11 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        
                     </Grid.ColumnDefinitions>
 
                     <Label
@@ -126,14 +127,14 @@
                 Grid.Column="2"
 				/>
                     <Label
-                Text="Modelo" 
+                Text="Marca" 
 				FontAttributes="Bold"
                 TextColor="White"
                 Grid.Column="3"
 				/>
 
                     <Label
-                Text="Serie" 
+                Text="Fecha" 
 				FontAttributes="Bold"
                 TextColor="White"
                 Grid.Column="4"
@@ -144,6 +145,7 @@
                 TextColor="White"
                 Grid.Column="5"
 				/>
+                   
 
                 </Grid>
 
@@ -165,14 +167,16 @@
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="100"/>
+                                                    
                                                 </Grid.ColumnDefinitions>
 
                                                 <Label Text="{Binding usuario}" BackgroundColor="Gray" TextColor="White" Grid.Column="0"/>
                                                 <Label Text="{Binding producto}" BackgroundColor="Gray" TextColor="White" Grid.Column="1"/>
                                                 <Label Text="{Binding movimiento}" BackgroundColor="Gray" TextColor="White" Grid.Column="2"/>
-                                                <Label Text="{Binding modelo}" TextColor="White" Grid.Column="3"/>
-                                                <Label Text="{Binding modelo}" TextColor="White" Grid.Column="4"/>
-                                                <Label Text="{Binding modelo}" TextColor="White" Grid.Column="5"/>
+                                                <Label Text="{Binding marca}" BackgroundColor="Gray" TextColor="White" Grid.Column="3"/>
+                                                <Label Text="{Binding fecha}" BackgroundColor="Gray" TextColor="White" Grid.Column="4"/>
+                                                <Label Text="{Binding lugar}" BackgroundColor="Gray" TextColor="White" Grid.Column="5"/>
+                                                
 
                                             </Grid>
                                         </StackLayout>
