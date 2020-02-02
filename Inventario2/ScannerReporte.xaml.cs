@@ -14,10 +14,11 @@ namespace Inventario2
     public partial class ScannerReporte : ZXingScannerPage
     {
         LevantarReporte reporte;
-        bool IsScanning = false;
+        public bool IsScanning = false;
         public ScannerReporte(LevantarReporte reporte)
         {
             InitializeComponent();
+            IsScanning = false;
             this.reporte = reporte;
         }
 
