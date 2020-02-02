@@ -92,6 +92,7 @@
 			        FontAttributes="Bold"/>
 
                 <Editor 
+                    x:Name="editor"
 			        HeightRequest ="200"
 			        Placeholder="Indicar observaciones del producto." />
 

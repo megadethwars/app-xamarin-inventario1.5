@@ -6,6 +6,7 @@ namespace Inventario2.Model
 {
     public class Reportes
     {
+        public string ID { get; set; }
         public string codigo { get; set; }
 
         public string producto { get; set; }
@@ -19,5 +20,7 @@ namespace Inventario2.Model
         public string comentario { get; set; }
 
         public string foto { get; set; }
+
+        public int Id_new { get; set; }
     }
 }

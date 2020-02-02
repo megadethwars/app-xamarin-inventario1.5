@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.WindowsAzure.Storage;
 using Plugin.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,9 +18,16 @@ namespace Inventario2
         Plugin.Media.Abstractions.MediaFile f;
         public bool isScanning = false;
         public string scanText;
-        public InventDB device;
+        private InventDB device;
+        private Model.Reportes reporte;
+        private string ID = Guid.NewGuid().ToString();
+
+        Plugin.Media.Abstractions.MediaFile f;
+        public string PathFoto;
+        public string stringphoto;
         public LevantarReporte(string c)
         {
+            reporte = new Model.Reportes();
             device = new InventDB();
             InitializeComponent();
             nombreID.Text = c;
@@ -53,6 +62,7 @@ namespace Inventario2
             lbSerie.Text = device.serie;
             lbModelo.Text = device.modelo;
             lbAccDe.Text = device.pertenece;
+            
         }
 
         protected override void OnDisappearing()
@@ -101,9 +111,19 @@ namespace Inventario2
                 List<InventDB> tabladevice = await QueryDevice(scanText);
             }
         }
-        private void Enviar_Reporte(object sender, EventArgs e)
+        private async void Enviar_Reporte(object sender, EventArgs e)
         {
+            reporte.foto = "url to post";
+            reporte.codigo = device.codigo;
+            reporte.marca = device.marca;
+            reporte.serie = device.serie;
+            reporte.modelo = device.modelo;
+            reporte.producto = device.nombre;
+            reporte.comentario = editor.Text;
+            reporte.ID = Guid.NewGuid().ToString();
 
+            bool res =await PostReport(reporte);
+            editor.Text = "";
         }
 
         private async Task<List<InventDB>> QueryDevice(string codigo)
@@ -126,6 +146,7 @@ namespace Inventario2
 
         private async Task<bool> PostReport(Model.Reportes reporte)
         {
+            
 
             try
             {
@@ -145,6 +166,21 @@ namespace Inventario2
         public  bool PostImage()
         {           
             return   false;
+        }
+
+
+        private async void UploadFile(Stream stream)
+        {
+            var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fotosavs;AccountKey=NLazg0RjiUxSF9UvkeSWvNYicNDSUPn4IoXp4KSKXx0qe+W2bt40BrGFK6M+semkKHHOV5T4Ya2eNKDDQNY57A==;EndpointSuffix=core.windows.net");
+            var client = account.CreateCloudBlobClient();
+            var container = client.GetContainerReference("fotosinventario");
+            await container.CreateIfNotExistsAsync();
+
+
+
+            var block = container.GetBlockBlobReference($"{PathFoto}.jpg");
+            await block.UploadFromStreamAsync(stream);
+            string url = block.Uri.OriginalString;
         }
 
     }
