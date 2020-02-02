@@ -43,6 +43,51 @@
 			        Clicked="Scan"/>
 
                 <Label
+				        Text="Producto:"
+				        FontAttributes="Bold"/>
+
+                <Label
+						x:Name="lbNombre"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+
+                <Label
+				        Text="Marca:"
+				        FontAttributes="Bold"/>
+
+                <Label
+						x:Name="lbMarca"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+                <Label
+				        Text="Serie:"
+				        FontAttributes="Bold"/>
+                <Label
+						x:Name="lbSerie"
+				        Text=""
+				        FontAttributes="Bold"/>
+                
+                
+                <Label
+				        Text="Modelo:"
+				        FontAttributes="Bold"/>
+                <Label
+						x:Name="lbModelo"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+                <Label
+				        Text="Accesorio de:"
+				        FontAttributes="Bold"/>
+                <Label
+						x:Name="lbAccDe"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+
+                <Label
 			        Text="Descripcion:" 
 			        FontAttributes="Bold"/>
 

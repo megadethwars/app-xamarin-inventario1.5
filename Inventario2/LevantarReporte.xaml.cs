@@ -16,9 +16,10 @@ namespace Inventario2
         Plugin.Media.Abstractions.MediaFile f;
         public bool isScanning = false;
         public string scanText;
+        public InventDB device;
         public LevantarReporte(string c)
         {
-            
+            device = new InventDB();
             InitializeComponent();
             nombreID.Text = c;
             
@@ -36,10 +37,22 @@ namespace Inventario2
 
                 //search device
                 List<InventDB> tabladevice = await QueryDevice(scanText);
+                fillDevice(tabladevice);
                 isScanning = false;
                 
             }
            
+        }
+
+        private void fillDevice(List<InventDB> tabla)
+        {
+
+            device = tabla[0];
+            lbNombre.Text = device.nombre;
+            lbMarca.Text = device.marca;
+            lbSerie.Text = device.serie;
+            lbModelo.Text = device.modelo;
+            lbAccDe.Text = device.pertenece;
         }
 
         protected override void OnDisappearing()
