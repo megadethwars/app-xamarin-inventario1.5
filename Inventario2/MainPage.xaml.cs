@@ -18,10 +18,7 @@ namespace Inventario2
         public MainPage()
         {
             InitializeComponent();
-<<<<<<< Updated upstream
-=======
             
->>>>>>> Stashed changes
            //this.BackgroundImageSource = "image1.jpeg";
             
         }

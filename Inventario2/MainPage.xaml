@@ -4,21 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-<<<<<<< Updated upstream
-             x:Class="Inventario2.MainPage"
-             
-=======
              x:Class="Inventario2.MainPage"        
->>>>>>> Stashed changes
              >
 
     <AbsoluteLayout VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand">
-<<<<<<< Updated upstream
-        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
-=======
         <Image x:Name="fondo" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
->>>>>>> Stashed changes
                Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
@@ -99,11 +90,7 @@
                 HeightRequest="87"
 				Clicked="IniciarSesion"
                 TextColor="Red"
-<<<<<<< Updated upstream
-                ImageSource="baceptar.png"
-=======
                 ImageSource="baceptar"
->>>>>>> Stashed changes
 				HorizontalOptions="End"
 				FontAttributes="Bold"
 				StyleId="Ok"/>

@@ -9,11 +9,7 @@
              x:Class="Inventario2.RetirarProducto"
              >
     <ContentPage.ToolbarItems>
-<<<<<<< Updated upstream
-        <ToolbarItem Text="Borrar Todo" Clicked="ToolbarItem_Clicked"></ToolbarItem>
-=======
         <ToolbarItem Text="Borrar Todo" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
->>>>>>> Stashed changes
     </ContentPage.ToolbarItems>
 
     <AbsoluteLayout VerticalOptions="FillAndExpand"
@@ -25,11 +21,7 @@
             <StackLayout
 		Padding="70,20,70,20">
                 <StackLayout
-<<<<<<< Updated upstream
-            Padding="125,20,125,30">
-=======
             Padding="170,20,170,30">
->>>>>>> Stashed changes
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
                         <Image Source="tache.png" HorizontalOptions="End"/>
@@ -39,11 +31,7 @@
                 TextColor="White"
                             FontSize="30"
 			    HorizontalOptions="Center"
-<<<<<<< Updated upstream
-			    Text="RETIRAR PRODUCTO" 
-=======
 			    Text="SALIDA" 
->>>>>>> Stashed changes
 			    FontAttributes="Bold"
 			    StyleId="Titulo"/>
 
@@ -124,8 +112,6 @@
                 TextColor="White"
                 FontSize="Large"
                 CharacterSpacing="4"
-<<<<<<< Updated upstream
-=======
 				Text="MODELO:"
 				FontAttributes="Bold"/>
                         </StackLayout>
@@ -148,7 +134,6 @@
                 TextColor="White"
                 FontSize="Large"
                 CharacterSpacing="4"
->>>>>>> Stashed changes
 				Text="SERIE:"
 				FontAttributes="Bold"/>
                         </StackLayout>
@@ -171,11 +156,7 @@
                 TextColor="White"
                 FontSize="Large"
                 CharacterSpacing="4"
-<<<<<<< Updated upstream
-				Text="PERTENECE:"
-=======
 				Text="ACCESORIO DE:"
->>>>>>> Stashed changes
 				FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout Padding="40,0,20,20">
@@ -211,8 +192,6 @@
                 StyleId="informacion"/>
                         </StackLayout>
 
-<<<<<<< Updated upstream
-=======
                         <StackLayout 
             
 			Orientation="Horizontal">
@@ -234,7 +213,6 @@
 				x:Name="obserb"
                 StyleId="informacion"/>
                         </StackLayout>
->>>>>>> Stashed changes
 
 
                         <StackLayout>

@@ -135,9 +135,6 @@ namespace Inventario2
                     postListView.ItemsSource = usuarios;
                 }
             }
-<<<<<<< Updated upstream
-
-=======
             if (tipoBusqueda == "Serie")
             {
 
@@ -155,7 +152,6 @@ namespace Inventario2
                     postListView.ItemsSource = usuarios;
                 }
             }
->>>>>>> Stashed changes
         }
         private  void SearchBar(object sender, EventArgs e)
         {
@@ -169,30 +165,19 @@ namespace Inventario2
 
         private async void MenuOp(object sender, EventArgs e)
         { //Despegar menu de  3 opciones Ingresar, Retirar, Detalles
-<<<<<<< Updated upstream
-            string res = await DisplayActionSheet("Opciones", "Cancelar", null, "Agregar Nuevo Producto", "Reingresar Producto", "Retirar Producto");
-=======
             string res = await DisplayActionSheet("Opciones", "Cancelar", null, "Agregar Nuevo Producto", "Reingresar Producto", "Salida");
->>>>>>> Stashed changes
             switch (res)
             {
                 case "Agregar Nuevo Producto":
                     //Abrir vista/pagina Detalles del Producto
                     Navigation.PushAsync(new NuevoProducto());
-<<<<<<< Updated upstream
-=======
                     
->>>>>>> Stashed changes
                     break;
                 case "Reingresar Producto":
                     //Abrir vista/pagina Ingresar Producto
                     Navigation.PushAsync(new IngresarProducto(  ));
                     break;
-<<<<<<< Updated upstream
-                case "Retirar Producto":
-=======
                 case "Salida":
->>>>>>> Stashed changes
                     //Abrir vista/pagina Retirar Producto
                     Navigation.PushAsync(new RetirarProducto());
                     break;

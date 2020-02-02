@@ -81,14 +81,8 @@ namespace Inventario2
             }
             */
         }
-<<<<<<< Updated upstream
-
-        private async void Search_SearchButtonPressed(object sender, EventArgs e)
-        {
-=======
         public async void buscar()
         {
->>>>>>> Stashed changes
             if (searchbar.Text.Length > 2)
             {
                 string cadena = searchbar.Text.Substring(searchbar.Text.Length - 2);
@@ -131,15 +125,12 @@ namespace Inventario2
                     }
                 }
             }
-<<<<<<< Updated upstream
-=======
         
     }
 
         private async void Search_SearchButtonPressed(object sender, EventArgs e)
         {
             buscar();
->>>>>>> Stashed changes
         }
             
 
@@ -483,7 +474,6 @@ namespace Inventario2
 
         private async Task<List<Movimientos>> MovementCase29(ModelHistorialCompleto modelhistorial)
         {
-<<<<<<< Updated upstream
 
             // searching only by idproduct  and movement   product   and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
@@ -671,195 +661,6 @@ namespace Inventario2
             return table;
         }
 
-=======
-
-            // searching only by idproduct  and movement   product   and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-
-        private async Task<List<Movimientos>> MovementCase30(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by idproduct  and movement   product   and model
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase31(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by idproduct  and movement   product   and model  and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).
-            Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase32(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase33(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase34(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and model
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase35(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and model date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase36(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and product
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.producto == modelhistorial.producto).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase37(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and product and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase38(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and product and model
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase39(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and product and model and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).
-            Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase40(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and movimiento
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase41(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and movimiento and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase42(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and movimiento and model
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase43(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and movimiento  model and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.modelo == modelhistorial.modelo).
-            Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase44(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and movimiento  producto 
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase45(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and movimiento  producto and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
-
-            return table;
-        }
-
-        private async Task<List<Movimientos>> MovementCase46(ModelHistorialCompleto modelhistorial)
-        {
-
-            // searching only by USER and movimiento  producto and model 
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
-
-            return table;
-        }
-
->>>>>>> Stashed changes
         private async Task<List<Movimientos>> MovementCase47(ModelHistorialCompleto modelhistorial)
         {
 

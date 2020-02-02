@@ -13,15 +13,10 @@
                Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-<<<<<<< Updated upstream
-            <StackLayout
-		Padding="70,20,70,20">
-=======
             <ScrollView>
             <StackLayout
 		Padding="70,20,70,20">
                 
->>>>>>> Stashed changes
                 <StackLayout
             Padding="85,20,85,30">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
@@ -175,31 +170,6 @@
                    Placeholder="Introduzca Telefono"
                    TextColor="White"/>
                 </StackLayout>
-<<<<<<< Updated upstream
-                <StackLayout>
-                <Button
-            TextColor="Red"
-                    Grid.Column="0"
-                    HorizontalOptions="End"
-                    VerticalOptions="End"
-                    WidthRequest="150"
-                HeightRequest="87"
-			        ImageSource="beliminar.png"
-			        Clicked="EliminaEmp"
-			        StyleId="Ok"/>
-                <Button
-            TextColor="Red"
-                    Grid.Column="1"
-                    HorizontalOptions="Start"
-                    VerticalOptions="End"
-                    WidthRequest="150"
-                HeightRequest="87"
-			        ImageSource="bactualizar.png"
-			        Clicked="Button_Clicked"
-			        StyleId="Ok"/>
-                </StackLayout>
-            </StackLayout>
-=======
                 <StackLayout 
                     Orientation="Horizontal"
                     HorizontalOptions="FillAndExpand">
@@ -228,7 +198,6 @@
                 </StackLayout>
             </StackLayout>
             </ScrollView>
->>>>>>> Stashed changes
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

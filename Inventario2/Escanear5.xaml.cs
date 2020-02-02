@@ -25,10 +25,7 @@ namespace Inventario2
             Device.BeginInvokeOnMainThread(async () =>
             {
                 //await DisplayAlert("Scanned result", result.Text, "OK");
-<<<<<<< Updated upstream
-=======
                 h.contador = 1;
->>>>>>> Stashed changes
                 h.scantext = result.Text;
                 await Navigation.PopAsync();
                 //await DisplayAlert("","","oooo");

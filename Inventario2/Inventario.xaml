@@ -18,15 +18,10 @@
                 <StackLayout
             Padding="190,20,190,20">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
-<<<<<<< Updated upstream
-                        <Grid.ColumnDefinitions Width = "100"/>
-                        <Image Source="tache.png" HorizontalOptions="End"/>
-=======
                         <Grid.ColumnDefinitions  Width = "100"/>
                         
 
                         <Image Source="tache.png" HorizontalOptions="End" HeightRequest="60" WidthRequest="60"/>
->>>>>>> Stashed changes
                         <Label
                             VerticalOptions="Center"
                  FontFamily="Montserrat-Bold"
@@ -84,10 +79,7 @@
                             <x:String>Marca</x:String>
                             <x:String>Modelo</x:String>
                             <x:String>Proveedor</x:String>
-<<<<<<< Updated upstream
-=======
                             <x:String>Serie</x:String>
->>>>>>> Stashed changes
                         </Picker.Items>
                     </Picker>
 
