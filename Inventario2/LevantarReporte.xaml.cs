@@ -7,6 +7,7 @@ using Plugin.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace Inventario2
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -24,14 +25,19 @@ namespace Inventario2
             
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
 
             base.OnAppearing();
             if (isScanning)
             {
+                nombreID.Text = "";
+                nombreID.Text = scanText;
 
+                //search device
+                List<InventDB> tabladevice = await QueryDevice(scanText);
                 isScanning = false;
+                
             }
            
         }
@@ -75,9 +81,58 @@ namespace Inventario2
             Navigation.PushAsync(new ScannerReporte(this));
         }
 
+        private async void  OnEnterPressed(object sender,EventArgs e)
+        {
+            if (nombreID!=null)
+            {
+                List<InventDB> tabladevice = await QueryDevice(scanText);
+            }
+        }
         private void Enviar_Reporte(object sender, EventArgs e)
         {
 
         }
+
+        private async Task<List<InventDB>> QueryDevice(string codigo)
+        {
+
+            try
+            {
+                var table = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == codigo).ToListAsync();
+
+                return table;
+            }
+            catch(Exception ex)
+            {
+
+                return null;
+            }
+            
+        }
+
+
+        private async Task<bool> PostReport(Model.Reportes reporte)
+        {
+
+            try
+            {
+                await App.MobileService.GetTable<Model.Reportes>().InsertAsync(reporte);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+
+        }
+
+
+        public  bool PostImage()
+        {           
+            return   false;
+        }
+
     }
 }
