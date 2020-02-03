@@ -17,6 +17,7 @@ namespace Inventario2
         private string urlImage = "";
 
         private Model.Reportes reporte;
+        bool isImageOK;
         public DetallesReporte(Model.Reportes Reporte)
         {
             InitializeComponent();
@@ -30,17 +31,24 @@ namespace Inventario2
             try
             {
                 imagen.Source = "https://fotosavs.blob.core.windows.net/fotosreporte/" + reporte.foto+".jpg";
+                isImageOK = true;
             }
             catch
             {
-               
+                isImageOK = false;
             }
 
             
             
         }
 
-        
+        protected async override void OnAppearing()
+        {
+            if (!isImageOK)
+            {
+                await DisplayAlert("No image", "error al descargar imagen", "OK");
+            }
+        }
 
         private void OnAccept(object sender, EventArgs e)
         {
