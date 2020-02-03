@@ -22,6 +22,7 @@ namespace Inventario2
             reporte = new Model.Reportes();
             isInt = false;
             InitializeComponent();
+
         }
 
         protected async override void OnAppearing()
@@ -116,7 +117,11 @@ namespace Inventario2
 
         private void PostListView_ItemSelected(object sender,EventArgs e)
         {
-
+            postListView.SelectedItem = null;
+            var selectedPost = postListView.SelectedItem as Model.Reportes;
+            if (selectedPost != null)
+                Navigation.PushAsync(new DetallesReporte(selectedPost));
+            
         }
 
         private async Task<List<Model.Reportes>> QueryReport(string codigo)

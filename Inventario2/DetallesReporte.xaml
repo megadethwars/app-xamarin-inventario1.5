@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Inventario2.DetallesReporte">
+
+    <StackLayout
+		Padding="50,0,50,0">
+        <StackLayout
+            Padding="0,0,0,0">
+            <Label
+			    HorizontalOptions="Center"
+			    Text="DETALLES DEL REPORTE" 
+			    FontAttributes="Bold"
+			    StyleId="Titulo"/>
+        </StackLayout>
+
+        <Label
+		    Text="Nombre del Producto:"
+			FontAttributes="Bold"/>
+        <Label
+			x:Name="nameProd"
+            StyleId="informacion"/>
+        
+        
+        <Label
+			Text="ID codigo:"
+			FontAttributes="Bold"/>
+        <Label
+			x:Name="idcodigo"
+            StyleId="informacion"/>
+        
+        
+        <Label
+			Text="Marca:"
+			FontAttributes="Bold"/>
+        <Label
+			x:Name="idmarca"
+            StyleId="informacion"/>
+        
+        
+        <Label
+			Text="Modelo:"
+			FontAttributes="Bold"/>
+        <Label
+			x:Name="idmodelo"
+            StyleId="informacion"/>
+
+
+        <Label
+			Text="No Serie:"
+			FontAttributes="Bold"/>
+        <Label
+			x:Name="idSerie"
+            StyleId="informacion"/>
+
+
+        <Label
+			Text="Observaciones:"
+			FontAttributes="Bold"/>
+        <Label
+			x:Name="idobserv"
+            StyleId="informacion"/>
+        
+        
+        
+        
+        <Label
+			Text="Foto :"
+			FontAttributes="Bold"/>
+        <Image
+            x:Name="imagen"
+            WidthRequest="200"
+            HeightRequest="200"/>
+        <Button
+            
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+			Text="Acceptar"
+			Clicked="OnAccept"
+			StyleId="Ok"/>
+    </StackLayout>
+
+</ContentPage>
