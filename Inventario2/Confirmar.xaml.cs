@@ -18,11 +18,13 @@ namespace Inventario2
     {
         string p;
         public Carrito rp;
+        private GeneratePDF pdf;
         public Confirmar(Carrito x)
         {
             InitializeComponent();
             rp = x;
             p = Guid.NewGuid().ToString("D");
+            pdf = new GeneratePDF();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -70,7 +72,9 @@ namespace Inventario2
                                 rp.re.mv.Clear();
                                 rp.re.f1.Clear();
                                 await DisplayAlert("Agregado", "Carrito Agregado correctamente", "Aceptar");
-                                await Navigation.PushAsync(new PDFMovement(p));
+                                //await Navigation.PushAsync(new PDFMovement(p));
+                                pdf.InitPDF(p);
+                                ToolbarItem_Clicked(null,null);
                                 //await Navigation.PopAsync();
                             }
                         }

@@ -22,7 +22,7 @@ namespace Inventario2
         }
         public void ScanPage(ZXing.Result result)
         {
-            Boolean x;
+            
             Device.BeginInvokeOnMainThread(async () =>
             {
                 Boolean boo = true;
