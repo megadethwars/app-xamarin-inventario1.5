@@ -149,6 +149,7 @@ namespace Inventario2
 
         private void PostListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            postListView.SelectedItem = null;
             var selectedPost = postListView.SelectedItem as Movimientos;
             if (selectedPost != null)
                 Navigation.PushAsync(new DetallesHistorial(selectedPost));
@@ -855,6 +856,21 @@ namespace Inventario2
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
         {
+            int aux = 2;
+            var lista = Navigation.NavigationStack;
+            for (int x = 0; x < lista.Count; x++)
+            {
+                if (lista.Count > 3)
+                {
+                    if (x == 2)
+                    {
+                        x--;
+                        Navigation.RemovePage(lista[aux]);
+                    }
+
+                }
+            }
+            Navigation.PopAsync();
         }
 
     }

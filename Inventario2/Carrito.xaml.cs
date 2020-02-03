@@ -44,6 +44,7 @@ namespace Inventario2
 
         private void PostListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            postListView.SelectedItem = null;
             var selectedPost = postListView.SelectedItem as Movimientos;
             if (selectedPost != null)
                 Navigation.PushAsync(new DetallesCarrito(selectedPost, re));
@@ -62,6 +63,7 @@ namespace Inventario2
                     break;
                 }
             }
+            if(re.f1==null)
             re.f1.Remove(re.f1[x]);
             re.mv.Remove(product);
 

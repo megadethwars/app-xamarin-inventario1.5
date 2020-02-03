@@ -7,5 +7,6 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
              Title="Full screen" OnScanResult="ScanPage" IsScanning="True"
              x:Class="Inventario2.Escanear2">
+    
 
 </zxing:ZXingScannerPage>

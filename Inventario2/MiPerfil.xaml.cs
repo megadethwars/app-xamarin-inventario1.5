@@ -23,5 +23,10 @@ namespace Inventario2
             idPersonal.Text = u.tipoUsuario;
 
         }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }

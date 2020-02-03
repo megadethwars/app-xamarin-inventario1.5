@@ -13,6 +13,7 @@ namespace Inventario2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Escanear2 : ZXingScannerPage
     {
+        List<InventDB> users1;
         RetirarProducto s;
         public Escanear2(RetirarProducto r)
         {
@@ -22,14 +23,59 @@ namespace Inventario2
 
         public void ScanPage(ZXing.Result result)
         {
-            Boolean x;
+            Boolean boo = true;
             Device.BeginInvokeOnMainThread(async () =>
             {
                 //await DisplayAlert("Scanned result", result.Text, "OK");
-                s.text = result.Text;
-                await Navigation.PopAsync();
+                if (s.mv.Count > 0)
+                {
+                    for(int x =0; x<s.mv.Count; x++)
+                    {
+                        if (!(s.mv[x].codigo == result.Text))
+                        {
+                            boo = true;
+                        }
+                        else
+                            boo = false;
+                    }
+                    if(boo)
+                    {
+                        DependencyService.Get<IMessage>().ShortAlert(result.Text);
+
+                        buscar(result.Text);
+                    }
+                    
+                }
+                else
+                {
+                    DependencyService.Get<IMessage>().ShortAlert(result.Text);
+
+                    buscar(result.Text);
+                }
+                
                 //await DisplayAlert("","","oooo");
             });
+        }
+        public async void buscar(string qr)
+        {
+            users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == qr).ToListAsync();
+            Movimientos mv1 = new Movimientos
+            {
+                ID = "",
+                observ = "Ninguna",
+                producto = users1[0].nombre,
+                marca = users1[0].marca,
+                modelo = users1[0].modelo,
+                IdProducto = users1[0].ID,
+                codigo = users1[0].codigo,
+                serie = users1[0].serie,
+                cantidad = "1",
+                foto = "",
+                movimiento = "Retirar",
+                lugar = " ",
+                fecha = DateTime.Now.ToString("dd/MM/yyyy")
+            };
+            s.mv.Add(mv1);
         }
 
         protected override void OnAppearing()

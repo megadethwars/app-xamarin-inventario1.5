@@ -84,6 +84,21 @@ namespace Inventario2
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
         {
+            int aux = 2;
+            var lista = Navigation.NavigationStack;
+            for (int x = 0; x < lista.Count; x++)
+            {
+                if (lista.Count > 3)
+                {
+                    if (x == 2)
+                    {
+                        x--;
+                        Navigation.RemovePage(lista[aux]);
+                    }
+
+                }
+            }
+            Navigation.PopAsync();
         }
     }
 }
