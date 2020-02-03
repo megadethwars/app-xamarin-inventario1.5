@@ -39,7 +39,7 @@ namespace Inventario2
                 {
                     for(int y = x+1; y<mv.Count;y++)
                     {
-                        if(mv[x].Equals(mv[y]))
+                        if(mv[x].codigo == mv[y].codigo)
                         {
                             mv.Remove(mv[y]);
                         }
