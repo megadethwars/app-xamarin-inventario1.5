@@ -30,13 +30,23 @@ namespace Inventario2
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            
+            if (mv.Count > 0)
+            {
+                for (int x = 0; x < mv.Count; x++)
+                {
+                    for (int y = x + 1; y < mv.Count; y++)
+                    {
+                        if (mv[x].codigo == mv[y].codigo)
+                        {
+                            mv.Remove(mv[y]);
+                        }
+                    }
+                }
+            }
             BotonCarrito.Text = "Carrito " + "(" + mv.Count.ToString() + ")";
-            search.Text = text;
             p = Guid.NewGuid().ToString("D");
-            if (cont > 0)
-                busqueda();
-            else
-                cont++;
+            
 
         }
 

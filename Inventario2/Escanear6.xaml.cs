@@ -14,6 +14,7 @@ namespace Inventario2
     public partial class Escanear6 : ZXingScannerPage
     {
         IngresarProducto h;
+        List<InventDB> users1;
         public Escanear6(IngresarProducto t)
         {
             InitializeComponent();
@@ -24,11 +25,56 @@ namespace Inventario2
             Boolean x;
             Device.BeginInvokeOnMainThread(async () =>
             {
+                Boolean boo = true;
                 //await DisplayAlert("Scanned result", result.Text, "OK");
-                h.text = result.Text;
-                await Navigation.PopAsync();
+                if (h.mv.Count > 0)
+                {
+                    for (int x = 0; x < h.mv.Count; x++)
+                    {
+                        if (!(h.mv[x].codigo == result.Text))
+                        {
+                            boo = true;
+                        }
+                        else
+                            boo = false;
+                    }
+                    if (boo)
+                    {
+                        DependencyService.Get<IMessage>().ShortAlert(result.Text);
+
+                        buscar(result.Text);
+                    }
+
+                }
+                else
+                {
+                    DependencyService.Get<IMessage>().ShortAlert(result.Text);
+
+                    buscar(result.Text);
+                }
                 //await DisplayAlert("","","oooo");
             });
+        }
+        public async void buscar(string qr)
+        {
+            users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == qr).ToListAsync();
+            Movimientos mv1 = new Movimientos
+            {
+                ID = "",
+                observ = "Ninguna",
+                producto = users1[0].nombre,
+                marca = users1[0].marca,
+                modelo = users1[0].modelo,
+                IdProducto = users1[0].ID,
+                codigo = users1[0].codigo,
+                serie = users1[0].serie,
+                cantidad = "1",
+                foto = "",
+                movimiento = "Retirar",
+                lugar = " ",
+                fecha = DateTime.Now.ToString("dd/MM/yyyy")
+            };
+            h.mv.Add(mv1);
         }
 
         protected override void OnAppearing()
