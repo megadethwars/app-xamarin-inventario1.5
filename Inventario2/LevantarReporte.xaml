@@ -8,7 +8,7 @@
     <!--<ContentPage.Resources>
         <StyleSheet Source="Estilo.css"/>
     </ContentPage.Resources>-->
-    
+
     <StackLayout
 		Padding="50,20,50,20">
         <StackLayout
@@ -31,7 +31,8 @@
 
                     <Entry x:Name="nombreID"
 				        HorizontalOptions="FillAndExpand"
-				        Placeholder="Nombre o ID del Producto"/>
+				        Placeholder="Nombre o ID del Producto"
+                        Completed="OnEnterPressed"   />
 
                 </StackLayout>
 
@@ -42,10 +43,56 @@
 			        Clicked="Scan"/>
 
                 <Label
+				        Text="Producto:"
+				        FontAttributes="Bold"/>
+
+                <Label
+						x:Name="lbNombre"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+
+                <Label
+				        Text="Marca:"
+				        FontAttributes="Bold"/>
+
+                <Label
+						x:Name="lbMarca"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+                <Label
+				        Text="Serie:"
+				        FontAttributes="Bold"/>
+                <Label
+						x:Name="lbSerie"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+
+                <Label
+				        Text="Modelo:"
+				        FontAttributes="Bold"/>
+                <Label
+						x:Name="lbModelo"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+                <Label
+				        Text="Accesorio de:"
+				        FontAttributes="Bold"/>
+                <Label
+						x:Name="lbAccDe"
+				        Text=""
+				        FontAttributes="Bold"/>
+
+
+                <Label
 			        Text="Descripcion:" 
 			        FontAttributes="Bold"/>
 
                 <Editor 
+                    x:Name="editor"
 			        HeightRequest ="200"
 			        Placeholder="Indicar observaciones del producto." />
 
@@ -53,11 +100,29 @@
 			        Text="Agregar fotos de estado"
 			        x:Name="fotos1"
 			        HorizontalOptions="FillAndExpand"
-                    Clicked="Button_Clicked"
+                    Clicked="ScanFotos"
 			        VerticalOptions="Center"/>
 
+                <ScrollView>
+                    <Image x:Name="imagen"
+                     Aspect="AspectFill"
+                     HeightRequest="100"
+                     WidthRequest="100"
+                        />
+                </ScrollView>
+
                 <StackLayout
-			        HorizontalOptions="End">
+                    Orientation="Horizontal"
+			        HorizontalOptions="Center">
+
+                    <Button
+				        Text="Consultar Reporte"
+				        Clicked="Consultar_Reporte"
+				        HorizontalOptions="Start"
+				        FontAttributes="Bold"
+				        StyleId="Ok"/>
+
+
                     <Button
 				        Text="Enviar"
 				        Clicked="Enviar_Reporte"
