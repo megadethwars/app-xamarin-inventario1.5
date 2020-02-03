@@ -233,7 +233,7 @@ namespace Inventario2
 
         private void Consultar_Reporte(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new ConsultarReporte());
+            Navigation.PushAsync(new ConsultarReporte());
         }
 
     }
