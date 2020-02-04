@@ -79,6 +79,7 @@
 				Placeholder="Contraseña"
                 TextColor="White"
 				IsPassword= "True"
+                Completed="OnEnterPressed"
                 />
         </StackLayout>
 
