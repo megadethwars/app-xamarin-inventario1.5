@@ -19,12 +19,14 @@ namespace Inventario2
         string p;
         public Carrito rp;
         private GeneratePDF pdf;
+        private InventDB CurrentDevice;
         public Confirmar(Carrito x)
         {
             InitializeComponent();
             rp = x;
             p = Guid.NewGuid().ToString("D");
             pdf = new GeneratePDF();
+            CurrentDevice = new InventDB();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -41,6 +43,8 @@ namespace Inventario2
                         if (usuarios[x].contrasena == Contra.Text)
                         {
                             password = true;
+                            await UpdateLocations(rp.re.mv, Destino.Text);
+
                             for (int y = 0; y < rp.re.mv.Count(); y++)
                             {
                                 try
@@ -126,5 +130,30 @@ namespace Inventario2
             }
             Navigation.PopAsync();
         }
+
+        private async Task UpdateLocations(List<Movimientos> movimientos, string lugar)
+        {
+            foreach (Movimientos movimiento in movimientos)
+            {
+                try
+                {
+                    var tablainventario = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == movimiento.codigo).ToListAsync();
+                    if (tablainventario.Count != 0)
+                    {
+                        CurrentDevice = tablainventario[0];
+                        CurrentDevice.lugar = lugar;
+
+                        //update
+                        await App.MobileService.GetTable<InventDB>().UpdateAsync(CurrentDevice);
+
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
     }
 }
