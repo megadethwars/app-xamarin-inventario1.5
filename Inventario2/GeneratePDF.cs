@@ -29,14 +29,14 @@ namespace Inventario2
 
         }
 
-        public void InitPDF(string idSalida)
+        public async Task InitPDFAsync(string idSalida)
         {
             streamPDF = new MemoryStream();
             IdSalida = idSalida;
 
             table = new DataTable();
 
-            MainTask();
+            await MainTask();
 
         }
 
@@ -237,7 +237,7 @@ namespace Inventario2
 
         }
 
-        private async void MainTask()
+        private async Task MainTask()
         {
             DataTable tablacarrito;
             tablacarrito = new DataTable();

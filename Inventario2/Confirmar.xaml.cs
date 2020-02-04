@@ -77,7 +77,7 @@ namespace Inventario2
                                 rp.re.f1.Clear();
                                 await DisplayAlert("Agregado", "Carrito Agregado correctamente", "Aceptar");
                                 //await Navigation.PushAsync(new PDFMovement(p));
-                                pdf.InitPDF(p);
+                                await pdf.InitPDFAsync(p);
                                 ToolbarItem_Clicked(null,null);
                                 //await Navigation.PopAsync();
                             }
