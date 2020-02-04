@@ -25,10 +25,10 @@
             <StackLayout
 		Padding="70,10,70,10">
                 <StackLayout
-            Padding="100,20,100,20">
+            Padding="130,20,130,20">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
-                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
                         <Label
                             VerticalOptions="Center"
                  FontFamily="Montserrat-Bold"
@@ -179,11 +179,11 @@
                 <StackLayout Padding="40,0,20,10">
 
                     <Picker x:Name="pickerUser"
-            Title="Selecciona el tipo de usuario"
+                            Title="Selecciona el tipo de usuario"
                             BackgroundColor="Gray"
                             TextColor="White"
                             TitleColor="White"
-            SelectedIndexChanged="PickerUser_SelectedIndexChanged">
+                            SelectedIndexChanged="PickerUser_SelectedIndexChanged">
                         <Picker.Items>
                             <x:String>Usuario</x:String>
                             <x:String>Administrador</x:String>

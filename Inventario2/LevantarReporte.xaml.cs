@@ -236,5 +236,8 @@ namespace Inventario2
             Navigation.PushAsync(new ConsultarReporte());
         }
 
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
     }
 }

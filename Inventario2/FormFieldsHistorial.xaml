@@ -24,10 +24,10 @@
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <StackLayout Padding="70,40,70,10">
                 <StackLayout
-            Padding="105,20,105,30">
+            Padding="115,20,115,30">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
-                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
                         <Label
                             VerticalOptions="Center"
                  FontFamily="Montserrat-Bold"

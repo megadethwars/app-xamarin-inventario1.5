@@ -28,10 +28,10 @@
 
 
                 <StackLayout
-            Padding="210,20,195,30">
+            Padding="220,20,215,30">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
-                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
                         <Label
                             VerticalOptions="Center"
                  FontFamily="Montserrat-Bold"

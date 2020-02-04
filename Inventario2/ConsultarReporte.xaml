@@ -5,17 +5,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Inventario2.ConsultarReporte">
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem Text="HOME" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="           "></ToolbarItem>
+    </ContentPage.ToolbarItems>
 
-    <StackLayout>
-
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-			Padding="0,0,0,50">
-            <Label
-				HorizontalOptions="Center"
-				Text="CONSULTA DE REPORTE" 
-				FontAttributes="Bold"
-				StyleId="Titulo"/>
-        </StackLayout>
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout
+		Padding="80,20,80,20">
+                <StackLayout
+            Padding="120,20,115,30">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
+                        <Label
+                            VerticalOptions="Center"
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                            FontSize="30"
+			    HorizontalOptions="Center"
+			    Text="CONSULTAR REPORTE" 
+			    FontAttributes="Bold"
+			    StyleId="Titulo"/>
+
+                    </Grid>
+
+
+                </StackLayout>
+    <StackLayout>
 
         <ScrollView
             >
@@ -24,10 +51,17 @@
 			        Orientation="Horizontal">
 
                     <Label
-				        Text="Producto:"
-				        FontAttributes="Bold"/>
+				        FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="PRODUCTO:"
+				FontAttributes="Bold"/>
 
                     <Entry x:Name="nombreID"
+                           BackgroundColor="Gray"
+                           PlaceholderColor="White"
+                           TextColor="White"
 				        HorizontalOptions="FillAndExpand"
 				        Placeholder="Nombre o ID del Producto"
                         Completed="OnEnterPressed"   />
@@ -36,7 +70,7 @@
 
                 <Button
 			        HorizontalOptions="Center"
-			        Text="Escanear"
+			        ImageSource="bscanner.png"
 			        FontAttributes="Bold"			       
 			        Clicked="Scan"/>
 
@@ -54,29 +88,34 @@
                     </Grid.ColumnDefinitions>
 
                     <Label
+                        TextColor="White"
                         Text="Codigo" 
 				        FontAttributes="Bold"
                         Grid.Column="0"
 				        />
 
                     <Label
+                        TextColor="White"
                         Text="Producto" 
 				        FontAttributes="Bold"
                         Grid.Column="1"
 				        />
 
                     <Label
+                        TextColor="White"
                         Text="Serie" 
 				        FontAttributes="Bold"
                         Grid.Column="2"
 				        />
                     <Label
+                        TextColor="White"
                         Text="Marca" 
 				        FontAttributes="Bold"
                         Grid.Column="3"
 				        />
 
                     <Label
+                        TextColor="White"
                         Text="Modelo" 
 				        FontAttributes="Bold"
                         Grid.Column="4"
@@ -90,7 +129,7 @@
 			VerticalOptions="FillAndExpand"
 			HeightRequest="350">
                     <StackLayout>
-                        <ListView x:Name="postListView"  ItemSelected="PostListView_ItemSelected">
+                        <ListView x:Name="postListView" BackgroundColor="Gray" ItemSelected="PostListView_ItemSelected">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
@@ -104,11 +143,11 @@
                                                     <ColumnDefinition Width="100"/>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label Text="{Binding codigo}" Grid.Column="0"/>
-                                                <Label Text="{Binding producto}" Grid.Column="1"/>
-                                                <Label Text="{Binding serie}" Grid.Column="2"/>
-                                                <Label Text="{Binding marca}" Grid.Column="3"/>
-                                                <Label Text="{Binding modelo}" Grid.Column="4"/>
+                                                <Label Text="{Binding codigo}" TextColor="White" Grid.Column="0"/>
+                                                <Label Text="{Binding producto}" TextColor="White" Grid.Column="1"/>
+                                                <Label Text="{Binding serie}" TextColor="White" Grid.Column="2"/>
+                                                <Label Text="{Binding marca}" TextColor="White" Grid.Column="3"/>
+                                                <Label Text="{Binding modelo}" TextColor="White" Grid.Column="4"/>
 
                                             </Grid>
                                         </StackLayout>
@@ -127,7 +166,9 @@
 
 
     </StackLayout>
-
+</StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
 
 
 </ContentPage>

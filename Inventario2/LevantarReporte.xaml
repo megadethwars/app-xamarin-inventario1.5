@@ -8,25 +8,60 @@
     <!--<ContentPage.Resources>
         <StyleSheet Source="Estilo.css"/>
     </ContentPage.Resources>-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="HOME"  Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem Text="              " />
+        <ToolbarItem Text="              " />
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="           " />
+        <ToolbarItem Text="           "></ToolbarItem>
+        
+    </ContentPage.ToolbarItems>
 
-    <StackLayout
-		Padding="50,20,50,20">
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-			Padding="0,0,0,50">
-            <Label
-				HorizontalOptions="Center"
-				Text="LEVANTAR REPORTE" 
-				FontAttributes="Bold"
-				StyleId="Titulo"/>
-        </StackLayout>
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            
+                <StackLayout
+		            Padding="50,10,50,10">
+                    <StackLayout
+                        Padding="10,20,10,20">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
+                        <Label
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"
+                            FontFamily="Montserrat-Bold"
+                            TextColor="White"
+                            FontSize="30"
+			                
+			                Text="LEVANTAR REPORTE" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
+
+                    </Grid>
+
+
+                    </StackLayout>
+
+    
+        
 
         <ScrollView>
-            <StackLayout>
+            <StackLayout Padding="30,20,30,20">
                 <StackLayout 
 			        Orientation="Horizontal">
 
                     <Label
 				        Text="Producto:"
+                        FontFamily="Montserrat-Bold"
+                        TextColor="White"
+                        FontSize="Large"
+                        CharacterSpacing="4"
 				        FontAttributes="Bold"/>
 
                     <Entry x:Name="nombreID"
@@ -38,66 +73,139 @@
 
                 <Button
 			        HorizontalOptions="Center"
-			        Text="Escanear"
+			        ImageSource="bscanner.png"
 			        FontAttributes="Bold"			       
 			        Clicked="Scan"/>
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                            <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="NOMBRE DEL PRODUCTO:"
+				FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Padding="40,0,20,20">
+                            <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="lbNombre"
+                StyleId="informacion"/>
+                        </StackLayout>
+
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                            <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="MARCA:"
+				FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Padding="40,0,20,20">
+                            <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="lbMarca"
+                StyleId="informacion"/>
+                        </StackLayout>
+
+               <StackLayout 
+            
+			Orientation="Horizontal">
+                            <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="SERIE:"
+				FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Padding="40,0,20,20">
+                            <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="lbSerie"
+                StyleId="informacion"/>
+                        </StackLayout>             
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                            <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="MODELO:"
+				FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Padding="40,0,20,20">
+                            <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="lbModelo"
+                StyleId="informacion"/>
+                        </StackLayout>
+
+                <StackLayout 
+            
+			Orientation="Horizontal">
+                            <Label
+                 FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
+				Text="ACCESORIO DE:"
+				FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Padding="40,0,20,20">
+                            <Label
+                 FontFamily="Montserrat-Light"
+                       
+                TextColor="White"
+                FontSize="Large"
+                
+				x:Name="lbAccDe"
+                StyleId="informacion"/>
+                        </StackLayout>
+
+                
+
 
                 <Label
-				        Text="Producto:"
-				        FontAttributes="Bold"/>
-
-                <Label
-						x:Name="lbNombre"
-				        Text=""
-				        FontAttributes="Bold"/>
-
-
-                <Label
-				        Text="Marca:"
-				        FontAttributes="Bold"/>
-
-                <Label
-						x:Name="lbMarca"
-				        Text=""
-				        FontAttributes="Bold"/>
-
-                <Label
-				        Text="Serie:"
-				        FontAttributes="Bold"/>
-                <Label
-						x:Name="lbSerie"
-				        Text=""
-				        FontAttributes="Bold"/>
-
-
-                <Label
-				        Text="Modelo:"
-				        FontAttributes="Bold"/>
-                <Label
-						x:Name="lbModelo"
-				        Text=""
-				        FontAttributes="Bold"/>
-
-                <Label
-				        Text="Accesorio de:"
-				        FontAttributes="Bold"/>
-                <Label
-						x:Name="lbAccDe"
-				        Text=""
-				        FontAttributes="Bold"/>
-
-
-                <Label
+                    FontFamily="Montserrat-Bold"
+                TextColor="White"
+                FontSize="Large"
+                CharacterSpacing="4"
 			        Text="Descripcion:" 
 			        FontAttributes="Bold"/>
 
-                <Editor 
+                <Editor
+                    BackgroundColor="Gray"
+                    PlaceholderColor="White"
+                    TextColor="White"
                     x:Name="editor"
 			        HeightRequest ="200"
 			        Placeholder="Indicar observaciones del producto." />
 
                 <Button
-			        Text="Agregar fotos de estado"
+			        ImageSource="bfoto.png"
 			        x:Name="fotos1"
 			        HorizontalOptions="FillAndExpand"
                     Clicked="ScanFotos"
@@ -116,7 +224,7 @@
 			        HorizontalOptions="Center">
 
                     <Button
-				        Text="Consultar Reporte"
+				        ImageSource="bopciones.png"
 				        Clicked="Consultar_Reporte"
 				        HorizontalOptions="Start"
 				        FontAttributes="Bold"
@@ -124,7 +232,7 @@
 
 
                     <Button
-				        Text="Enviar"
+				        ImageSource="baceptar.png"
 				        Clicked="Enviar_Reporte"
 				        HorizontalOptions="End"
 				        FontAttributes="Bold"
@@ -133,4 +241,7 @@
             </StackLayout>
         </ScrollView>
     </StackLayout>
+               
+            </StackLayout>
+        </AbsoluteLayout>
 </ContentPage>
