@@ -172,7 +172,6 @@ namespace Inventario2
                         x--;
                         Navigation.RemovePage(lista[aux]);
                     }
-
                 }
             }
             Navigation.PopAsync();

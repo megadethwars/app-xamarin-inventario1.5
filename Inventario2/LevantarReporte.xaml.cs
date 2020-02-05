@@ -238,6 +238,7 @@ namespace Inventario2
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
         {
+            Navigation.PopAsync();
         }
     }
 }
