@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Inventario2.Model;
 using Microsoft.WindowsAzure.MobileServices;
-
+using Microsoft.WindowsAzure.Storage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,9 +37,16 @@ namespace Inventario2
                     try
                     {
                         await App.MobileService.GetTable<Usuario>().DeleteAsync(usuario);
+                        var account = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=fotosavs;AccountKey=NLazg0RjiUxSF9UvkeSWvNYicNDSUPn4IoXp4KSKXx0qe+W2bt40BrGFK6M+semkKHHOV5T4Ya2eNKDDQNY57A==;EndpointSuffix=core.windows.net");
+                        var client = account.CreateCloudBlobClient();
+                        var container = client.GetContainerReference("fotosempleados");
+                        await container.CreateIfNotExistsAsync();
+                        var foto = usuario.ID + ".jpg";
+                        var block = container.GetBlockBlobReference($"{foto}");
+                        await block.DeleteIfExistsAsync();
+                        
 
-
-                        await DisplayAlert("Hecho", "Producto borrado exitosamente", "Aceptar");
+                        await DisplayAlert("Hecho", "Usuario borrado exitosamente", "Aceptar");
                         await Navigation.PopAsync();
                     }
                     catch (MobileServiceInvalidOperationException ms)

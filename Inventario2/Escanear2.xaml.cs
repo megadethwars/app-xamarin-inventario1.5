@@ -48,7 +48,7 @@ namespace Inventario2
                 }
                 else
                 {
-                    DependencyService.Get<IMessage>().ShortAlert(result.Text);
+                    
 
                     buscar(result.Text);
                 }
@@ -59,23 +59,29 @@ namespace Inventario2
         public async void buscar(string qr)
         {
             users1 = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == qr).ToListAsync();
-            Movimientos mv1 = new Movimientos
+            if (users1.Count != 0)
             {
-                ID = "",
-                observ = "Ninguna",
-                producto = users1[0].nombre,
-                marca = users1[0].marca,
-                modelo = users1[0].modelo,
-                IdProducto = users1[0].ID,
-                codigo = users1[0].codigo,
-                serie = users1[0].serie,
-                cantidad = "1",
-                foto = "",
-                movimiento = "Retirar",
-                lugar = " ",
-                fecha = DateTime.Now.ToString("dd/MM/yyyy")
-            };
-            s.mv.Add(mv1);
+                Movimientos mv1 = new Movimientos
+                {
+                    ID = "",
+                    observ = "Ninguna",
+                    producto = users1[0].nombre,
+                    marca = users1[0].marca,
+                    modelo = users1[0].modelo,
+                    IdProducto = users1[0].ID,
+                    codigo = users1[0].codigo,
+                    serie = users1[0].serie,
+                    cantidad = "1",
+                    foto = "",
+                    movimiento = "Retirar",
+                    lugar = " ",
+                    fecha = DateTime.Now.ToString("dd/MM/yyyy")
+                };
+                s.mv.Add(mv1);
+                DependencyService.Get<IMessage>().ShortAlert(qr);
+            }
+            else
+                DependencyService.Get<IMessage>().ShortAlert("Producto no Encontrado");
         }
 
         protected override void OnAppearing()

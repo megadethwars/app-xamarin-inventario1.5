@@ -103,6 +103,8 @@ namespace Inventario2
               new Plugin.Media.Abstractions.StoreCameraMediaOptions
               {
                   Directory = "Sample",
+                  RotateImage = true,
+                  
 
                   Name = ID + ".jpg"
               });
@@ -110,6 +112,7 @@ namespace Inventario2
                 return true;
             await DisplayAlert("File Location", camara.Path, "OK");
             imagen.Source = camara.Path;
+            imagen.RotateTo(90);
             camara.GetStream();
 
             return false;

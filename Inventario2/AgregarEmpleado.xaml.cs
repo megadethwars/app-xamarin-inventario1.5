@@ -37,39 +37,46 @@ namespace Inventario2
 
         private async void AgregaEmp(object sender, EventArgs e)
         {
-            if (contra2.Text == contraEntry.Text)
+            if (nombrEntry.Text != "" && correoEntry.Text != "" && contraEntry.Text != "")
             {
 
-                Usuario user = new Usuario
+
+                if (contra2.Text == contraEntry.Text)
                 {
-                    ID = identi,
-                    nombre = nombrEntry.Text,
-                    contrasena = contraEntry.Text,
-                    apellido_paterno = apepEntry.Text,
-                    apellido_materno = apemEntry.Text,
-                    tipoUsuario = tipousuario,
-                    telefono = telEntry.Text,
-                    correo = correoEntry.Text,
-                    fechaContratacion = DateTime.Now.ToString("dd/MM/yyyy")
-                };
-                try
-                {
-                    await App.MobileService.GetTable<Usuario>().InsertAsync(user);
-                    if (!(f == null))
-                        UploadFile(f.GetStream());
-                    await DisplayAlert("Agregado", "Usuario agregado correctamente", "Aceptar");
-                    await Navigation.PopAsync();
+
+                    Usuario user = new Usuario
+                    {
+                        ID = identi,
+                        nombre = nombrEntry.Text,
+                        contrasena = contraEntry.Text,
+                        apellido_paterno = apepEntry.Text,
+                        apellido_materno = apemEntry.Text,
+                        tipoUsuario = tipousuario,
+                        telefono = telEntry.Text,
+                        correo = correoEntry.Text,
+                        fechaContratacion = DateTime.Now.ToString("dd/MM/yyyy")
+                    };
+                    try
+                    {
+                        await App.MobileService.GetTable<Usuario>().InsertAsync(user);
+                        if (!(f == null))
+                            UploadFile(f.GetStream());
+                        await DisplayAlert("Agregado", "Usuario agregado correctamente", "Aceptar");
+                        await Navigation.PopAsync();
 
 
+                    }
+                    catch (MobileServiceInvalidOperationException ms)
+                    {
+                        var response = await ms.Response.Content.ReadAsStringAsync();
+                        await DisplayAlert("error", response, "Aceptar");
+                    }
                 }
-                catch (MobileServiceInvalidOperationException ms)
-                {
-                    var response = await ms.Response.Content.ReadAsStringAsync();
-                    await DisplayAlert("error", response, "Aceptar");
-                }
+                else
+                    DisplayAlert("Error", "Contraseña no coincide", "Aceptar");
             }
             else
-                DisplayAlert("Error", "Contraseña no coincide", "Aceptar");
+                DisplayAlert("Error","Faltan campos por Llenar","Aceptar");
         }
 
         private void PickerUser_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,6 +106,7 @@ namespace Inventario2
                 return;
             await DisplayAlert("File Location", f.Path, "OK");
             imagen.Source = f.Path;
+            imagen.RotateTo(90);
             f.GetStream();
         }
         private async void UploadFile(Stream stream)

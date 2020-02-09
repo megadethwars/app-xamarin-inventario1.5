@@ -200,7 +200,7 @@
 		    StyleId="Ok"/>
                 <Image
                         x:Name="imagen"
-                        Aspect="AspectFit"
+                        
                         HeightRequest="150"
                         Source="marco de foto.png"
                         WidthRequest="100"/>

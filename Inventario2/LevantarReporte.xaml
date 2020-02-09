@@ -211,12 +211,13 @@
                     Clicked="ScanFotos"
 			        VerticalOptions="Center"/>
 
-                
+                <StackLayout Padding="70,30">
                 <Image x:Name="imagen"
                      Aspect="AspectFit"
-                     HeightRequest="150"
-                     WidthRequest="100"
+                     HeightRequest="200"
+                     WidthRequest="150"
                         />
+                 </StackLayout>
                
 
                 <StackLayout
