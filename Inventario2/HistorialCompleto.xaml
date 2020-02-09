@@ -23,7 +23,7 @@
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
 
             <StackLayout
-		Padding="70,10,70,10">
+		Padding="70,10,70,50">
 
 
 
@@ -161,7 +161,7 @@
 
                 <ScrollView
 			VerticalOptions="FillAndExpand"
-			HeightRequest="350">
+			>
                     <StackLayout>
                         <ListView x:Name="postListView"  ItemSelected="PostListView_ItemSelected" BackgroundColor="Gray">
                             <ListView.ItemTemplate>

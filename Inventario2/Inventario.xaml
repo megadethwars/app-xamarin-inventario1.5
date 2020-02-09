@@ -52,6 +52,7 @@
 			        CancelButtonColor="Red"
                     BackgroundColor="Gray"
                     PlaceholderColor="White"
+                    TextChanged="search_TextChanged"
                     TextColor="White"
 			        SearchButtonPressed="SearchBar" />
 
@@ -80,6 +81,7 @@
                             TitleColor="Red"
                             Title="TIPO DE BUSQUEDA"
                             TextColor="White"
+                            
                             WidthRequest="160"
                             BackgroundColor="Black"
                             SelectedIndexChanged="pickerBuscar_SelectedIndexChanged">
@@ -92,6 +94,7 @@
                                 <x:String>Proveedor</x:String>
                                 <x:String>Serie</x:String>
                             </Picker.Items>
+                            <Picker.SelectedIndex>0</Picker.SelectedIndex>
                         </Picker>
                     </StackLayout>
                 </StackLayout>
@@ -160,8 +163,8 @@
                 <ScrollView
 			HorizontalOptions="FillAndExpand"
                     
-            HeightRequest="350">
-                    <StackLayout>
+            VerticalOptions="FillAndExpand">
+                    <StackLayout VerticalOptions="FillAndExpand">
                         <ListView x:Name="postListView" ItemSelected="PostListView_ItemSelected" BackgroundColor="Gray">
                             <ListView.ItemTemplate>
                                 <DataTemplate>

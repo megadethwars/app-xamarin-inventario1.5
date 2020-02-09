@@ -41,15 +41,17 @@ namespace Inventario2
                 //var users1 = conn.Query<InventDB>("select * from InventDB where Nombre= ?", search.Text);
                 //conn.Close();
                 var users1 = await App.MobileService.GetTable<Usuario>().Where(u => u.nombre == search.Text).ToListAsync();
-                if (users1.Count != 1)
+                if (users1.Count != 0)
                 {
                     //DisplayAlert("Buscando", "encontrado", "OK");
                     postListView.ItemsSource = users1;
                 }
                 else
                 {
-                    DisplayAlert("Buscando", "Producto no encontrado", "Aceptar");
-                    postListView.ItemsSource = users1;
+                    DisplayAlert("Buscando", "Usuario no encontrado", "Aceptar");
+                    var usuarios = await App.MobileService.GetTable<Usuario>().ToListAsync();
+
+                    postListView.ItemsSource = usuarios;
                 }
             }
             else
@@ -64,7 +66,10 @@ namespace Inventario2
                 else
                 {
                     DisplayAlert("Buscando", " no encontrado", "OK");
-                    postListView.ItemsSource = users1;
+
+                    var usuarios = await App.MobileService.GetTable<Usuario>().ToListAsync();
+
+                    postListView.ItemsSource = usuarios;
                 }
             }
             }
@@ -99,6 +104,15 @@ namespace Inventario2
                 }
             }
             Navigation.PopAsync();
+        }
+
+        async void search_TextChanged(System.Object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+            if (search.Text == "")
+            {
+                var usuario = await App.MobileService.GetTable<Usuario>().ToListAsync();
+                postListView.ItemsSource = usuario;
+            }
         }
     }
 }

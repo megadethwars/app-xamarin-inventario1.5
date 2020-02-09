@@ -21,7 +21,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Bold.ttf</string>
-    <string>Montserrat-Light.otf</string>
+		<string>Montserrat-Light.otf</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.companyname.Inventario2</string>

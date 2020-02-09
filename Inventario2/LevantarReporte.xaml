@@ -26,7 +26,7 @@
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             
                 <StackLayout
-		            Padding="50,10,50,10">
+		            Padding="50,10,50,50">
                     <StackLayout
                         Padding="10,20,10,20">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
@@ -211,13 +211,13 @@
                     Clicked="ScanFotos"
 			        VerticalOptions="Center"/>
 
-                <ScrollView>
-                    <Image x:Name="imagen"
-                     Aspect="AspectFill"
-                     HeightRequest="100"
+                
+                <Image x:Name="imagen"
+                     Aspect="AspectFit"
+                     HeightRequest="150"
                      WidthRequest="100"
                         />
-                </ScrollView>
+               
 
                 <StackLayout
                     Orientation="Horizontal"

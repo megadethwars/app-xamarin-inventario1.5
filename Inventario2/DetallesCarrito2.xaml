@@ -181,7 +181,7 @@
                     <Entry Text="" x:Name="observ"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="Introduzca Usuario"
+                   Placeholder="Introduzca Observaciones"
                    TextColor="White"/>
                 </StackLayout>
                 <Button ImageSource="bactualizar.png"

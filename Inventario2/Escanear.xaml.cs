@@ -27,6 +27,7 @@ namespace Inventario2
             {
                 //await DisplayAlert("Scanned result", result.Text, "OK");
                 s.stringcode = result.Text;
+                s.cont = 1;
                 await Navigation.PopAsync();
 
                 //await DisplayAlert("","","oooo");

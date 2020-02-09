@@ -26,8 +26,18 @@ namespace Inventario2
         {
             base.OnAppearing();
             search.Text = stringcode;
-            var usuario = await App.MobileService.GetTable<InventDB>().ToListAsync();
-            postListView.ItemsSource = usuario;
+            tipoBusqueda = pickerBuscar.SelectedItem as String;
+            if (cont == 1)
+            {
+                var busqueda = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == search.Text).ToListAsync();
+                postListView.ItemsSource = busqueda;
+                cont = 0;
+            }
+            else
+            {
+                var usuario = await App.MobileService.GetTable<InventDB>().ToListAsync();
+                postListView.ItemsSource = usuario;
+            }
             
         }
 
@@ -194,6 +204,15 @@ namespace Inventario2
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PopAsync();
+        }
+
+        async void search_TextChanged(Object sender, TextChangedEventArgs e)
+        {
+            if(search.Text=="")
+            {
+                var usuario = await App.MobileService.GetTable<InventDB>().ToListAsync();
+                postListView.ItemsSource = usuario;
+            }
         }
     }
 }
