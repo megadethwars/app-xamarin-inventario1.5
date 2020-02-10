@@ -13,6 +13,7 @@ namespace Inventario2
     public partial class IngresarProducto : ContentPage
     {
         public List<Plugin.Media.Abstractions.MediaFile> f1 = new List<Plugin.Media.Abstractions.MediaFile>();
+        public List<Plugin.Media.Abstractions.MediaFile> f2 = new List<Plugin.Media.Abstractions.MediaFile>();
         Plugin.Media.Abstractions.MediaFile f = null;
         string p;
         public int cont;
@@ -166,6 +167,7 @@ namespace Inventario2
             };
             mv.Add(mv1);
             f1.Add(f);
+            f2.Add(f);
             f = null;
         }
 

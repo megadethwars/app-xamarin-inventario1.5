@@ -53,6 +53,8 @@ namespace Inventario2
                                         rp.re.mv[y].ID = p;
                                         rp.re.mv[y].usuario = usuarios[x].nombre;
                                         rp.re.mv[y].lugar = "Almacen";
+                                        rp.re.mv[y].foto = p.Substring(15) + rp.re.mv[y].codigo + ".jpg";
+                                        rp.re.mv[y].foto2 = p.Substring(10) + rp.re.mv[y].codigo + "2.jpg";
                                         await App.MobileService.GetTable<Movimientos>().InsertAsync(rp.re.mv[y]);
                                         //UploadFile(f.GetStream());
                                         //DisplayAlert("Agregado", re.mv.Count().ToString(), "Aceptar");
@@ -60,7 +62,9 @@ namespace Inventario2
                                         //await Navigation.PopAsync();
                                         v = true;
                                         if (rp.re.f1[y] != null)
-                                            UploadFile(rp.re.f1[y].GetStream(), rp.re.mv[y].ID);
+                                            UploadFile(rp.re.f1[y].GetStream(), rp.re.mv[y].foto);
+                                        if (rp.re.f2[y] != null)
+                                            UploadFile(rp.re.f2[y].GetStream(), rp.re.mv[y].foto2);
 
                                     }
                                     catch (MobileServiceInvalidOperationException ms)
@@ -76,6 +80,7 @@ namespace Inventario2
                                     //agregar el pdf
                                     rp.re.mv.Clear();
                                     rp.re.f1.Clear();
+                                    rp.re.f2.Clear();
                                     await DisplayAlert("Agregado", "Carrito Agregado correctamente", "Aceptar");
                                     ToolbarItem_Clicked(null, null);
                                     //await Navigation.PushAsync(new PDFMovement(p));

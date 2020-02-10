@@ -26,16 +26,19 @@
             Padding="93,20,93,20">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
-                        <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
+                        <Image Source="tache.png"
+                               HorizontalOptions="End"
+                               HeightRequest="45"
+                               WidthRequest="45"/>
                         <Label
                             VerticalOptions="Center"
-                 FontFamily="Montserrat-Bold"
-                TextColor="White"
+                            FontFamily="Montserrat-Bold"
+                            TextColor="White"
                             FontSize="30"
-			    HorizontalOptions="Center"
-			    Text="DETALLES DEL PRODUCTO" 
-			    FontAttributes="Bold"
-			    StyleId="Titulo"/>
+			                HorizontalOptions="Center"
+			                Text="DETALLES DEL PRODUCTO" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
 
                     </Grid>
 

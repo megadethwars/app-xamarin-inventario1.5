@@ -7,16 +7,40 @@
              x:Class="Inventario2.Ajustes">
     
     
-    <StackLayout
-		Padding="50,20,50,20">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="HOME" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
+        
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="             " />
+        <ToolbarItem Text="            " />
+    </ContentPage.ToolbarItems>
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+        <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
+               Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-			Padding="0,0,0,70">
-            <Label
-				HorizontalOptions="Center"
-				Text="AJUSTES" 
-				FontAttributes="Bold"
-				StyleId="Titulo"/>
-        </StackLayout>
+		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout
+		Padding="70,10,70,10">
+                <StackLayout
+            Padding="230,20,230,20">
+                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions Width = "100"/>
+                        <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Montserrat-Bold"
+                            TextColor="White"
+                            FontSize="30"
+			                HorizontalOptions="Center"
+			                Text="AJUSTES" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
+                    </Grid>
+                </StackLayout>
+       
 
         <StackLayout>
 
@@ -35,9 +59,13 @@
                 </Grid.ColumnDefinitions>
 
                 <Label
+                    FontFamily="Montserrat-Bold"
 		            HorizontalOptions="Start"
                     Text="Copia de Seguridad" 
                     FontAttributes="Bold"
+                    FontSize="Large"
+                    CharacterSpacing="4"
+                    TextColor="White"
                     Grid.Column="0"
                     Grid.Row="0"/>
 
@@ -48,6 +76,11 @@
                     Grid.Row="0"/>
 
                 <Label
+                    
+                    FontSize="Large"
+                    CharacterSpacing="4"
+                    TextColor="White"
+                    FontFamily="Montserrat-Bold"
 				    HorizontalOptions="Start"
                     Text="Sincronizacion Automatica" 
                     FontAttributes="Bold"
@@ -61,6 +94,8 @@
                     Grid.Row="1"/>
 
                 <Button
+                    FontFamily="Montserrat-Bold"
+                    TextColor="Red"
 		            HorizontalOptions="Start"
                     Text="Informacion" 
 			        FontAttributes="Bold"
@@ -71,4 +106,6 @@
             </Grid>
         </StackLayout>
     </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
 </ContentPage>

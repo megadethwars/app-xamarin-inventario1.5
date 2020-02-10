@@ -18,7 +18,7 @@ namespace Inventario2
         public static async Task<List<Movimientos>> searching(ModelHistorialCompleto modelhistorial) {
 
             try {
-                var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+                var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
                 return table;
             
@@ -332,7 +332,7 @@ namespace Inventario2
         {
 
             // searching only by model 
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
             Console.WriteLine("executing");
             return table;
         }
@@ -341,7 +341,7 @@ namespace Inventario2
         {
 
             // searching only by model and date
-            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.modelo == modelhistorial.modelo).
+            var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.lugar == modelhistorial.lugar).
                 Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -371,7 +371,7 @@ namespace Inventario2
 
             // searching only by product and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.producto == modelhistorial.producto).
-                Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+                Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -381,7 +381,7 @@ namespace Inventario2
 
             // searching only by model and date, product
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.producto == modelhistorial.producto).
-                Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
+                Where(u => u.lugar == modelhistorial.lugar).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
         }
@@ -408,9 +408,9 @@ namespace Inventario2
         private async Task<List<Movimientos>> MovementCase10(ModelHistorialCompleto modelhistorial)
         {
 
-            // searching only by movimiento and modelo
+            // searching only by movimiento and lugar
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.movimiento == modelhistorial.movimiento).
-                Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+                Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -418,9 +418,9 @@ namespace Inventario2
         private async Task<List<Movimientos>> MovementCase11(ModelHistorialCompleto modelhistorial)
         {
 
-            // searching only by movimiento and date, modelo
+            // searching only by movimiento and date, lugar
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.movimiento == modelhistorial.movimiento).
-                Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
+                Where(u => u.lugar == modelhistorial.lugar).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
         }
@@ -448,9 +448,9 @@ namespace Inventario2
         private async Task<List<Movimientos>> MovementCase14(ModelHistorialCompleto modelhistorial)
         {
 
-            // searching only by movimiendo, producto y modelo
+            // searching only by movimiendo, producto y lugar
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.movimiento == modelhistorial.movimiento).
-                Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+                Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -458,9 +458,9 @@ namespace Inventario2
         private async Task<List<Movimientos>> MovementCase15(ModelHistorialCompleto modelhistorial)
         {
            
-            // searching only by movimiendo, producto  modelo date
+            // searching only by movimiendo, producto  lugar date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.movimiento == modelhistorial.movimiento).
-                Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).
+                Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).
                 Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -491,7 +491,7 @@ namespace Inventario2
             
             // searching only by idproduct and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -501,7 +501,7 @@ namespace Inventario2
 
             // searching only by idproduct  model, date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
         }
@@ -531,7 +531,7 @@ namespace Inventario2
 
             // searching only by idproduct  and product and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -541,7 +541,7 @@ namespace Inventario2
 
             // searching only by idproduct  and product and model and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -572,7 +572,7 @@ namespace Inventario2
 
             // searching only by idproduct  and movement and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -582,7 +582,7 @@ namespace Inventario2
 
             // searching only by idproduct  and movement model and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.lugar == modelhistorial.lugar).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -617,7 +617,7 @@ namespace Inventario2
             // searching only by idproduct  and movement   product   and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
             Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -628,7 +628,7 @@ namespace Inventario2
             // searching only by idproduct  and movement   product   and model  and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.IdProducto == modelhistorial.IdProducto).
             Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.lugar == modelhistorial.lugar).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -658,7 +658,7 @@ namespace Inventario2
 
             // searching only by USER and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -668,7 +668,7 @@ namespace Inventario2
 
             // searching only by USER and model date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
         }
@@ -698,7 +698,7 @@ namespace Inventario2
 
             // searching only by USER and product and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -708,7 +708,7 @@ namespace Inventario2
 
             // searching only by USER and product and model and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -739,7 +739,7 @@ namespace Inventario2
 
             // searching only by USER and movimiento and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -749,7 +749,7 @@ namespace Inventario2
 
             // searching only by USER and movimiento  model and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.lugar == modelhistorial.lugar).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -783,7 +783,7 @@ namespace Inventario2
             // searching only by USER and movimiento  producto and model 
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -794,7 +794,7 @@ namespace Inventario2
             // searching only by USER and movimiento  producto  model date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.movimiento == modelhistorial.movimiento).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
         }
@@ -825,7 +825,7 @@ namespace Inventario2
 
             // searching only by USER and idproduct  and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.lugar == modelhistorial.lugar).
             ToListAsync();
 
             return table;
@@ -836,7 +836,7 @@ namespace Inventario2
 
             // searching only by USER and idproduct  and model and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
-            Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.lugar == modelhistorial.lugar).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
@@ -870,7 +870,7 @@ namespace Inventario2
             // searching only by USER and idproduct  and product and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.lugar == modelhistorial.lugar).
             ToListAsync();
 
             return table;
@@ -882,7 +882,7 @@ namespace Inventario2
             // searching only by USER and idproduct  and product and model and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.producto == modelhistorial.producto).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).
+            Where(u => u.lugar == modelhistorial.lugar).Where(u => u.fecha == modelhistorial.fecha.ToString()).
             ToListAsync();
 
             return table;
@@ -916,7 +916,7 @@ namespace Inventario2
             // searching only by USER and idproduct  and movement and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.movimiento == modelhistorial.movimiento).
-            Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -927,7 +927,7 @@ namespace Inventario2
             // searching only by USER and idproduct  and movement and model and date
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.movimiento == modelhistorial.movimiento).
-            Where(u => u.modelo == modelhistorial.modelo).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
+            Where(u => u.lugar == modelhistorial.lugar).Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;
         }
@@ -960,7 +960,7 @@ namespace Inventario2
             // searching only by USER and idproduct  and movement and product and model
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.movimiento == modelhistorial.movimiento).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).ToListAsync();
+            Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).ToListAsync();
 
             return table;
         }
@@ -972,7 +972,7 @@ namespace Inventario2
 
             var table = await App.MobileService.GetTable<Movimientos>().Where(u => u.usuario == modelhistorial.usuario).
             Where(u => u.IdProducto == modelhistorial.IdProducto).Where(u => u.movimiento == modelhistorial.movimiento).
-            Where(u => u.producto == modelhistorial.producto).Where(u => u.modelo == modelhistorial.modelo).
+            Where(u => u.producto == modelhistorial.producto).Where(u => u.lugar == modelhistorial.lugar).
             Where(u => u.fecha == modelhistorial.fecha.ToString()).ToListAsync();
 
             return table;

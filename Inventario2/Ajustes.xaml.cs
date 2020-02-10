@@ -33,5 +33,9 @@ namespace Inventario2
             DisplayAlert("Informacion","Audio Video Solutions © 2019","OK");
             //Informacion de la empresa, producto (app), fechas y version
         }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
     }
 }

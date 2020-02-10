@@ -25,9 +25,9 @@
             <StackLayout
 		        Padding="70,10,70,10">
                 <StackLayout
-                    Padding="207,20,203,20">
+                    Padding="150,20,150,20">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
-                        <Grid.ColumnDefinitions  Width = "100"/>
+                        <Grid.ColumnDefinitions  />
                         
 
                         <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
@@ -36,7 +36,7 @@
                  FontFamily="Montserrat-Bold"
                 TextColor="White"
                             FontSize="30"
-			    HorizontalOptions="Center"
+			    HorizontalOptions="Start"
 			    Text="INVENTARIO" 
 			    FontAttributes="Bold"
 			    StyleId="Titulo"/>

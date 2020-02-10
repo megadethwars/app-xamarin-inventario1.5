@@ -106,7 +106,7 @@
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="MODELO:" 
+                    <Label Text="UBICACION:" 
                    TextColor="White"
                    CharacterSpacing="2"
                FontFamily="Montserrat-Bold"
@@ -117,7 +117,7 @@
                     <Entry Text="" x:Name="InModel"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="INTRODUZCA MODELO DEL PRODUCTO"
+                   Placeholder="INTRODUZCA UBICACION"
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

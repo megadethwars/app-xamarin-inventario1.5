@@ -20,38 +20,41 @@
         <Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"
                Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
-		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <StackLayout
-		Padding="70,10,70,10">
+		    AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            
                 <StackLayout
-            Padding="190,20,190,30">
+                    Padding="50,20,50,30">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
-                        <Image Source="tache.png" HorizontalOptions="End"/>
+                        <Image Source="tache.png"
+                               HorizontalOptions="End"
+                               WidthRequest="45"
+                               HeightRequest="45"/>
                         <Label
                             VerticalOptions="Center"
-                 FontFamily="Montserrat-Bold"
-                TextColor="White"
+                            FontFamily="Montserrat-Bold"
+                            TextColor="White"
                             FontSize="30"
-			    HorizontalOptions="Center"
-			    Text="EMPLEADOS" 
-			    FontAttributes="Bold"
-			    StyleId="Titulo"/>
+			                HorizontalOptions="Center"
+			                Text="EMPLEADOS" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
 
                     </Grid>
 
 
                 </StackLayout>
-
+            <StackLayout
+		        Padding="70,10,70,10">
                 <SearchBar
                     TextChanged="search_TextChanged"
-            BackgroundColor="Gray"
-            PlaceholderColor="White"
-            TextColor="White"
-            x:Name="search"
-            Placeholder="Buscar por nombre o ID"
-            CancelButtonColor="Red"
-            SearchButtonPressed="SearchBarEmp" />
+                    BackgroundColor="Gray"
+                    PlaceholderColor="White"
+                    TextColor="White"
+                    x:Name="search"
+                    Placeholder="Buscar por nombre o ID"
+                    CancelButtonColor="Red"
+                    SearchButtonPressed="SearchBarEmp" />
 
                 <Grid
 	             ColumnSpacing="5">
@@ -120,14 +123,14 @@
                 </ScrollView>
 
                 <Button
-            TextColor="Red"
-            HorizontalOptions="Start"
-            ImageSource="bingresar.png"
-            FontAttributes="Bold"
+                    TextColor="Red"
+                    HorizontalOptions="Start"
+                    ImageSource="bingresar.png"
+                    FontAttributes="Bold"
                     WidthRequest="150"
-                HeightRequest="87"
-            StyleId="Ok"
-            Clicked="AgregarEmp"/>
+                    HeightRequest="87"
+                    StyleId="Ok"
+                    Clicked="AgregarEmp"/>
             </StackLayout>
         </StackLayout>
     </AbsoluteLayout>
