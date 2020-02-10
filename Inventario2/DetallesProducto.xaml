@@ -21,10 +21,10 @@
                Source="nuevofondo.png" Aspect="AspectFill"/>
         <StackLayout
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <ScrollView>
+           
 
                 <StackLayout
-		Padding="70,10,70,10">
+		Padding="70,10,70,50">
                     <StackLayout
             Padding="93,20,93,30">
                         <Grid ColumnSpacing="0" HorizontalOptions="Center">
@@ -45,6 +45,8 @@
 
 
                     </StackLayout>
+            <ScrollView>
+                <StackLayout>
                     <StackLayout>
                         <Label
 			    Text="SERIE:"
@@ -340,20 +342,31 @@
             WidthRequest="150"
             HeightRequest="100"/>
                     </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center">
+                        <Button
+                            Clicked="Button_Clicked_1"
+                            TextColor="Red"
+                            WidthRequest="150"
+                            HeightRequest="87"
+                            ImageSource="bopciones.png"
+                            HorizontalOptions="Start"/>
                     <Button
-               TextColor="Red"
-                        WidthRequest="150"
-                HeightRequest="87"
-            HorizontalOptions="End"
-                        ImageSource="beliminar.png"
-            VerticalOptions="End"
-                
-			
-			Clicked="Button_Clicked"
-			StyleId="Ok"/>
+                            TextColor="Red"
+                            WidthRequest="150"
+                            HeightRequest="87"
+                            HorizontalOptions="End"
+                            ImageSource="beliminar.png"
+                                     			
+			                Clicked="Button_Clicked"
+			                StyleId="Ok"/>
+                        
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
                 </StackLayout>
 
-            </ScrollView>
+            
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

@@ -14,11 +14,17 @@ namespace Inventario2
     
     public partial class DetallesProducto : ContentPage
     {
-        InventDB n;
+        public InventDB n;
         public DetallesProducto(InventDB db)
         {
             InitializeComponent();
             this.n = db;
+
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
             nameProd.Text = n.nombre;
             idCodigo.Text = n.codigo;
             idcantidad.Text = n.cantidad;
@@ -35,9 +41,8 @@ namespace Inventario2
             idFecha.Text = n.Fecha;
 
             idmodelo.Text = n.modelo;
-            imagen.Source = "https://fotosavs.blob.core.windows.net/fotosinventario/"+n.foto;
+            imagen.Source = "https://fotosavs.blob.core.windows.net/fotosinventario/" + n.foto;
         }
-
         private async void Button_Clicked(object sender, EventArgs e)
         {
             string res = await DisplayActionSheet("¡Estas a punto de eliminar un Producto!, ¿Deseas continuar?", "Cancelar", null, "Eliminar Producto");
@@ -86,6 +91,11 @@ namespace Inventario2
                 }
             }
             Navigation.PopAsync();
+        }
+
+        void Button_Clicked_1(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new EditarProducto(this));
         }
     }
 }

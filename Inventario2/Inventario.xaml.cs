@@ -30,7 +30,10 @@ namespace Inventario2
             if (cont == 1)
             {
                 var busqueda = await App.MobileService.GetTable<InventDB>().Where(u => u.codigo == search.Text).ToListAsync();
-                postListView.ItemsSource = busqueda;
+                if (busqueda.Count != 0)
+                    postListView.ItemsSource = busqueda;
+                else
+                    DependencyService.Get<IMessage>().ShortAlert("Producto no Encontrado");
                 cont = 0;
             }
             else

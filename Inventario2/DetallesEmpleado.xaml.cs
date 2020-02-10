@@ -92,7 +92,7 @@ namespace Inventario2
                     else
                     {
                         await App.MobileService.GetTable<Usuario>().UpdateAsync(usuario);
-                        await DisplayAlert("ACTUALIZAR", "DATOS SADA ACTUALIZADOS CORRECTAMENTE", "ACEPTAR");
+                        await DisplayAlert("ACTUALIZAR", "DATOS ACTUALIZADOS CORRECTAMENTE", "ACEPTAR");
                         telText.Text = usuario.telefono;
                         correotext.Text = usuario.correo;
                         nameEmp.Text = usuario.nombre + " " + usuario.apellido_paterno + " " + usuario.apellido_materno;
