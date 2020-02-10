@@ -22,6 +22,8 @@ namespace Inventario2
 
         public string foto { get; set; }
 
+        public string foto2 { get; set; }
+
         public string modelo { get; set; }
 
         public string marca { get; set; }

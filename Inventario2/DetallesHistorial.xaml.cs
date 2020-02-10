@@ -25,7 +25,7 @@ namespace Inventario2
             idlugar.Text = mv.lugar;
             idMove.Text = mv.movimiento;
             idFecha.Text = mv.fecha;
-            imagen.Source = "https://fotosavs.blob.core.windows.net/fotosinventario/"+mv.foto;
+            imagen.Source = "https://fotosavs.blob.core.windows.net/fotossalida/"+mv.foto;
 
         }
 

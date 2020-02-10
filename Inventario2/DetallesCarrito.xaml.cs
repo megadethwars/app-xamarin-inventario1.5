@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.WindowsAzure.Storage;
+using Plugin.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +14,8 @@ namespace Inventario2
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetallesCarrito : ContentPage
     {
+        Plugin.Media.Abstractions.MediaFile f;
+        Plugin.Media.Abstractions.MediaFile f2;
         public RetirarProducto ca;
         public Movimientos ma;
         public DetallesCarrito(Movimientos m,RetirarProducto r)
@@ -28,18 +32,35 @@ namespace Inventario2
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            if (!(observ.Text == null))
+            if (!(observ.Text == ""))
             {
                 ma.observ = observ.Text;
                 observtxt.Text = observ.Text;
                     }
-            if (!(cantidad.Text == null))
+            if (!(cantidad.Text == ""))
             {
                 ma.cantidad = cantidad.Text;
                 cantidadtxt.Text = cantidad.Text;
             }
-            if (observ.Text != null || cantidad.Text != null)
+            if (observ.Text != "" || cantidad.Text != "")
                 DisplayAlert("Aceptar", "Producto Actualizado Correctamente", "Aceptar");
+            if (f != null || f2!=null)
+            {
+                for(int x =0; x<ca.mv.Count;x++)
+                {
+                    if (ca.mv[x].codigo == ma.codigo)
+                        ca.f1[x] = f;
+                    if (f2 != null)
+                    {
+                        if (ca.mv[x].codigo == ma.codigo)
+                            ca.f2[x] = f2;
+                    }
+
+                }
+
+
+                DisplayAlert("OK", "FOTO AGREGADA CORRECTAMENTE", "ACEPTAR");
+            }
             
         }
 
@@ -60,6 +81,58 @@ namespace Inventario2
                 }
             }
             Navigation.PopAsync();
+        }
+
+        async void Button_Clicked_1(System.Object sender, System.EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+            if (!CrossMedia.Current.IsCameraAvailable ||
+                !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No Camera", ": No camera available", "OK");
+                return;
+            }
+
+            f = await CrossMedia.Current.TakePhotoAsync(
+              new Plugin.Media.Abstractions.StoreCameraMediaOptions
+              {
+                  Directory = "Sample",
+                  RotateImage = false,
+
+                  Name = "prueba" + ".jpg"
+              });
+            if (f == null)
+                return;
+            await DisplayAlert("File Location", f.Path, "OK");
+            image1.Source = f.Path;
+            image1.RotateTo(90);
+            f.GetStream();
+        }
+
+        async void Button_Clicked_2(System.Object sender, System.EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+            if (!CrossMedia.Current.IsCameraAvailable ||
+                !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await DisplayAlert("No Camera", ": No camera available", "OK");
+                return;
+            }
+
+            f2 = await CrossMedia.Current.TakePhotoAsync(
+              new Plugin.Media.Abstractions.StoreCameraMediaOptions
+              {
+                  Directory = "Sample",
+                  RotateImage = false,
+
+                  Name = "prueba" + ".jpg"
+              });
+            if (f2 == null)
+                return;
+            await DisplayAlert("File Location", f2.Path, "OK");
+            image2.Source = f2.Path;
+            image2.RotateTo(90);
+            f2.GetStream();
         }
     }
 }

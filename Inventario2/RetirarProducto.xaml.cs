@@ -15,6 +15,7 @@ namespace Inventario2
     public partial class RetirarProducto : ContentPage
     {
         public List<Plugin.Media.Abstractions.MediaFile> f1 = new List<Plugin.Media.Abstractions.MediaFile>();
+        public List<Plugin.Media.Abstractions.MediaFile> f2 = new List<Plugin.Media.Abstractions.MediaFile>();
         Plugin.Media.Abstractions.MediaFile f = null;
         string p;
         public int cont;
@@ -170,6 +171,7 @@ namespace Inventario2
                 fecha = DateTime.Now.ToString("dd/MM/yyyy")
             };
             mv.Add(mv1);
+            f2.Add(f);
             f1.Add(f);
             f = null;
         }
