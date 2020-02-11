@@ -18,6 +18,7 @@ namespace Inventario2
     {
 
         public RetirarProducto re;
+        int contador = 0;
         public Carrito(RetirarProducto r)
         {
             InitializeComponent();
