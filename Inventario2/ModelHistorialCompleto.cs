@@ -45,6 +45,8 @@ namespace Inventario2
 
         public int QueryStatus { get; set; }
 
+        public string serie { get; set; }
+
         public void Dispose()
         {
             try {

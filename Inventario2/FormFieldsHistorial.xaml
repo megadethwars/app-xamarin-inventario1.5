@@ -83,10 +83,10 @@
                    />
                 </StackLayout>
                 <StackLayout Padding="40,0,20,10">
-                    <Entry Text="" x:Name="InMove"
+                    <Entry Text="" x:Name="InUbicacion"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="Introduzca Movimiento"
+                   Placeholder="Introduzca Ubicacion"
                    TextColor="White"/>
                 </StackLayout>
 
@@ -121,25 +121,16 @@
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="HABILITAR FECHA:" 
-                   CharacterSpacing="2"
-               FontFamily="Montserrat-Bold"
-               FontAttributes="Bold"
-                   FontSize="Large"
-                       TextColor="White"/>
-                    <Switch x:Name="DateSwitch"
-                    OnColor="White"
-                    ThumbColor="Red"
                     
-                    
-                    Toggled="DateSwitch_Toggled" />
-
+                 
                 </StackLayout>
-                <StackLayout Padding="40,0,20,20">
-                    <DatePicker 
-		        x:Name="datePickerStart"
-                Format="dd/MM/yyyy"/>
-                </StackLayout >
+                <StackLayout Padding="40,0,20,10">
+                    <Entry Text="" x:Name="InSerie"
+                   BackgroundColor="Gray"
+                   PlaceholderColor="White"
+                   Placeholder="Introduzca Serie"
+                   TextColor="White"/>
+                </StackLayout>
 
                 <StackLayout  Orientation="Horizontal" HorizontalOptions="Center">
 
