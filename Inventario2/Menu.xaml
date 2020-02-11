@@ -23,33 +23,30 @@
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
 
             <StackLayout
-        Padding="70,20,70,10">
+                Padding="70,20,70,10">
                 <StackLayout
-            Padding="255,20,255,30">
+                    Padding="255,20,255,30">
                     <Grid ColumnSpacing="0" HorizontalOptions="Center">
                         <Grid.ColumnDefinitions Width = "100"/>
                         <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>  
                         <Label
                             VerticalOptions="Center"
-                 FontFamily="Montserrat-Bold"
-                TextColor="White"
+                            FontFamily="Montserrat-Bold"
+                            TextColor="White"
                             FontSize="30"
-			    HorizontalOptions="Center"
-			    Text="MENU" 
-			    FontAttributes="Bold"
-			    StyleId="Titulo"/>
-
+			                HorizontalOptions="Center"
+			                Text="MENU" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
                     </Grid>
-
-
                 </StackLayout>
                 <StackLayout Padding="0,50,0,30"
                              VerticalOptions="CenterAndExpand">
                 <Grid
-            ColumnSpacing="120"
-            RowSpacing="20"
-            HorizontalOptions="Center"
-            VerticalOptions="FillAndExpand">
+                    ColumnSpacing="120"
+                    RowSpacing="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="180"/>
 

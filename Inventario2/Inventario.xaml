@@ -8,8 +8,7 @@
              mc:Ignorable="d"
              x:Class="Inventario2.Inventario">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="HOME" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
-        
+        <ToolbarItem Text="HOME" Clicked="ToolbarItem_Clicked" />
         <ToolbarItem Text="             " />
         <ToolbarItem Text="             " />
         <ToolbarItem Text="             " />
@@ -23,27 +22,23 @@
         <StackLayout
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <StackLayout
-		        Padding="70,10,70,10">
+		        Padding="70,20,70,20">
                 <StackLayout
-                    Padding="150,20,150,20">
-                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
-                        <Grid.ColumnDefinitions  />
-                        
-
+                    Padding="200,0,220,0">
+                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions/>
                         <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
                         <Label
                             VerticalOptions="Center"
-                 FontFamily="Montserrat-Bold"
-                TextColor="White"
+                            FontFamily="Montserrat-Bold"
+                            TextColor="White"
                             FontSize="30"
-			    HorizontalOptions="Start"
-			    Text="INVENTARIO" 
-			    FontAttributes="Bold"
-			    StyleId="Titulo"/>
+			                HorizontalOptions="Start"
+			                Text="INVENTARIO" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
 
                     </Grid>
-
-
                 </StackLayout>
 
                 <SearchBar

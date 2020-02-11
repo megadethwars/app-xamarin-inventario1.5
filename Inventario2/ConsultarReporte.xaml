@@ -24,8 +24,8 @@
             <StackLayout
 		Padding="70,20,70,50">
                 <StackLayout
-            Padding="100,20,100,30">
-                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
+            Padding="127,20,127,30">
+                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
                         <Grid.ColumnDefinitions Width = "700"/>
                         <Image Source="tache.png"
                                HorizontalOptions="End"

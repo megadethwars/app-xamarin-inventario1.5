@@ -23,48 +23,41 @@
 		AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
 
             <StackLayout
-		Padding="70,10,70,50">
-
-
-
+		        Padding="70,10,70,50">
                 <StackLayout
-            Padding="100,20,100,30">
-                    <Grid ColumnSpacing="0" HorizontalOptions="Center">
-                        <Grid.ColumnDefinitions Width = "200"/>
+                    Padding="215,20,215,30">
+                    <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions/>
                         <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
                         <Label
                             VerticalOptions="Center"
-                 FontFamily="Montserrat-Bold"
-                TextColor="White"
+                             FontFamily="Montserrat-Bold"
+                            TextColor="White"
                             FontSize="30"
-			    HorizontalOptions="Center"
-			    Text="HISTORIAL" 
-			    FontAttributes="Bold"
-			    StyleId="Titulo"/>
-
+			                HorizontalOptions="Center"
+			                Text="HISTORIAL" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
                     </Grid>
-
-
                 </StackLayout>
 
                 <Button
                     WidthRequest="200"
-                HeightRequest="87"
-            TextColor="Red"
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-            ImageSource="bavanzada.png"
-			
-			Clicked="Avanzada_clicked" />
+                    HeightRequest="87"
+                    TextColor="Red"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    ImageSource="bavanzada.png"
+			        Clicked="Avanzada_clicked" />
 
                 <SearchBar
-            x:Name="searchbar"
-            BackgroundColor="Gray"
-            TextColor="White"
-            PlaceholderColor="White"
-			Placeholder="Buscar por nombre o ID"
-			CancelButtonColor="Red"
-			SearchButtonPressed="Search_SearchButtonPressed" />
+                    x:Name="searchbar"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    PlaceholderColor="White"
+			        Placeholder="Buscar por nombre o ID"
+			        CancelButtonColor="Red"
+			        SearchButtonPressed="Search_SearchButtonPressed" />
 
                 <Button
 			HorizontalOptions="Center"

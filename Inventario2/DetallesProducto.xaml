@@ -26,20 +26,20 @@
                 <StackLayout
 		Padding="70,10,70,50">
                     <StackLayout
-            Padding="60,20,60,30">
-                        <Grid ColumnSpacing="0" HorizontalOptions="Center">
+            Padding="92,20,92,30">
+                        <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
                             <Grid.ColumnDefinitions Width = "100"/>
                             <Image Source="tache.png" HorizontalOptions="End" HeightRequest="45" WidthRequest="45"/>
                             
                             <Label
                             VerticalOptions="Center"
-                 FontFamily="Montserrat-Bold"
-                TextColor="White"
+                            FontFamily="Montserrat-Bold"
+                            TextColor="White"
                             FontSize="30"
-			    HorizontalOptions="Center"
-			    Text="DETALLES DEL PRODUCTO" 
-			    FontAttributes="Bold"
-			    StyleId="Titulo"/>
+			                HorizontalOptions="Center"
+			                Text="DETALLES DEL PRODUCTO" 
+			                FontAttributes="Bold"
+			                StyleId="Titulo"/>
 
                         </Grid>
 
