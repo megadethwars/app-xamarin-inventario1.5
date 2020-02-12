@@ -86,7 +86,7 @@
                     <Entry Text="" x:Name="InUbicacion"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="Introduzca Ubicacion"
+                   Placeholder="Introduzca Movimiento"
                    TextColor="White"/>
                 </StackLayout>
 
@@ -120,7 +120,13 @@
                    Placeholder="INTRODUZCA UBICACION"
                    TextColor="White"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Text="SERIE:" 
+                   TextColor="White"
+                   CharacterSpacing="2"
+               FontFamily="Montserrat-Bold"
+               FontAttributes="Bold"
+               FontSize="Large"/>
                     
                  
                 </StackLayout>
