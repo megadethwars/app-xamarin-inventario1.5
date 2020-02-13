@@ -74,7 +74,7 @@
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="MOVIMIENTO:"
+                    <Label Text="UBICACION:"
                    TextColor="White"
                     CharacterSpacing="2"
                FontFamily="Montserrat-Bold"
@@ -86,7 +86,7 @@
                     <Entry Text="" x:Name="InUbicacion"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="Introduzca ubicacion"
+                   Placeholder="INTRODUZCA MODELO"
                    TextColor="White"/>
                 </StackLayout>
 
@@ -106,7 +106,7 @@
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout>
-                    <Label Text="UBICACION:" 
+                    <Label Text="MODELO:" 
                    TextColor="White"
                    CharacterSpacing="2"
                FontFamily="Montserrat-Bold"
@@ -117,7 +117,7 @@
                     <Entry Text="" x:Name="InModel"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="INTRODUZCA modelo"
+                   Placeholder="INTRODUZCA MODELO"
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout>
