@@ -86,7 +86,7 @@
                     <Entry Text="" x:Name="InUbicacion"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="Introduzca Movimiento"
+                   Placeholder="Introduzca ubicacion"
                    TextColor="White"/>
                 </StackLayout>
 
@@ -117,7 +117,7 @@
                     <Entry Text="" x:Name="InModel"
                    BackgroundColor="Gray"
                    PlaceholderColor="White"
-                   Placeholder="INTRODUZCA UBICACION"
+                   Placeholder="INTRODUZCA modelo"
                    TextColor="White"/>
                 </StackLayout>
                 <StackLayout>
