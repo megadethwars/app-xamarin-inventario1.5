@@ -20,7 +20,7 @@ namespace Inventario2
         Plugin.Media.Abstractions.MediaFile f;
         public string PathFoto;
         public string stringphoto;
-        public static MobileServiceClient client = new MobileServiceClient("https://inventarioavs.azurewebsites.net");
+        
         public NuevoProducto()
         {
             InitializeComponent();
