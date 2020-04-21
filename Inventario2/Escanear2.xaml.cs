@@ -79,8 +79,8 @@ namespace Inventario2
                     fecha = DateTime.Now.ToString("dd/MM/yyyy")
                 };
                 s.mv.Add(mv1);
-                s.f1.Add(f);
                 s.f2.Add(f);
+                s.f1.Add(f);
                 DependencyService.Get<IMessage>().ShortAlert(qr);
             }
             else

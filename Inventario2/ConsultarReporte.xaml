@@ -64,7 +64,7 @@
                            TextColor="White"
 				        HorizontalOptions="FillAndExpand"
 				        Placeholder="Nombre o ID del Producto"
-                        Completed="OnEnterPressed"   />
+                          />
 
                 </StackLayout>
 
