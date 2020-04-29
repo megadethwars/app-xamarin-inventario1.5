@@ -58,13 +58,14 @@
 				Text="PRODUCTO:"
 				FontAttributes="Bold"/>
 
-                    <Entry x:Name="nombreID"
-                           BackgroundColor="Gray"
-                           PlaceholderColor="White"
-                           TextColor="White"
-				        HorizontalOptions="FillAndExpand"
-				        Placeholder="Nombre o ID del Producto"
-                          />
+                    <SearchBar x:Name="nombreID"
+                    BackgroundColor="Gray"
+                    TextColor="Black"
+                    PlaceholderColor="Black"
+			        Placeholder="Buscar por nombre o ID"
+			        CancelButtonColor="Red"
+			        SearchButtonPressed="nombreID_SearchButtonPressed"
+                        ></SearchBar>
 
                 </StackLayout>
 

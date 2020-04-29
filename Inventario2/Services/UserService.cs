@@ -11,7 +11,7 @@ namespace Inventario2.Services
     public class UserService
     {
 
-        public static string url = "https://avsinvservice.azurewebsites.net/";
+        public static string url = "http://127.0.0.1:5000/";
         LoginUser loginuser = new LoginUser();
         public static async Task<StatusMessage> loginAsync(string objecto)
         {
@@ -160,6 +160,20 @@ namespace Inventario2.Services
             
         }
 
+        public static async Task<StatusMessage> putpass(int id, string objeto)
+        {
+            try
+            {
+                var status = await HttpMethods.put(Global.url + "putpassword/" + $"{id}", objeto);
+                return status;
+            }
+            catch
+            {
+                return null;
+            }
+
+
+        }
 
         public static async Task<StatusMessage> postuser(string objeto)
         {
@@ -201,7 +215,18 @@ namespace Inventario2.Services
         }
 
 
-        
+        public static async Task<StatusMessage> deleteUser(int id)
+        {
+            try
+            {
+                var status = await HttpMethods.delete(Global.url + "deluser/" + $"{id}");
+                return status;
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
 
 
